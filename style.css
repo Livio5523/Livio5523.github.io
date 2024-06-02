@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #4CAF50;
+}
+
+.vertical-menu {
+    width: 200px; /* Largeur du menu */
+    background-color: #f1f1f1; /* Couleur de fond du menu */
+    border: 1px solid #ccc; /* Bordure du menu */
+}
+
+.vertical-menu a {
+    display: block; /* Affichage en bloc pour occuper toute la largeur */
+    color: black; /* Couleur du texte */
+    padding: 12px; /* Espacement intérieur */
+    text-decoration: none; /* Suppression du soulignement */
+    border-bottom: 1px solid #ccc; /* Ligne de séparation entre les liens */
+}
+
+.vertical-menu a:hover {
+    background-color: #ddd; /* Couleur de fond au survol */
+}
+
+.vertical-menu a.active {
+    background-color: #4CAF50; /* Couleur de fond pour l'élément actif */
+    color: white; /* Couleur du texte de l'élément actif */
+}
+
+/* Style pour les sous-menus */
+.submenu {
+    display: none; /* Masquer les sous-menus par défaut */
+    background-color: #e9e9e9; /* Couleur de fond des sous-menus */
+    padding-left: 20px; /* Indentation des sous-menus */
+}
+
+.vertical-menu a:hover + .submenu,
+.submenu:hover {
+    display: block; /* Afficher le sous-menu au survol */
+}
