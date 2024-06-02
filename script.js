@@ -3,14 +3,16 @@ function toggleMenu(index) {
     const menu = bars[index].querySelector('.menu');
     const isVisible = menu.style.display === 'block';
 
-    bars.forEach((bar, i) => {
+    // Close all menus and reset transformations
+    bars.forEach(bar => {
         const menu = bar.querySelector('.menu');
-        if (i === index && !isVisible) {
-            bar.style.width = '300px';
-            menu.style.display = 'block';
-        } else {
-            bar.style.width = '100px';
-            menu.style.display = 'none';
-        }
+        menu.style.display = 'none';
+        bar.classList.remove('expanded');
     });
+
+    // Open the selected menu if it was not already visible
+    if (!isVisible) {
+        menu.style.display = 'block';
+        bars[index].classList.add('expanded');
+    }
 }

@@ -27,15 +27,8 @@ body {
     color: white;
     cursor: pointer;
     position: relative;
-    transition: width 0.3s;
-}
-
-.bar span {
-    padding: 10px;
-}
-
-.icon {
-    font-size: 24px;
+    transition: all 0.3s;
+    flex-shrink: 0;
 }
 
 .menu {
@@ -45,11 +38,25 @@ body {
     left: 100%;
     background-color: #ffffff;
     border: 1px solid #ccc;
-    width: 200px;
+    height: 100%;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: left 0.3s;
+    transition: all 0.3s;
 }
+
+.bar.expanded ~ .bar {
+    transform: translateX(1500px); /* Adjust the width of the menu here */
+}
+
+
+.bar span {
+    padding: 10px;
+}
+
+.icon {
+    font-size: 24px;
+}
+
 
 .menu a {
     display: block;
