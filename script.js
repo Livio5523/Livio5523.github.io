@@ -31,13 +31,13 @@ document.addEventListener("DOMContentLoaded", (e) => {
     });
 });
 
-function showText(index) {
-    const texts = document.querySelectorAll('.text');
-    const textToShow = document.getElementById(`text-${index}`);
-    
-    texts.forEach(text => {
-        text.classList.add('hidden');
-    });
 
-    textToShow.classList.remove('hidden');
-}
+document.addEventListener("DOMContentLoaded", (e) => {
+    const projets = document.querySelectorAll('.projet');
+
+    projets.forEach((projet) => {
+        projet.addEventListener("click", () => {
+           console.log("oui")
+        });
+    });
+});
