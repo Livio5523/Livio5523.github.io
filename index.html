@@ -3,20 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Déroulant Vertical</title>
+    <title>Barres Verticales avec Menus Déroulants</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="vertical-menu">
-        <a href="#home" class="active">Accueil</a>
-        <a href="#services">Services</a>
-        <div class="submenu">
-            <a href="#web-design">Web Design</a>
-            <a href="#seo">SEO</a>
-            <a href="#marketing">Marketing</a>
+    <div class="container">
+        <div class="bar" onclick="toggleMenu(0)">
+            <span class="icon">+</span>
+            <span>Barre 1</span>
+            <div class="menu">
+                <a href="#">Option 1</a>
+                <a href="#">Option 2</a>
+                <a href="#">Option 3</a>
+            </div>
         </div>
-        <a href="#about">À propos</a>
-        <a href="#contact">Contact</a>
-    </nav>
+        <div class="bar" onclick="toggleMenu(1)">
+            <span class="icon">+</span>
+            <span>Barre 2</span>
+            <div class="menu">
+                <a href="#">Option 1</a>
+                <a href="#">Option 2</a>
+                <a href="#">Option 3</a>
+            </div>
+        </div>
+        <div class="bar" onclick="toggleMenu(2)">
+            <span class="icon">+</span>
+            <span>Barre 3</span>
+            <div class="menu">
+                <a href="#">Option 1</a>
+                <a href="#">Option 2</a>
+                <a href="#">Option 3</a>
+            </div>
+        </div>
+        <div class="bar" onclick="toggleMenu(3)">
+            <span class="icon">+</span>
+            <span>Barre 4</span>
+            <div class="menu">
+                <a href="#">Option 1</a>
+                <a href="#">Option 2</a>
+                <a href="#">Option 3</a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
