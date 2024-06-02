@@ -39,13 +39,18 @@ body {
     background-color: #ffffff;
     border: 1px solid #ccc;
     height: 100%;
-    padding: 10px;
+    width: var(--translate-x);
+    padding: 2px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s;
+    transition: all 0.5s;
+}
+
+:root {
+    --translate-x: 1200px; /* Default value */
 }
 
 .bar.expanded ~ .bar {
-    transform: translateX(1500px); /* Adjust the width of the menu here */
+    transform: translateX(var(--translate-x)); /* Adjust the width of the menu here */
 }
 
 
