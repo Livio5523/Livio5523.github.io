@@ -1,12 +1,12 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Roc Grotesk Variable";
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: stretch;
     height: 100vh;
-    background-color: #f1f1f1;
+    background-color: white;
 }
 
 .container {
@@ -22,31 +22,14 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 100px;
-    background-color: #4CAF50;
-    color: white;
+    width: 72px;
+    /*background-color: white;*/
+    color: rgb(0, 0, 0);
+    border-right: 5px solid black;
     cursor: pointer;
     position: relative;
-    transition: all 0.3s;
-    flex-shrink: 0;
-}
-
-.menu {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
-    height: 100%;
-    width: var(--translate-x);
-    padding: 2px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.5s;
-}
-
-:root {
-    --translate-x: 1200px; /* Default value */
+    flex-shrink: 0;
 }
 
 .bar.expanded ~ .bar {
@@ -55,21 +38,58 @@ body {
 
 
 .bar span {
-    padding: 10px;
+    font-family: "Roc Grotesk Variable";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    display: flex; /* Utilisation de flexbox */
+    align-items: center; /* Centre le contenu verticalement */
+    width: 100%;
+    height: 10%;
+    transform-origin: center; /* Centre de rotation */
+    transform: rotate(90deg); /* Rotation de 90 degrés (sens horaire) */
+    white-space: nowrap;
 }
 
-.icon {
-    font-size: 24px;
+#barre2 :hover{
+ background-color: #d84242;
+}
+
+.menu {
+    font-family: "Roc Grotesk Variable";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: right;
+
+
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #ffffff;
+    height: 72px;
+    width: calc(var(--translate-x) - 10%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s;
+}
+
+:root {
+    --translate-x: 1200px; /* Default value */
 }
 
 
 .menu a {
+    height: 72px;
     display: block;
-    padding: 8px;
     text-decoration: none;
     color: #333;
+    border-bottom: 5px solid black;
 }
 
 .menu a:hover {
-    background-color: #f1f1f1;
+    background-color: #d84242;
 }
+
+
