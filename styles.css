@@ -36,13 +36,6 @@ body {
     transform: translateX(var(--translate-x)); /* Adjust the width of the menu here */
 }
 
-.bar:hover:not(.expanded) {
-    background-color: #d84242;
-}
-
-.bar.expanded {
-    background-color: #d84242;
-}
 
 .icon {
     transition: transform 0.5s;
@@ -67,6 +60,7 @@ body {
     white-space: nowrap;
 }
 
+/* PROJETS */
 
 .menu {
     font-family: "Roc Grotesk Variable";
@@ -75,27 +69,55 @@ body {
     font-weight: 400;
     text-transform: uppercase;
     text-align: right;
+    display: none; /* Modification: cache les menus par défaut */
 
-
-    display: none;
     position: absolute;
     top: 0;
     left: 100%;
     background-color: #ffffff;
     height: 72px;
     width: calc(var(--translate-x) - 10%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.5s;
 }
 
 
 .menu a {
     height: 72px;
-    display: block;
+    color: black;
+    display: flex;
+    text-align: right;
     text-decoration: none;
-    color: #333;
     border-bottom: 5px solid black;
+    align-items: center; /* Centre le contenu verticalement */
+    justify-content: flex-end; /* Aligne le contenu à droite */
 }
+
+
+/* PROJETS */
+
+.projet:focus + .menu {
+    display: flex; /* Affiche le menu correspondant */
+}
+
+/* Déplace les autres projets vers le bas */
+.projet:focus ~ .projet {
+    transform: translateY(100px); /* Ajustez la valeur en fonction de vos besoins */
+}
+
+.projet-iframe {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px); /* Position initiale sous la barre */
+    left: 0;
+    width: 100%;
+}
+
+.projet:focus + .projet-iframe {
+    display: block; /* Affiche l'iframe correspondant */
+}
+
+
+
 
 
 :root {

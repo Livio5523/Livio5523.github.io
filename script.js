@@ -33,13 +33,39 @@ document.addEventListener("DOMContentLoaded", (e) => {
     });
 });
 
-document.addEventListener("DOMContentLoaded", (e) => {
+
+document.addEventListener("DOMContentLoaded", () => {
     const projets = document.querySelectorAll('.projet');
 
     projets.forEach((projet) => {
         projet.addEventListener("click", (e) => {
-            e.stopPropagation(); // Empêche le clic sur le projet de fermer la barre
-            console.log("oui");
+            e.stopPropagation(); // Empêche la propagation de l'événement de clic
+
+            const iframeId = projet.getAttribute('href').substring(1); // Identifiant unique de l'iframe
+            const iframe = document.getElementById(iframeId);
+            const isVisible = getComputedStyle(iframe).display !== 'none';
+
+            // Ferme l'iframe si elle est déjà visible
+            if (isVisible) {
+                iframe.style.display = 'none';
+                return; // Sortie de la fonction pour éviter l'exécution du reste du code
+            }
+
+            // Ferme tous les iframes
+            const iframes = document.querySelectorAll('.projet-iframe');
+            iframes.forEach(iframe => {
+                iframe.style.display = 'none';
+            });
+
+            // Calcul de la position de l'iframe en dessous de l'option de projet
+            const projetRect = projet.getBoundingClientRect();
+            const iframeTop = projetRect.bottom; // Position de début de l'iframe
+
+            // Affiche l'iframe sous le bouton cliqué
+            iframe.style.position = 'absolute';
+            iframe.style.top = `${iframeTop}px`;
+            iframe.style.left = '0'; // Alignement à gauche
+            iframe.style.display = 'block';
         });
     });
 });
