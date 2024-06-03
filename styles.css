@@ -156,7 +156,8 @@ iframe{
 }
 
 .mainMenu{
-    display: block;
+    display: none;
+    z-index: -100; /* Assurez-vous qu'il est au-dessus des autres éléments si nécessaire */
 }
 
 #page-title {
