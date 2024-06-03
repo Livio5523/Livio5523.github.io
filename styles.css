@@ -100,27 +100,22 @@ body {
 
 /* PROJETS */
 
-.projet:focus + .menu {
-    display: flex; /* Affiche le menu correspondant */
+.projet{
+    background-color: white;
 }
 
-/* Déplace les autres projets vers le bas */
-.projet:focus ~ .projet {
-    transform: translateY(100px); /* Ajustez la valeur en fonction de vos besoins */
+.projet.project-open ~ .projet {
+    transform: translateY(120px); /* Ajustez la valeur en fonction de vos besoins */
 }
+
 
 .projet-iframe {
     display: none;
     position: absolute;
     top: calc(100% + 10px); /* Position initiale sous la barre */
     width: var(--translate-x);
-    margin-left: 72px;
+    margin-left: var(--bar-size);
 }
-
-.projet:focus + .projet-iframe {
-    display: block; /* Affiche l'iframe correspondant */
-}
-
 
 
 

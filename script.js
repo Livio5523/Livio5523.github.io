@@ -36,32 +36,38 @@ document.addEventListener("DOMContentLoaded", () => {
     projets.forEach((projet) => {
         projet.addEventListener("click", (e) => {
             e.stopPropagation(); // Empêche la propagation de l'événement de clic
-
+    
             const iframeId = projet.getAttribute('href').substring(1); // Identifiant unique de l'iframe
             const iframe = document.getElementById(iframeId);
-            const isVisible = getComputedStyle(iframe).display !== 'none';
-
-            // Ferme l'iframe si elle est déjà visible
-            if (isVisible) {
+            const isOpen = projet.classList.contains('project-open');
+    
+            // Ferme l'iframe si elle est déjà ouverte
+            if (isOpen) {
                 iframe.style.display = 'none';
-                return; // Sortie de la fonction pour éviter l'exécution du reste du code
+                projet.classList.remove('project-open');
+            } else {
+                // Ferme tous les autres iframes
+                const otherProjetOpen = document.querySelector('.projet.project-open');
+                if (otherProjetOpen) {
+                    otherProjetOpen.classList.remove('project-open');
+                }
+    
+                // Cache tous les autres iframes
+                const otherIframes = document.querySelectorAll('.projet-iframe');
+                otherIframes.forEach(otherIframe => {
+                    otherIframe.style.display = 'none';
+                });
+    
+                // Affiche l'iframe sous le bouton cliqué
+                iframe.style.position = 'absolute';
+                const projetRect = projet.getBoundingClientRect();
+                const iframeTop = projetRect.bottom; // Position de début de l'iframe
+                iframe.style.top = `${iframeTop}px`;
+                iframe.style.left = '0'; // Alignement à gauche
+                iframe.style.display = 'block';
+    
+                projet.classList.add('project-open'); // Ajoute la classe pour indiquer que l'iframe est ouverte
             }
-
-            // Ferme tous les iframes
-            const iframes = document.querySelectorAll('.projet-iframe');
-            iframes.forEach(iframe => {
-                iframe.style.display = 'none';
-            });
-
-            // Calcul de la position de l'iframe en dessous de l'option de projet
-            const projetRect = projet.getBoundingClientRect();
-            const iframeTop = projetRect.bottom; // Position de début de l'iframe
-
-            // Affiche l'iframe sous le bouton cliqué
-            iframe.style.position = 'absolute';
-            iframe.style.top = `${iframeTop}px`;
-            iframe.style.left = '0'; // Alignement à gauche
-            iframe.style.display = 'block';
         });
     });
 });
