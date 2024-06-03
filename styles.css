@@ -28,7 +28,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     width: var(--bar-size);
-    /*background-color: white;*/
+    background-color: white;
     color: rgb(0, 0, 0);
     border-right: 5px solid black;
     cursor: pointer;
@@ -40,7 +40,6 @@ body {
 .bar.expanded ~ .bar {
     transform: translateX(var(--translate-x)); /* Adjust the width of the menu here */
 }
-
 
 .icon {
     transition: transform 0.5s;
@@ -117,6 +116,9 @@ body {
     margin-left: var(--bar-size);
 }
 
+iframe{
+    border: 5px solid black;
+}
 
 
 /* Specific hover and expanded colors */
@@ -151,4 +153,28 @@ body {
 
 .menu-about a:hover {
     background-color: #ECFF75;
+}
+
+.mainMenu{
+    display: block;
+}
+
+#page-title {
+    color: #000;
+    font-family: "Roc Grotesk Variable";
+    font-size: 300px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 75%; /* 225px */
+    text-transform: uppercase;
+    text-align: left;
+}
+
+#page-subtitle {
+    color: #000;
+    font-family: "Roc Grotesk Variable";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 60px */
 }
