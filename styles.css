@@ -36,6 +36,14 @@ body {
     transform: translateX(var(--translate-x)); /* Adjust the width of the menu here */
 }
 
+.bar:hover:not(.expanded) {
+    background-color: #d84242;
+}
+
+.bar.expanded {
+    background-color: #d84242;
+}
+
 
 .bar span {
     font-family: "Roc Grotesk Variable";
@@ -51,9 +59,6 @@ body {
     white-space: nowrap;
 }
 
-#barre2 :hover{
- background-color: #d84242;
-}
 
 .menu {
     font-family: "Roc Grotesk Variable";
@@ -84,11 +89,42 @@ body {
     border-bottom: 5px solid black;
 }
 
-.menu a:hover {
-    background-color: #d84242;
-}
-
 
 :root {
     --translate-x: 1200px; /* Default value */
+}
+
+
+/* Specific hover and expanded colors */
+.bar-red:hover:not(.expanded), .bar-red.expanded {
+    background-color: #FF5B54;
+}
+
+.bar-green:hover:not(.expanded), .bar-green.expanded {
+    background-color: #38F88B;
+}
+
+.bar-blue:hover:not(.expanded), .bar-blue.expanded {
+    background-color: #5E97EC;
+}
+
+.bar-about:hover:not(.expanded), .bar-about.expanded {
+    background-color: #ECFF75;
+}
+
+/* Menu item hover colors */
+.menu-red a:hover {
+    background-color: #FF5B54;
+}
+
+.menu-green a:hover {
+    background-color: #38F88B;
+}
+
+.menu-blue a:hover {
+    background-color: #5E97EC;
+}
+
+.menu-about a:hover {
+    background-color: #ECFF75;
 }
