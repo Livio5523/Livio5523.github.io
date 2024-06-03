@@ -26,6 +26,7 @@ function toggleMenu(bar, barLength) {
 document.addEventListener("DOMContentLoaded", () => {
     const bars = document.querySelectorAll('.bar');
     const projets = document.querySelectorAll('.projet');
+    const menuRed = document.querySelectorAll(".projet-red");
 
     bars.forEach((bar) => {
         bar.addEventListener("click", () => {
@@ -58,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 projet.classList.add('project-open'); // Ajoute la classe pour indiquer que l'iframe est ouverte
                 // Ajuste la variable CSS pour déplacer les autres barres
                 const iframeHeight = iframe.offsetHeight;
-                document.documentElement.style.setProperty('--iframeSize', `${iframeHeight}px`);
+                document.documentElement.style.setProperty('--iframeSize', `${iframeHeight * projet.id}px`);
             }
         });
     });

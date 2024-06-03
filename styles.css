@@ -1,6 +1,7 @@
 :root {
     --translate-x: 1200px; /* Default value */
-    --bar-size: 72px
+    --bar-size: 72px;
+    --iframeSize: 0px;
 }
 
 body {
