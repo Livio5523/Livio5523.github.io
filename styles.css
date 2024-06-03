@@ -114,7 +114,7 @@ body {
     position: absolute;
     top: calc(100% + 10px); /* Position initiale sous la barre */
     width: var(--translate-x);
-    margin-left: 72px;
+    margin-left: var(--bar-size);
 }
 
 .projet:focus + .projet-iframe {
