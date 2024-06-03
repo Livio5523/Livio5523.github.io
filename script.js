@@ -23,19 +23,15 @@ function toggleMenu(bar, barLength) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", (e) => {
+document.addEventListener("DOMContentLoaded", () => {
     const bars = document.querySelectorAll('.bar');
+    const projets = document.querySelectorAll('.projet');
 
     bars.forEach((bar) => {
         bar.addEventListener("click", () => {
             toggleMenu(bar, bars.length);
         });
     });
-});
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    const projets = document.querySelectorAll('.projet');
 
     projets.forEach((projet) => {
         projet.addEventListener("click", (e) => {
