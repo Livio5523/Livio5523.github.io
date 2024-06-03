@@ -61,7 +61,7 @@ body {
     display: flex; /* Utilisation de flexbox */
     align-items: center; /* Centre le contenu verticalement */
     width: 100%;
-    height: 10%;
+    height: 11%;
     transform-origin: center; /* Centre de rotation */
     transform: rotate(90deg); /* Rotation de 90 degrés (sens horaire) */
     white-space: nowrap;
