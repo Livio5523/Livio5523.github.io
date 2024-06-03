@@ -105,7 +105,7 @@ body {
 }
 
 .projet.project-open ~ .projet {
-    transform: translateY(120px); /* Ajustez la valeur en fonction de vos besoins */
+    transform: translateY(var(--iframeSize)); /* Ajustez la valeur en fonction de vos besoins */
 }
 
 

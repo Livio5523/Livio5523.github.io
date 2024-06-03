@@ -46,18 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 iframe.style.display = 'none';
                 projet.classList.remove('project-open');
             } else {
-                // Ferme tous les autres iframes
-                const otherProjetOpen = document.querySelector('.projet.project-open');
-                if (otherProjetOpen) {
-                    otherProjetOpen.classList.remove('project-open');
-                }
-    
-                // Cache tous les autres iframes
-                const otherIframes = document.querySelectorAll('.projet-iframe');
-                otherIframes.forEach(otherIframe => {
-                    otherIframe.style.display = 'none';
-                });
-    
+                
                 // Affiche l'iframe sous le bouton cliqué
                 iframe.style.position = 'absolute';
                 const projetRect = projet.getBoundingClientRect();
@@ -67,6 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 iframe.style.display = 'block';
     
                 projet.classList.add('project-open'); // Ajoute la classe pour indiquer que l'iframe est ouverte
+                // Ajuste la variable CSS pour déplacer les autres barres
+                const iframeHeight = iframe.offsetHeight;
+                document.documentElement.style.setProperty('--iframeSize', `${iframeHeight}px`);
             }
         });
     });
