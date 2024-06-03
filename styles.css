@@ -1,6 +1,7 @@
 :root {
     --translate-x: 1200px; /* Default value */
-    --bar-size: 72px
+    --bar-size: 72px;
+    --translate-y-menu: 100px;
 }
 
 body {
@@ -85,9 +86,8 @@ body {
     transition: all 0.5s;
 }
 
-
 .menu a {
-    height: 72px;
+    height: var(--bar-size);
     color: black;
     display: flex;
     text-align: right;
@@ -100,13 +100,24 @@ body {
 
 /* PROJETS */
 
+.projet {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease-in-out;
+}
+
+.projet.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 .projet:focus + .menu {
     display: flex; /* Affiche le menu correspondant */
 }
 
 /* Déplace les autres projets vers le bas */
 .projet:focus ~ .projet {
-    transform: translateY(100px); /* Ajustez la valeur en fonction de vos besoins */
+    transform: translateY(var(--translate-y-menu)); /* Ajustez la valeur en fonction de vos besoins */
 }
 
 .projet-iframe {
@@ -120,8 +131,6 @@ body {
 .projet:focus + .projet-iframe {
     display: block; /* Affiche l'iframe correspondant */
 }
-
-
 
 
 /* Specific hover and expanded colors */

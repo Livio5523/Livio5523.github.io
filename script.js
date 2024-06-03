@@ -23,6 +23,7 @@ function toggleMenu(bar, barLength) {
     }
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
     const bars = document.querySelectorAll('.bar');
     const projets = document.querySelectorAll('.projet');
@@ -44,24 +45,27 @@ document.addEventListener("DOMContentLoaded", () => {
             // Ferme l'iframe si elle est déjà visible
             if (isVisible) {
                 iframe.style.display = 'none';
-                return; // Sortie de la fonction pour éviter l'exécution du reste du code
+            } else {
+                // Calcul de la position de l'iframe en dessous de l'option de projet
+                const projetRect = projet.getBoundingClientRect();
+                const iframeTop = projetRect.bottom; // Position de début de l'iframe
+                console.log(projetRect);
+
+                // Affiche l'iframe sous le bouton cliqué
+                iframe.style.position = 'absolute';
+                iframe.style.top = `${iframeTop}px`;
+                iframe.style.left = '0'; // Alignement à gauche
+                iframe.style.display = 'block';
             }
-
-            // Ferme tous les iframes
-            const iframes = document.querySelectorAll('.projet-iframe');
-            iframes.forEach(iframe => {
-                iframe.style.display = 'none';
-            });
-
-            // Calcul de la position de l'iframe en dessous de l'option de projet
-            const projetRect = projet.getBoundingClientRect();
-            const iframeTop = projetRect.bottom; // Position de début de l'iframe
-
-            // Affiche l'iframe sous le bouton cliqué
-            iframe.style.position = 'absolute';
-            iframe.style.top = `${iframeTop}px`;
-            iframe.style.left = '0'; // Alignement à gauche
-            iframe.style.display = 'block';
         });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const projects = document.querySelectorAll('.menu-green .projet');
+    projects.forEach((project, index) => {
+        setTimeout(() => {
+            project.classList.add('show');
+        }, index * 500); // 500ms delay between each option
     });
 });
