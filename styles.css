@@ -44,6 +44,14 @@ body {
     background-color: #d84242;
 }
 
+.icon {
+    transition: transform 0.5s;
+}
+
+.bar.expanded .icon {
+    transform: rotate(45deg);
+}
+
 
 .bar span {
     font-family: "Roc Grotesk Variable";
