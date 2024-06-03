@@ -108,8 +108,8 @@ body {
     display: none;
     position: absolute;
     top: calc(100% + 10px); /* Position initiale sous la barre */
-    left: 0;
-    width: 100%;
+    width: var(--translate-x);
+    margin-left: 72px;
 }
 
 .projet:focus + .projet-iframe {
