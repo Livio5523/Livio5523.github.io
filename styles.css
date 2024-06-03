@@ -1,3 +1,8 @@
+:root {
+    --translate-x: 1200px; /* Default value */
+    --bar-size: 72px
+}
+
 body {
     font-family: "Roc Grotesk Variable";
     margin: 0;
@@ -22,7 +27,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 72px;
+    width: var(--bar-size);
     /*background-color: white;*/
     color: rgb(0, 0, 0);
     border-right: 5px solid black;
@@ -75,7 +80,7 @@ body {
     top: 0;
     left: 100%;
     background-color: #ffffff;
-    height: 72px;
+    height: var(--bar-size);
     width: calc(var(--translate-x) - 10%);
     transition: all 0.5s;
 }
@@ -117,12 +122,6 @@ body {
 }
 
 
-
-
-
-:root {
-    --translate-x: 1200px; /* Default value */
-}
 
 
 /* Specific hover and expanded colors */
