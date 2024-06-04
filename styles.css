@@ -182,29 +182,56 @@ iframe{
     font-weight: 400;
     line-height: 100%; /* 60px */
 
-    margin-top: -12%;
+    margin-top: -14%;
 }
 
 
 .mainSlideShow-container{
     width: 100%;
-    display: inline-block;
+    margin-top: -5%;
 }
 
-.slideshow-container{
+.slideshow-container {
+    display: inline-block;
     width: 507px;
     height: 433px;
     overflow: hidden;
     object-fit: scale-down;
     margin: 5px;
+    position: relative; /* Positioning the container relative to its parent */
 }
 
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-  
-  @keyframes fade {
-    from {opacity: .4} 
-    to {opacity: 1}
-  }
+.mySlidesRED, .mySlidesGREEN, .mySlidesBLUE {
+    position: absolute; /* Positioning the slides absolutely within the container */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none; /* Slides are hidden by default */
+}
+
+.slide-in {
+    display: block;
+    animation: slideIn 1s forwards;
+}
+
+.slide-out {
+    display: block;
+    animation: slideOut 1s forwards;
+}
+
+@keyframes slideIn {
+    from { left: 100%; }
+    to { left: 0; }
+}
+
+@keyframes slideOut {
+    from { left: 0; }
+    to { left: -100%; }
+}
+
+.slideshow-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure the image fits within the container without being cropped or distorted */
+}

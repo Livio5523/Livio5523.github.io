@@ -26,7 +26,7 @@ function toggleMenu(bar, barLength) {
 document.addEventListener("DOMContentLoaded", () => {
     const bars = document.querySelectorAll('.bar');
     const projets = document.querySelectorAll('.projet');
-    const menuRed = document.querySelectorAll(".projet-red");
+    let openIframes = [];
 
     bars.forEach((bar) => {
         bar.addEventListener("click", () => {
@@ -37,46 +37,81 @@ document.addEventListener("DOMContentLoaded", () => {
     projets.forEach((projet) => {
         projet.addEventListener("click", (e) => {
             e.stopPropagation(); // Empêche la propagation de l'événement de clic
-    
+
             const iframeId = projet.getAttribute('href').substring(1); // Identifiant unique de l'iframe
             const iframe = document.getElementById(iframeId);
             const isOpen = projet.classList.contains('project-open');
-    
+
             // Ferme l'iframe si elle est déjà ouverte
             if (isOpen) {
                 iframe.style.display = 'none';
                 projet.classList.remove('project-open');
+                openIframes = openIframes.filter(item => item.projet !== projet);
             } else {
-                
                 // Affiche l'iframe sous le bouton cliqué
                 iframe.style.position = 'absolute';
-                const projetRect = projet.getBoundingClientRect();
-                const iframeTop = projetRect.bottom; // Position de début de l'iframe
-                iframe.style.top = `${iframeTop}px`;
-                iframe.style.left = '0'; // Alignement à gauche
-                iframe.style.display = 'block';
-    
                 projet.classList.add('project-open'); // Ajoute la classe pour indiquer que l'iframe est ouverte
-                // Ajuste la variable CSS pour déplacer les autres barres
-                const iframeHeight = iframe.offsetHeight;
-                document.documentElement.style.setProperty('--iframeSize', `${iframeHeight * projet.id}px`);
+                openIframes.push({ projet, iframe });
+                iframe.style.display = 'block';
             }
+
+            updateIframePositions();
         });
     });
+
+    function updateIframePositions() {
+        let offsetY = 0;
+
+        openIframes.forEach(({ projet, iframe }) => {
+            const projetRect = projet.getBoundingClientRect();
+            iframe.style.top = `${projetRect.bottom + offsetY}px`;
+            iframe.style.left = '0';
+            offsetY += iframe.offsetHeight;
+        });
+
+        // Mise à jour des positions des boutons projet
+        projets.forEach((projet) => {
+            if (!openIframes.some(item => item.projet === projet)) {
+                projet.style.transform = `translateY(${offsetY}px)`;
+            }
+        });
+    }
+
+    window.addEventListener('resize', updateIframePositions);
 });
 
 
-let slideIndex = 0;
-showSlides();
+startSlideshows();
 
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  slides[slideIndex-1].style.display = "block";  
-  setTimeout(showSlides, 5000); // Change image every 2 seconds
+function startSlideshows() {
+    const slideshows = [
+        { slides: document.getElementsByClassName('mySlidesRED'), index: 0 },
+        { slides: document.getElementsByClassName('mySlidesGREEN'), index: 0 },
+        { slides: document.getElementsByClassName('mySlidesBLUE'), index: 0 },
+    ];
+
+    slideshows.forEach(showSlides);
+
+    function showSlides(slideshow) {
+        const { slides, index } = slideshow;
+        if (slides.length === 0) return;
+
+        const currentSlide = slides[index];
+        const nextIndex = (index + 1) % slides.length;
+        const nextSlide = slides[nextIndex];
+
+        Array.from(slides).forEach(slide => {
+            slide.style.display = 'none';
+            slide.classList.remove('slide-in', 'slide-out');
+        });
+
+        currentSlide.style.display = 'block';
+        currentSlide.classList.add('slide-out');
+
+        nextSlide.style.display = 'block';
+        nextSlide.classList.add('slide-in');
+
+        slideshow.index = nextIndex;
+        setTimeout(() => showSlides(slideshow), 5000); // Duration to display the slide before starting the slide-out animation
+    }
 }
