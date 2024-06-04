@@ -82,6 +82,7 @@ body {
     height: var(--bar-size);
     width: calc(var(--translate-x) - 10%);
     transition: all 0.5s;
+    
 }
 
 
@@ -156,8 +157,9 @@ iframe{
 }
 
 .mainMenu{
-    display: none;
-    z-index: -100; /* Assurez-vous qu'il est au-dessus des autres éléments si nécessaire */
+    display: block;
+    margin-top: -8%;
+    z-index: -1; /* Assurez-vous qu'il est au-dessus des autres éléments si nécessaire */
 }
 
 #page-title {
@@ -178,4 +180,30 @@ iframe{
     font-style: normal;
     font-weight: 400;
     line-height: 100%; /* 60px */
+
+    margin-top: -12%;
 }
+
+
+.mainSlideShow-container{
+    width: 100%;
+    display: inline-block;
+}
+
+.slideshow-container{
+    width: 507px;
+    height: 433px;
+    overflow: hidden;
+    object-fit: scale-down;
+    margin: 5px;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
