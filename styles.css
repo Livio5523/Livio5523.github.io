@@ -86,7 +86,7 @@ body {
     height: var(--bar-size);
     width: calc(var(--translate-x) - 10%);
     transition: all 0.5s;
-    height: 100%; /* size of the page. avoid random bs with scrollbar */
+    height: 120%; /* size of the page. avoid random bs with scrollbar */
     overflow-y: scroll; /* allow scroll */
     /* hide scroll bar */
     overflow-x: hidden;
