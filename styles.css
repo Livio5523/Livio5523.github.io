@@ -21,10 +21,11 @@ body {
     flex-direction: row;
     height: auto;
     width: 100%;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .bar {
+    position: sticky;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -34,7 +35,6 @@ body {
     color: rgb(0, 0, 0);
     border-right: 5px solid black;
     cursor: pointer;
-    position: sticky; /* Rend les barres sticky */
     top: 0; /* Garde les barres en haut lors du défilement */
     height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
     transition: all 0.5s;
@@ -86,9 +86,18 @@ body {
     height: var(--bar-size);
     width: calc(var(--translate-x) - 10%);
     transition: all 0.5s;
-    
+    height: 100%; /* size of the page. avoid random bs with scrollbar */
+    overflow-y: scroll; /* allow scroll */
+    /* hide scroll bar */
+    overflow-x: hidden;
+    box-sizing: content-box; /* So the width will be 100% + 17px */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
+.menu::-webkit-scrollbar {
+    display: none;
+}
 
 .menu a {
     height: 72px;

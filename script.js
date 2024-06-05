@@ -28,6 +28,7 @@ function toggleMenu(bar, barLength) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+
     const bars = document.querySelectorAll('.bar');
     const projets = document.querySelectorAll('.projet');
 
