@@ -101,10 +101,6 @@ body {
     justify-content: flex-end; /* Aligne le contenu à droite */
 }
 
-.projet:hover .menu a {
-   text-decoration: underline;
-    
-}
 
 /* PROJETS */
 
@@ -175,18 +171,26 @@ body {
 /* Menu item hover colors */
 .menu-red a:hover, .projet-red.open {
     background-color: #FF5B54;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
 }
 
 .menu-green a:hover, .projet-green.open{
     background-color: #38F88B;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
 }
 
 .menu-blue a:hover, .projet-blue.open{
     background-color: #5E97EC;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
 }
 
 .menu-about a:hover, .projet-about.open{
     background-color: #ECFF75;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
 }
 
 .mainMenu{
