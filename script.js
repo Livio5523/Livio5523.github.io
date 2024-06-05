@@ -26,7 +26,6 @@ function toggleMenu(bar, barLength) {
 document.addEventListener("DOMContentLoaded", () => {
     const bars = document.querySelectorAll('.bar');
     const projets = document.querySelectorAll('.projet');
-    let openIframes = [];
 
     bars.forEach((bar) => {
         bar.addEventListener("click", () => {
@@ -36,44 +35,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     projets.forEach((projet) => {
         projet.addEventListener("click", (e) => {
+            e.preventDefault(); // Prevent default anchor behavior
             e.stopPropagation(); // Prevent event propagation
 
-            const iframeId = projet.getAttribute('href').substring(1); // Unique identifier of the iframe
-            const iframe = document.getElementById(iframeId);
+            const projetId = projet.getAttribute('href').substring(1);
+            const iframeContainer = document.getElementById(`container-${projetId}`);
             const isOpen = projet.classList.contains('project-open');
 
             if (isOpen) {
-                iframe.style.display = 'none';
+                iframeContainer.style.display = 'none';
                 projet.classList.remove('project-open');
-                openIframes = openIframes.filter(item => item.projet !== projet);
             } else {
-                iframe.style.display = 'block';
+                iframeContainer.style.display = 'block';
                 projet.classList.add('project-open');
-                openIframes.push({ projet, iframe });
             }
-
-            updateIframePositions();
         });
     });
-
-    function updateIframePositions() {
-        let offsetY = 0;
-
-        openIframes.forEach(({ projet, iframe }) => {
-            const projetRect = projet.getBoundingClientRect();
-            iframe.style.top = `${projetRect.bottom + offsetY}px`;
-            iframe.style.left = '0';
-            offsetY += iframe.offsetHeight;
-        });
-
-        projets.forEach((projet) => {
-            if (!openIframes.some(item => item.projet === projet)) {
-                projet.style.transform = `translateY(${offsetY}px)`;
-            }
-        });
-    }
-
-    window.addEventListener('resize', updateIframePositions);
 });
 
 

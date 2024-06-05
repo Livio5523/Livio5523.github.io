@@ -110,16 +110,22 @@ body {
 }
 
 
-.projet-iframe {
-    display: none;
-    position: absolute;
-    top: calc(100% + 10px); /* Position initiale sous la barre */
-    width: var(--translate-x);
-    margin-left: var(--bar-size);
-}
-
 iframe{
     border: 5px solid black;
+}
+
+.projet-iframe-container {
+    display: none;
+}
+
+.projet-iframe {
+    width: 100%;
+    height: 600px; /* Adjust the height as needed */
+    border: 5px solid black;
+}
+
+.projet.project-open + .projet-iframe-container {
+    display: block;
 }
 
 
