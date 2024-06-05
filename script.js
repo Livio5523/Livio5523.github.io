@@ -40,23 +40,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
     projets.forEach((projet) => {
         projet.addEventListener("click", (e) => {
-            e.preventDefault(); // Prevent default anchor behavior
-            e.stopPropagation(); // Prevent event propagation
+            e.preventDefault(); // Empêcher le comportement par défaut du lien
+            e.stopPropagation(); // Empêcher la propagation de l'événement
 
             const projetId = projet.getAttribute('href').substring(1);
             const iframeContainer = document.getElementById(`container-${projetId}`);
+            const iframe = iframeContainer.querySelector('iframe');
             const isOpen = projet.classList.contains('open');
 
             if (isOpen) {
-                iframeContainer.style.display = 'none';
-                projet.classList.remove('open');
+                // Si le projet est déjà ouvert, le fermer
+                closeProject(iframeContainer, projet);
             } else {
-                iframeContainer.style.display = 'block';
-                projet.classList.add('open');
+                // Ouvrir le projet cliqué
+                openProject(iframeContainer, projet, iframe);
             }
         });
     });
 });
+
+function closeProject(iframeContainer, projet) {
+    iframeContainer.style.display = 'none';
+    projet.classList.remove('open');
+}
+
+function openProject(iframeContainer, projet, iframe) {
+    iframeContainer.style.display = 'block';
+    projet.classList.add('open');
+
+    // Ajuster la hauteur de l'iframe après son affichage
+    iframe.onload = function() {
+        adjustIframeHeight(iframe);
+    };
+
+    // Ajuster immédiatement la hauteur si le contenu est déjà chargé
+    if (iframe.contentWindow.document.readyState === 'complete') {
+        adjustIframeHeight(iframe);
+    }
+}
+
+function adjustIframeHeight(iframe) {
+    try {
+        const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        iframe.style.height = iframeDocument.documentElement.scrollHeight + 'px';
+
+        // Vérifier les changements dans le contenu pour ajuster dynamiquement la hauteur
+        const observer = new MutationObserver(() => {
+            iframe.style.height = iframeDocument.documentElement.scrollHeight + 'px';
+        });
+
+        observer.observe(iframeDocument.body, { childList: true, subtree: true, attributes: true });
+
+    } catch (error) {
+        console.error("Erreur lors de l'ajustement de la hauteur de l'iframe : ", error);
+    }
+}
+
+
+
 
 startSlideshows();
 

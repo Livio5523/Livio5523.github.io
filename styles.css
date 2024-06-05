@@ -1,6 +1,6 @@
 :root {
-    --translate-x: 1200px; /* Default value */
-    --bar-size: 72px;
+    --translate-x: 62.5%; /* 1200px */
+    --bar-size: 3.75%; /*72 px*/
     --iframeSize: 0px;
 }
 
@@ -93,6 +93,7 @@ body {
     box-sizing: content-box; /* So the width will be 100% + 17px */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+
 }
 
 .menu::-webkit-scrollbar {
@@ -129,11 +130,12 @@ body {
 
 .projet-iframe-container {
     display: none;
+    overflow: hidden; /* Hide scrollbars */
 }
 
 .projet-iframe {
     width: 100%;
-    height: 600px; /* Adjust the height as needed */
+    border: none;
 }
 
 .projet.open + .projet-iframe-container {
@@ -168,18 +170,26 @@ body {
 /* Specific hover and expanded colors */
 .bar-red:hover:not(.expanded), .bar-red.expanded {
     background-color: #FF5B54;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
 }
 
 .bar-green:hover:not(.expanded), .bar-green.expanded {
     background-color: #38F88B;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
 }
 
 .bar-blue:hover:not(.expanded), .bar-blue.expanded {
     background-color: #5E97EC;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
 }
 
 .bar-about:hover:not(.expanded), .bar-about.expanded {
     background-color: #ECFF75;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
 }
 
 /* Menu item hover colors */
