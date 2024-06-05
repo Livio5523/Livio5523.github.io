@@ -39,6 +39,7 @@ body {
     height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
     transition: all 0.5s;
     flex-shrink: 0;
+    
 }
 
 .bar.expanded ~ .bar {

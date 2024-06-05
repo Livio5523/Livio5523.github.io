@@ -97,8 +97,6 @@ function adjustIframeHeight(iframe) {
 }
 
 
-
-
 startSlideshows();
 
 function startSlideshows() {
