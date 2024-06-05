@@ -117,8 +117,13 @@ body {
     background-color: white;
 }
 
+.projet.open{
+    position: sticky; top:0;
+}
+
 .projet.open ~ .projet {
     transform: translateY(var(--iframeSize)); /* Ajustez la valeur en fonction de vos besoins */
+    
 }
 
 

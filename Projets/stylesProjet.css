@@ -17,4 +17,6 @@ h1{
     font-style: normal;
     font-weight: 700;
     line-height: 85.714%; /* 85.714% 120px*/
+    text-align: left;
+    text-transform: uppercase;
 }
