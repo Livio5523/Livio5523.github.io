@@ -10,17 +10,18 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: stretch;
+    align-items: flex-start;;
     height: 100vh;
     background-color: white;
+    overflow-y: auto; /* Added to enable vertical scrolling */
 }
 
 .container {
     display: flex;
     flex-direction: row;
-    height: 100%;
+    height: auto;
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .bar {
@@ -33,7 +34,9 @@ body {
     color: rgb(0, 0, 0);
     border-right: 5px solid black;
     cursor: pointer;
-    position: relative;
+    position: sticky; /* Rend les barres sticky */
+    top: 0; /* Garde les barres en haut lors du défilement */
+    height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
     transition: all 0.5s;
     flex-shrink: 0;
 }
@@ -110,10 +113,6 @@ body {
 }
 
 
-iframe{
-    border: 5px solid black;
-}
-
 .projet-iframe-container {
     display: none;
 }
@@ -121,7 +120,6 @@ iframe{
 .projet-iframe {
     width: 100%;
     height: 600px; /* Adjust the height as needed */
-    border: 5px solid black;
 }
 
 .projet.project-open + .projet-iframe-container {
@@ -195,15 +193,16 @@ iframe{
 .mainSlideShow-container{
     width: 100%;
     margin-top: -5%;
+    display: flex;
+    flex-wrap: nowrap; /* Empêche les éléments d'aller à la ligne */
+    justify-content: center;
+    gap: 5px; /* Espacement entre les diaporamas */
 }
 
 .slideshow-container {
-    display: inline-block;
     width: 507px;
     height: 433px;
     overflow: hidden;
-    object-fit: scale-down;
-    margin: 5px;
     position: relative; /* Positioning the container relative to its parent */
 }
 
@@ -215,6 +214,7 @@ iframe{
     left: 0;
     display: none; /* Slides are hidden by default */
 }
+
 
 .slide-in {
     display: block;

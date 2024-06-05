@@ -1,5 +1,6 @@
 function toggleMenu(bar, barLength) {
     const menu = bar.querySelector('.menu');
+    const mainMenu = document.querySelector('.mainMenu');
     const isVisible = menu.style.display === 'block';
 
     if (!isVisible) {
@@ -9,8 +10,10 @@ function toggleMenu(bar, barLength) {
             const menu = bar.querySelector('.menu');
             menu.style.display = 'none';
             bar.classList.remove('expanded');
+            mainMenu.style.display ='block';
         });
         // Ouvre le menu de la barre cliquée
+        mainMenu.style.display ='none';
         menu.style.display = 'block';
         bar.classList.add('expanded');
         const width = document.body.offsetWidth;
@@ -20,6 +23,7 @@ function toggleMenu(bar, barLength) {
         // Ferme le menu de la barre cliquée
         menu.style.display = 'none';
         bar.classList.remove('expanded');
+        mainMenu.style.display ='block';
     }
 }
 
