@@ -36,23 +36,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     projets.forEach((projet) => {
         projet.addEventListener("click", (e) => {
-            e.stopPropagation(); // Empêche la propagation de l'événement de clic
+            e.stopPropagation(); // Prevent event propagation
 
-            const iframeId = projet.getAttribute('href').substring(1); // Identifiant unique de l'iframe
+            const iframeId = projet.getAttribute('href').substring(1); // Unique identifier of the iframe
             const iframe = document.getElementById(iframeId);
             const isOpen = projet.classList.contains('project-open');
 
-            // Ferme l'iframe si elle est déjà ouverte
             if (isOpen) {
                 iframe.style.display = 'none';
                 projet.classList.remove('project-open');
                 openIframes = openIframes.filter(item => item.projet !== projet);
             } else {
-                // Affiche l'iframe sous le bouton cliqué
-                iframe.style.position = 'absolute';
-                projet.classList.add('project-open'); // Ajoute la classe pour indiquer que l'iframe est ouverte
-                openIframes.push({ projet, iframe });
                 iframe.style.display = 'block';
+                projet.classList.add('project-open');
+                openIframes.push({ projet, iframe });
             }
 
             updateIframePositions();
@@ -69,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
             offsetY += iframe.offsetHeight;
         });
 
-        // Mise à jour des positions des boutons projet
         projets.forEach((projet) => {
             if (!openIframes.some(item => item.projet === projet)) {
                 projet.style.transform = `translateY(${offsetY}px)`;
