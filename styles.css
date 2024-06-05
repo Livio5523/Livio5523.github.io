@@ -131,6 +131,25 @@ body {
     transform: rotate(45deg);
 }
 
+.projet:hover .additional-text, .projet.open .additional-text {
+    opacity: 1;
+    position: absolute;
+    display: block;
+    transform: rotate(0deg);
+    left: -70%;
+    top:0;
+}
+
+
+.additional-text {
+    opacity: 1;
+    display: none;
+    position: absolute;
+}
+
+
+
+
 
 /* Specific hover and expanded colors */
 .bar-red:hover:not(.expanded), .bar-red.expanded {
