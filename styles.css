@@ -101,6 +101,10 @@ body {
     justify-content: flex-end; /* Aligne le contenu à droite */
 }
 
+.projet:hover .menu a {
+   text-decoration: underline;
+    
+}
 
 /* PROJETS */
 
@@ -136,18 +140,18 @@ body {
     position: absolute;
     display: block;
     transform: rotate(0deg);
-    left: -70%;
-    top:0;
+    left: 1%;
+    align-content: center;
+    
 }
 
 
 .additional-text {
-    opacity: 1;
+    opacity: 0;
     display: none;
     position: absolute;
+    text-align: left;
 }
-
-
 
 
 
