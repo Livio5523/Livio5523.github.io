@@ -44,19 +44,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const projetId = projet.getAttribute('href').substring(1);
             const iframeContainer = document.getElementById(`container-${projetId}`);
-            const isOpen = projet.classList.contains('project-open');
+            const isOpen = projet.classList.contains('open');
 
             if (isOpen) {
                 iframeContainer.style.display = 'none';
-                projet.classList.remove('project-open');
+                projet.classList.remove('open');
             } else {
                 iframeContainer.style.display = 'block';
-                projet.classList.add('project-open');
+                projet.classList.add('open');
             }
         });
     });
 });
-
 
 startSlideshows();
 

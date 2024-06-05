@@ -108,7 +108,7 @@ body {
     background-color: white;
 }
 
-.projet.project-open ~ .projet {
+.projet.open ~ .projet {
     transform: translateY(var(--iframeSize)); /* Ajustez la valeur en fonction de vos besoins */
 }
 
@@ -122,8 +122,13 @@ body {
     height: 600px; /* Adjust the height as needed */
 }
 
-.projet.project-open + .projet-iframe-container {
+.projet.open + .projet-iframe-container {
     display: block;
+}
+
+
+.projet.open .projet-icon {
+    transform: rotate(45deg);
 }
 
 
@@ -145,19 +150,19 @@ body {
 }
 
 /* Menu item hover colors */
-.menu-red a:hover {
+.menu-red a:hover, .projet-red.open {
     background-color: #FF5B54;
 }
 
-.menu-green a:hover {
+.menu-green a:hover, .projet-green.open{
     background-color: #38F88B;
 }
 
-.menu-blue a:hover {
+.menu-blue a:hover, .projet-blue.open{
     background-color: #5E97EC;
 }
 
-.menu-about a:hover {
+.menu-about a:hover, .projet-about.open{
     background-color: #ECFF75;
 }
 
