@@ -86,17 +86,18 @@ body {
     height: var(--bar-size);
     width: calc(var(--translate-x) - 10%);
     transition: all 0.5s;
-    height: 100%;
-    overflow-y: scroll;
+    height: 100%; /* size of the page. avoid random bs with scrollbar */
+    overflow-y: scroll; /* allow scroll */
+    /* hide scroll bar */
     overflow-x: hidden;
     box-sizing: content-box; /* So the width will be 100% + 17px */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
+
 .menu::-webkit-scrollbar {
     display: none;
 }
-
 
 .menu a {
     height: 72px;
