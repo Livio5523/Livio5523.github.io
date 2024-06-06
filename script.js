@@ -40,7 +40,6 @@ function toggleMenu(bar, barLength) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-
     const bars = document.querySelectorAll('.bar');
     const projets = document.querySelectorAll('.projet');
 
@@ -72,12 +71,19 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function closeProject(iframeContainer, projet) {
-    iframeContainer.style.display = 'none';
-    projet.classList.remove('open');
+    iframeContainer.classList.remove('opening');
+    iframeContainer.classList.add('closing');
+
+    iframeContainer.addEventListener('animationend', () => {
+        iframeContainer.style.display = 'none';
+        projet.classList.remove('open');
+        iframeContainer.classList.remove('closing');
+    }, { once: true });
 }
 
 function openProject(iframeContainer, projet, iframe) {
     iframeContainer.style.display = 'block';
+    iframeContainer.classList.add('opening');
     projet.classList.add('open');
 
     // Ajuster la hauteur de l'iframe après son affichage

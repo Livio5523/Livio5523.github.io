@@ -2,8 +2,7 @@
 
 
 ### Todo
-- [ ] scroll en bas des projet qui ne va pas au bout
-- [ ] animation d'ouverture de projet  
+- [ ] scroll en bas des projet qui ne va pas au bout 
 - [ ] gérer les outline/border
 - [ ] corriger le bug du clic qui ferme la barre (est réaparu pour une raison obscure)
 - [ ] ajustements visuels
@@ -14,6 +13,7 @@
 ### In Progress
 
 - [ ] animation d'ouverture des section de couleurs
+- [ ] animation d'ouverture de projet 
 
 ### Done ✓
 
