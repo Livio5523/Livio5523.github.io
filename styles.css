@@ -69,6 +69,7 @@ body {
     white-space: nowrap;
 }
 
+
 /* PROJETS */
 
 .menu {
@@ -86,7 +87,6 @@ body {
     background-color: #ffffff;
     height: var(--bar-size);
     width: calc(var(--translate-x) - 10%);
-    transition: all 0.5s;
     height: 120%; /* size of the page. avoid random bs with scrollbar */
     overflow-y: scroll; /* allow scroll */
     /* hide scroll bar */
@@ -95,7 +95,11 @@ body {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 
+
+    transition: all 0.5s;
 }
+
+
 
 .menu::-webkit-scrollbar {
     display: none;

@@ -2,15 +2,12 @@ body {
     font-family: "Roc Grotesk Variable";
     margin: 0;
     padding: 0;
-    display: flex;
-    align-items: flex-start;;
-    height: 100vh;
     background-color: white;
-    overflow-y: auto; /* Added to enable vertical scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+    position: relative; /* Add position relative to body */
 }
 
-
-h1{
+h1 {
     font-family: "Roc Grotesk Variable";
     font-size: 140px;
     font-style: normal;
@@ -18,61 +15,70 @@ h1{
     line-height: 85.714%; /* 85.714% 120px*/
     text-align: left;
     text-transform: uppercase;
-    position: relative;
-    width: fit-content;
     white-space: nowrap;
 }
 
-.img-titre {
-    position: absolute;
-    width: 683px;
-    height: 1002px;
-    top: 0;
-    left: 929px;
-    object-fit: cover; /* Ensure the image covers the container without being distorted, but might be cropped */
-    object-position: 70% center; /* Adjust the image slightly to the left */
-    outline: 5px solid black;
+.title-page {
+    display: flex;
+    align-items: top; /* Align items vertically */
 }
 
+.text-container {
+    flex: 2; /* Take two-thirds of the space */
+}
+
+.img-container {
+    flex: 1; /* Take one-third of the space */
+    display: flex;
+    justify-content: flex-end; /* Align to the right */
+}
+
+.img-titre {
+    width: 42.37vw; /* Set maximum width to one-third of viewport width */
+    height: 1002px; /* Set maximum height to full viewport height */
+    object-fit: cover;
+    outline: 5px solid black;
+}
 
 .triptique {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    background-color: black; /* Set the background color to black to show the gap */
-    padding-left: 5px;
-    padding-right: 5px;
+    padding: 0 5px; /* Padding to create space for the gap */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    background-color: black; /* Set background color to black to show the gap */
 }
 
-.triptique-image {
-    width: calc(33.333% - 2.5px); /* Subtract the total gap (5px on each side) from each image's width */
-    object-fit: cover;
-    background-color: black; /* Background color of the images to match the gap */
-    display: block;
-    
+.image-container {
+    position: relative;
+    flex: 1;
+    margin: 0 2.5px; /* Create a 5px gap between images (2.5px on each side) */
 }
 
-.triptique-image:first-child {
+.image-container:first-child {
     margin-left: 0; /* No left margin for the first image */
 }
 
-.triptique-image:last-child {
+.image-container:last-child {
     margin-right: 0; /* No right margin for the last image */
 }
 
-
-
+.triptique-image {
+    width: 100%;
+    height: auto; /* Ensure the images maintain their aspect ratio */
+    object-fit: cover;
+    display: block;
+}
 
 .text-overlay {
     font-family: "Roc Grotesk Variable";
-    font-size: 3vw; /* Taille du texte en pourcentage de la largeur de l'écran */
+    font-size: 3vw;
     font-style: normal;
     font-weight: 700;
-    line-height: 100%; /* 100% de la taille de la police */
+    line-height: 100%;
     position: absolute;
-    top: 50%; /* Positionne le texte verticalement au milieu de l'image */
-    left: 5%; /* Positionne le texte horizontalement à 5% de la largeur de l'image */
-    transform: translateY(-50%);
+    top: 0%;
+    left: 5%;
     padding: 10px;
     color: white;
     opacity: 0;
