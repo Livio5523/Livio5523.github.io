@@ -161,6 +161,7 @@ body {
     transform: rotate(0deg);
     left: 1%;
     align-content: center;
+    pointer-events: auto;
     
 }
 
@@ -170,6 +171,7 @@ body {
     display: none;
     position: absolute;
     text-align: left;
+    pointer-events: none; /* Désactive les événements de pointage lorsque l'élément est masqué */
 }
 
 

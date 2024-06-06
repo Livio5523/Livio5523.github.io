@@ -14,9 +14,9 @@
 
 ### In Progress
 
-- [ ] mise en page d'un projet type (voir si transferable depuis Figma) 
 
 ### Done ✓
 
 - [x] Create my first TODO.md
-- [x] gérer les effets de hover pour les images (au hover du texte s'affiche sur l'image)    
+- [x] gérer les effets de hover pour les images (au hover du texte s'affiche sur l'image) 
+- [x] mise en page d'un projet type (voir si transferable depuis Figma)    

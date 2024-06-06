@@ -1,5 +1,5 @@
 :root{
-    --sectionHeight: 1002px;
+    --sectionHeight: 1002px; /*1002px*/
 }
 
 
@@ -21,13 +21,13 @@ h1 {
     text-align: left;
     text-transform: uppercase;
     white-space: nowrap;
-    padding: 2%;
     width: 50%;
+    margin: 0;
+    padding-bottom: 30px;
 }
 
 .introduction{
     width: 71.31%;
-    padding: 2%;
     text-align: justify;
     font-family: "Roc Grotesk Variable";
     font-size: 22px;
@@ -35,15 +35,18 @@ h1 {
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.22px;
+    margin: 0;
 }
 
 .title-page {
+    height: var(--sectionHeight); /* Set maximum height to full viewport height */
     display: flex;
     align-items: top; /* Align items vertically */
 }
 
 .text-container {
     flex: 2; /* Take two-thirds of the space */
+    padding: 20px;
 }
 
 .img-container {
@@ -66,12 +69,13 @@ h1 {
     padding: 0 5px; /* Padding to create space for the gap */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     background-color: black; /* Set background color to black to show the gap */
+    gap: 5px;
 }
 
 .image-container {
     position: relative;
     flex: 1;
-    margin: 0 2.5px; /* Create a 5px gap between images (2.5px on each side) */
+    
 }
 
 .image-container:first-child {
@@ -111,4 +115,10 @@ h1 {
     height: var(--sectionHeight); /* Set maximum height to full viewport height */
     object-fit: cover;
     display: block;
+}
+
+.separation {
+    height: 5px;
+    width: 100%;
+    background-color: black; /* Couleur de fond de votre choix */
 }
