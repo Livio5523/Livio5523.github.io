@@ -25,7 +25,7 @@ function toggleMenu(bar, barLength) {
         bar.classList.add('expanded');
         const width = document.body.offsetWidth;
         const barsWidth = bar.clientWidth;
-        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth)) + "px");
+        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) - 20) + "px");
     } else {
         // Ferme le menu de la barre cliquée
         menu.classList.remove('show');
