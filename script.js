@@ -1,29 +1,41 @@
 function toggleMenu(bar, barLength) {
     const menu = bar.querySelector('.menu');
     const mainMenu = document.querySelector('.mainMenu');
-    const isVisible = menu.style.display === 'block';
+    const isVisible = menu.classList.contains('show');
 
     if (!isVisible) {
         // Ferme tous les menus
         const bars = document.querySelectorAll('.bar');
         bars.forEach(bar => {
             const menu = bar.querySelector('.menu');
-            menu.style.display = 'none';
+            if (menu.classList.contains('show')) {
+                menu.classList.remove('show');
+                menu.classList.add('hide');
+                menu.addEventListener('animationend', () => {
+                    menu.style.display = 'none';
+                    menu.classList.remove('hide');
+                }, { once: true });
+            }
             bar.classList.remove('expanded');
-            mainMenu.style.display ='block';
         });
         // Ouvre le menu de la barre cliquée
-        mainMenu.style.display ='none';
+        mainMenu.style.display = 'none';
         menu.style.display = 'block';
+        menu.classList.add('show');
         bar.classList.add('expanded');
         const width = document.body.offsetWidth;
         const barsWidth = bar.clientWidth;
         document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth)) + "px");
     } else {
         // Ferme le menu de la barre cliquée
-        menu.style.display = 'none';
+        menu.classList.remove('show');
+        menu.classList.add('hide');
+        menu.addEventListener('animationend', () => {
+            menu.style.display = 'none';
+            menu.classList.remove('hide');
+        }, { once: true });
         bar.classList.remove('expanded');
-        mainMenu.style.display ='block';
+        mainMenu.style.display = 'block';
     }
 }
 

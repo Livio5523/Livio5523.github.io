@@ -38,8 +38,11 @@ body {
     top: 0; /* Garde les barres en haut lors du défilement */
     height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
     transition: all 0.5s;
-    flex-shrink: 0;   
+    flex-shrink: 0; 
+    z-index: 10 !important;
 }
+
+
 
 .bar.expanded ~ .bar {
     transform: translateX(var(--translate-x)); /* Adjust the width of the menu here */
@@ -78,26 +81,54 @@ body {
     font-weight: 400;
     text-transform: uppercase;
     text-align: right;
-    display: none; /* Modification: cache les menus par défaut */
-
     position: absolute;
     top: 0;
     left: 100%;
     background-color: #ffffff;
-    height: var(--bar-size);
     width: calc(var(--translate-x) - 10%);
-    height: 120%; /* size of the page. avoid random bs with scrollbar */
-    overflow-y: scroll; /* allow scroll */
-    /* hide scroll bar */
+    height: 120%;
+    overflow-y: scroll;
     overflow-x: hidden;
-    box-sizing: content-box; /* So the width will be 100% + 17px */
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-
-
-    transition: all 0.5s;
+    box-sizing: content-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    display: none; /* Cache les menus par défaut */
+    z-index: -1;
 }
 
+/* Classe pour afficher le menu avec une animation */
+.menu.show {
+    display: block;
+    animation: slideInMenu 0.5s forwards;
+}
+
+/* Classe pour cacher le menu avec une animation */
+.menu.hide {
+    animation: slideOutMenu 0.5s forwards;
+}
+
+/* Animations */
+@keyframes slideInMenu {
+    from {
+        opacity: 1;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutMenu {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-100%);
+    }
+}
 
 
 .menu::-webkit-scrollbar {
