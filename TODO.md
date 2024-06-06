@@ -2,22 +2,21 @@
 
 
 ### Todo
-
+- [ ] scroll en bas des projet qui ne va pas au bout
 - [ ] animation d'ouverture des section de couleurs
 - [ ] animation d'ouverture des section de projet  
-- [ ] mise en page d'un projet type (voir si transferable depuis Figma) 
 - [ ] gérer les outline/border
 - [ ] corriger le bug du clic qui ferme la barre (est réaparu pour une raison obscure)
-- [ ] ajustement visuels
+- [ ] ajustements visuels
 - [ ] responsive desktop  
 - [ ] device version    
    
 
 ### In Progress
 
-- 
+- [ ] mise en page d'un projet type (voir si transferable depuis Figma) 
 
 ### Done ✓
 
 - [x] Create my first TODO.md
-- [x] gérer les effets de hover pour les images (le au hover du texte s'affiche sur l'image)    
+- [x] gérer les effets de hover pour les images (au hover du texte s'affiche sur l'image)    

@@ -1,3 +1,8 @@
+:root{
+    --sectionHeight: 1002px;
+}
+
+
 body {
     font-family: "Roc Grotesk Variable";
     margin: 0;
@@ -49,7 +54,7 @@ h1 {
 
 .img-titre {
     width: 42.37vw; /* Set maximum width to one-third of viewport width */
-    height: 1002px; /* Set maximum height to full viewport height */
+    height: var(--sectionHeight); /* Set maximum height to full viewport height */
     object-fit: cover;
     outline: 5px solid black;
 }
@@ -79,7 +84,7 @@ h1 {
 
 .triptique-image {
     width: 100%;
-    height: auto; /* Ensure the images maintain their aspect ratio */
+    height: var(--sectionHeight); /* Set maximum height to full viewport height */
     object-fit: cover;
     display: block;
 }
@@ -103,7 +108,7 @@ h1 {
 
 .img-fullWidth{
     width: 100%;
-    height: auto; /* Ensure the images maintain their aspect ratio */
+    height: var(--sectionHeight); /* Set maximum height to full viewport height */
     object-fit: cover;
     display: block;
 }
