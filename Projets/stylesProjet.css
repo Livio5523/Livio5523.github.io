@@ -16,6 +16,20 @@ h1 {
     text-align: left;
     text-transform: uppercase;
     white-space: nowrap;
+    padding: 2%;
+    width: 50%;
+}
+
+.introduction{
+    width: 71.31%;
+    padding: 2%;
+    text-align: justify;
+    font-family: "Roc Grotesk Variable";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.22px;
 }
 
 .title-page {
@@ -72,18 +86,24 @@ h1 {
 
 .text-overlay {
     font-family: "Roc Grotesk Variable";
-    font-size: 3vw;
+    font-size: 80px;
     font-style: normal;
     font-weight: 700;
     line-height: 100%;
     position: absolute;
-    top: 0%;
-    left: 5%;
-    padding: 10px;
+    top: 2%;
+    left: 2%;
     color: white;
     opacity: 0;
 }
 
 .image-container:hover .text-overlay {
     opacity: 1;
+}
+
+.img-fullWidth{
+    width: 100%;
+    height: auto; /* Ensure the images maintain their aspect ratio */
+    object-fit: cover;
+    display: block;
 }
