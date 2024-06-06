@@ -38,8 +38,7 @@ body {
     top: 0; /* Garde les barres en haut lors du défilement */
     height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
     transition: all 0.5s;
-    flex-shrink: 0;
-    
+    flex-shrink: 0;   
 }
 
 .bar.expanded ~ .bar {
@@ -205,24 +204,28 @@ body {
 .menu-red a:hover, .projet-red.open {
     background-color: #FF5B54;
     text-decoration: underline;
+    text-underline-offset: 11px;
     text-decoration-thickness: 3px;
 }
 
 .menu-green a:hover, .projet-green.open{
     background-color: #38F88B;
     text-decoration: underline;
+    text-underline-offset: 11px;
     text-decoration-thickness: 3px;
 }
 
 .menu-blue a:hover, .projet-blue.open{
     background-color: #5E97EC;
     text-decoration: underline;
+    text-underline-offset: 11px;
     text-decoration-thickness: 3px;
 }
 
 .menu-about a:hover, .projet-about.open{
     background-color: #ECFF75;
     text-decoration: underline;
+    text-underline-offset: 11px;
     text-decoration-thickness: 3px;
 }
 
