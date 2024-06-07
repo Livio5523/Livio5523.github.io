@@ -171,6 +171,7 @@ body {
     align-items: center; /* Centre le contenu verticalement */
     justify-content: flex-end; /* Aligne le contenu à droite */
     box-shadow: 0 -5px 0 #000;
+
 }
 
 /* Menu item hover colors */
@@ -206,11 +207,12 @@ body {
 
 .projet{
     background-color: white;
-    z-index: 10 !important;
+    transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
 }
 
 .projet.open{
     position: sticky; top: -5px;;
+   
 }
 
 .projet.open ~ .projet {
@@ -222,7 +224,7 @@ body {
     display: none;
     overflow: hidden; /* Hide scrollbars */
     position: relative;
-    z-index: -100 !important;
+    z-index: -10 !important;
 }
 
 .projet-iframe {
@@ -282,9 +284,6 @@ body {
 .projet-iframe-container.closing {
     animation: closeProject 0.5s forwards;
 }
-
-
-
 
 
 .additional-text {
