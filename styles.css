@@ -37,9 +37,10 @@ body {
     cursor: pointer;
     top: 0; /* Garde les barres en haut lors du défilement */
     height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
-    transition: all 0.5s;
     flex-shrink: 0; 
     z-index: 20 !important;
+    transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
+
 }
 
 
@@ -71,6 +72,36 @@ body {
 }
 
 
+/* Specific hover and expanded colors */
+.bar-red:hover:not(.expanded), .bar-red.expanded {
+    background-color: #FF5B54;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    transition: background-color none;
+}
+
+.bar-green:hover:not(.expanded), .bar-green.expanded {
+    background-color: #38F88B;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    transition: background-color none;
+}
+
+.bar-blue:hover:not(.expanded), .bar-blue.expanded {
+    background-color: #5E97EC;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    transition: background-color none;
+}
+
+.bar-about:hover:not(.expanded), .bar-about.expanded {
+    background-color: #ECFF75;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    transition: background-color none;
+}
+
+
 /* PROJETS */
 
 .menu {
@@ -92,6 +123,7 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
     display: none; /* Cache les menus par défaut */
+    z-index: -20 !important;
 }
 
 /* Classe pour afficher le menu avec une animation */
@@ -108,22 +140,18 @@ body {
 /* Animations */
 @keyframes slideInMenu {
     from {
-        opacity: 0; /* j'ai changé ça 1 -> 0*/
         transform: translateX(-100%);
     }
     to {
-        opacity: 1;
         transform: translateX(0);
     }
 }
 
 @keyframes slideOutMenu {
     from {
-        opacity: 1;
         transform: translateX(0);
     }
     to {
-        opacity: 0; /* j'ai changé ça 1 -> 0*/
         transform: translateX(-100%);
     }
 }
@@ -143,6 +171,35 @@ body {
     align-items: center; /* Centre le contenu verticalement */
     justify-content: flex-end; /* Aligne le contenu à droite */
     box-shadow: 0 -5px 0 #000;
+}
+
+/* Menu item hover colors */
+.menu-red a:hover, .projet-red.open {
+    background-color: #FF5B54;
+    text-decoration: underline;
+    text-underline-offset: 11px;
+    text-decoration-thickness: 3px;
+}
+
+.menu-green a:hover, .projet-green.open{
+    background-color: #38F88B;
+    text-decoration: underline;
+    text-underline-offset: 11px;
+    text-decoration-thickness: 3px;
+}
+
+.menu-blue a:hover, .projet-blue.open{
+    background-color: #5E97EC;
+    text-decoration: underline;
+    text-underline-offset: 11px;
+    text-decoration-thickness: 3px;
+}
+
+.menu-about a:hover, .projet-about.open{
+    background-color: #ECFF75;
+    text-decoration: underline;
+    text-underline-offset: 11px;
+    text-decoration-thickness: 3px;
 }
 
 /* PROJETS */
@@ -200,22 +257,18 @@ body {
 /* Animations for project opening and closing */
 @keyframes openProject {
     from {
-        opacity: 1;
         transform: translateY(-100%);
     }
     to {
-        opacity: 1;
         transform: translateY(0);
     }
 }
 
 @keyframes closeProject {
     from {
-        opacity: 1;
         transform: translateY(0);
     }
     to {
-        opacity: 1;
         transform: translateY(-100%);
     }
 }
@@ -242,61 +295,6 @@ body {
 }
 
 
-
-
-/* Specific hover and expanded colors */
-.bar-red:hover:not(.expanded), .bar-red.expanded {
-    background-color: #FF5B54;
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-}
-
-.bar-green:hover:not(.expanded), .bar-green.expanded {
-    background-color: #38F88B;
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-}
-
-.bar-blue:hover:not(.expanded), .bar-blue.expanded {
-    background-color: #5E97EC;
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-}
-
-.bar-about:hover:not(.expanded), .bar-about.expanded {
-    background-color: #ECFF75;
-    text-decoration: underline;
-    text-decoration-thickness: 3px;
-}
-
-/* Menu item hover colors */
-.menu-red a:hover, .projet-red.open {
-    background-color: #FF5B54;
-    text-decoration: underline;
-    text-underline-offset: 11px;
-    text-decoration-thickness: 3px;
-}
-
-.menu-green a:hover, .projet-green.open{
-    background-color: #38F88B;
-    text-decoration: underline;
-    text-underline-offset: 11px;
-    text-decoration-thickness: 3px;
-}
-
-.menu-blue a:hover, .projet-blue.open{
-    background-color: #5E97EC;
-    text-decoration: underline;
-    text-underline-offset: 11px;
-    text-decoration-thickness: 3px;
-}
-
-.menu-about a:hover, .projet-about.open{
-    background-color: #ECFF75;
-    text-decoration: underline;
-    text-underline-offset: 11px;
-    text-decoration-thickness: 3px;
-}
 
 .mainMenu{
     display: block;
