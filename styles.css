@@ -38,7 +38,6 @@ body {
     top: 0; /* Garde les barres en haut lors du défilement */
     height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
     flex-shrink: 0; 
-    z-index: 10;
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
 }
 
@@ -113,7 +112,6 @@ body {
     position: absolute;
     top: 0;
     left: 100%;
-    background-color: #ffffff;
     width: calc(var(--translate-x) - 10%);
     height: 120%;
     overflow-y: scroll;
@@ -122,7 +120,7 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
     display: none; /* Cache les menus par défaut */
-    z-index: -1;
+    z-index: -10 !important;
 }
 
 /* Classe pour afficher le menu avec une animation */
@@ -212,7 +210,8 @@ body {
 }
 
 .projet.open{
-    position: sticky; top: -5px;;
+    position: sticky; 
+    top: -5px;;
 }
 
 .projet.open ~ .projet {
@@ -238,14 +237,14 @@ body {
 }
 
 
-.projet.open .projet-icon {
+.projet-icon{
     transition: all 0.5s;
+}
+
+.projet.open .projet-icon {
     transform: rotate(45deg);
 }
 
-.projet-icon {
-    transition: transform 0.5s;
-}
 
 .projet:hover .additional-text, .projet.open .additional-text {
     opacity: 1;
@@ -266,6 +265,14 @@ body {
     pointer-events: none; /* Désactive les événements de pointage lorsque l'élément est masqué */
 }
 
+/* Classes to trigger animations */
+.projet-iframe-container.opening {
+    animation: openProject 0.5s forwards;
+}
+
+.projet-iframe-container.closing {
+    animation: closeProject 0.5s forwards;
+}
 
 /* Animations for project opening and closing */
 @keyframes openProject {
@@ -285,18 +292,6 @@ body {
         transform: translateY(-100%);
     }
 }
-
-/* Classes to trigger animations */
-.projet-iframe-container.opening {
-    animation: openProject 0.5s forwards;
-}
-
-.projet-iframe-container.closing {
-    animation: closeProject 0.5s forwards;
-}
-
-
-
 
 
 .mainMenu{
