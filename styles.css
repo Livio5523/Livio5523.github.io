@@ -39,7 +39,9 @@ body {
     height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
     flex-shrink: 0; 
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
+    z-index: 1000 !important;
 }
+
 
 
 .bar.expanded ~ .bar {
@@ -74,29 +76,29 @@ body {
 .bar-red:hover:not(.expanded), .bar-red.expanded {
     background-color: #FF5B54;
     text-decoration: underline;
+    text-underline-offset: 11px;
     text-decoration-thickness: 3px;
-    transition: background-color none;
 }
 
 .bar-green:hover:not(.expanded), .bar-green.expanded {
     background-color: #38F88B;
     text-decoration: underline;
+    text-underline-offset: 11px;
     text-decoration-thickness: 3px;
-    transition: background-color none;
 }
 
 .bar-blue:hover:not(.expanded), .bar-blue.expanded {
     background-color: #5E97EC;
     text-decoration: underline;
+    text-underline-offset: 11px;
     text-decoration-thickness: 3px;
-    transition: background-color none;
 }
 
 .bar-about:hover:not(.expanded), .bar-about.expanded {
     background-color: #ECFF75;
     text-decoration: underline;
+    text-underline-offset: 11px;
     text-decoration-thickness: 3px;
-    transition: background-color none;
 }
 
 
@@ -113,19 +115,18 @@ body {
     top: 0;
     left: 100%;
     width: calc(var(--translate-x) - 10%);
-    height: 120%;
+    height: 110%;
     overflow-y: scroll;
     overflow-x: hidden;
     box-sizing: content-box;
     -ms-overflow-style: none;
     scrollbar-width: none;
     display: none; /* Cache les menus par défaut */
-    z-index: -10 !important;
+    z-index: -1;
 }
 
 /* Classe pour afficher le menu avec une animation */
 .menu.show {
-    display: flex;
     animation: slideInMenu 0.5s forwards;
 }
 
@@ -206,7 +207,7 @@ body {
     position: relative;
     background-color: white;
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
-    z-index: 100 !important;
+    z-index: 100;
 }
 
 .projet.open{
