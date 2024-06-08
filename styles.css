@@ -38,9 +38,8 @@ body {
     top: 0; /* Garde les barres en haut lors du défilement */
     height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
     flex-shrink: 0; 
-    z-index: 20 !important;
+    z-index: 10;
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
-
 }
 
 
@@ -123,12 +122,12 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
     display: none; /* Cache les menus par défaut */
-    z-index: -100 !important;
+    z-index: -1;
 }
 
 /* Classe pour afficher le menu avec une animation */
 .menu.show {
-    display: block;
+    display: flex;
     animation: slideInMenu 0.5s forwards;
 }
 
@@ -206,26 +205,28 @@ body {
 /* PROJETS */
 
 .projet{
+    position: relative;
     background-color: white;
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
+    z-index: 100 !important;
 }
 
 .projet.open{
     position: sticky; top: -5px;;
-   
 }
 
 .projet.open ~ .projet {
     transform: translateY(var(--iframeSize)); /* Ajustez la valeur en fonction de vos besoins */
 }
 
-
 .projet-iframe-container {
     display: none;
     overflow: hidden; /* Hide scrollbars */
     position: relative;
-    z-index: -10 !important;
+    background-color: white;
 }
+
+/* Ajoutez des sélecteurs supplémentaires pour ajuster selon le nombre d'iframes */
 
 .projet-iframe {
     width: 100%;
@@ -257,6 +258,15 @@ body {
     
 }
 
+.additional-text {
+    opacity: 0;
+    display: none;
+    position: absolute;
+    text-align: left;
+    pointer-events: none; /* Désactive les événements de pointage lorsque l'élément est masqué */
+}
+
+
 /* Animations for project opening and closing */
 @keyframes openProject {
     from {
@@ -286,13 +296,6 @@ body {
 }
 
 
-.additional-text {
-    opacity: 0;
-    display: none;
-    position: absolute;
-    text-align: left;
-    pointer-events: none; /* Désactive les événements de pointage lorsque l'élément est masqué */
-}
 
 
 
@@ -376,3 +379,4 @@ body {
     height: 100%;
     object-fit: contain; /* Ensure the image fits within the container without being cropped or distorted */
 }
+
