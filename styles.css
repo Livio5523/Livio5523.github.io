@@ -39,7 +39,7 @@ body {
     height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
     flex-shrink: 0; 
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
-    z-index: 1000 !important;
+    z-index: 1000;
 }
 
 

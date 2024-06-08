@@ -57,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
         container.style.zIndex = iframeContainers.length - index;
     });
 
+
     projets.forEach((projet) => {
         projet.addEventListener("click", (e) => {
             e.preventDefault(); // Empêcher le comportement par défaut du lien
