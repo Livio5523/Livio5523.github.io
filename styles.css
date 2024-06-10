@@ -37,8 +37,8 @@ body {
     cursor: pointer;
     top: 0; /* Garde les barres en haut lors du défilement */
     height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
-    flex-shrink: 0; 
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
+    flex-shrink: 0;
     z-index: 1000;
 }
 

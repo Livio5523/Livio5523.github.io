@@ -39,7 +39,7 @@ function toggleMenu(bar, barLength) {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", (e2) => {
     const bars = document.querySelectorAll('.bar');
     const projets = document.querySelectorAll('.projet');
 
@@ -55,6 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
     iframeContainers.forEach((container, index) => {
         // Ajuster le z-index en fonction de la position dans le DOM
         container.style.zIndex = iframeContainers.length - index;
+    });
+    bars.forEach((container, index) => {
+        // Ajuster le z-index en fonction de la position dans le DOM
+        container.style.zIndex = bars.length - index;
     });
 
 
