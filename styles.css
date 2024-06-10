@@ -277,7 +277,7 @@ body {
 
 /* Animations for project opening and closing */
 @keyframes openProject {
-    from {
+        from {
         transform: translateY(-100%);
     }
     to {
@@ -361,13 +361,21 @@ body {
 }
 
 @keyframes slideIn {
-    from { left: 100%; }
-    to { left: 0; }
+    from {
+        left: 100%;
+    }
+    to {
+        left: 0;
+    }
 }
 
 @keyframes slideOut {
-    from { left: 0; }
-    to { left: -100%; }
+    from {
+        left: 0;
+    }
+    to {
+        left: -100%;
+    }
 }
 
 .slideshow-container img {

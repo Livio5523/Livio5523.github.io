@@ -134,7 +134,6 @@ document.addEventListener("DOMContentLoaded", (e2) => {
         container.style.zIndex = iframeContainers.length - index;
     });
     bars.forEach((container, index) => {
-        // Ajuster le z-index en fonction de la position dans le DOM
         container.style.zIndex = bars.length - index;
     });
 
