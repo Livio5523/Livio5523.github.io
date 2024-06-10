@@ -215,6 +215,7 @@ body {
 
 .projet.open{
     position: sticky; 
+    transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
     top: -5px;;
 }
 
@@ -253,12 +254,10 @@ body {
 .projet:hover .additional-text, .projet.open .additional-text {
     opacity: 1;
     position: absolute;
-    display: block;
+    display: flex;
     transform: rotate(0deg);
-    left: 1%;
-    align-content: center;
+    left: 1%;    
     pointer-events: auto;
-    
 }
 
 .additional-text {
@@ -266,7 +265,9 @@ body {
     display: none;
     position: absolute;
     text-align: left;
+    align-content: center;
     pointer-events: none; /* Désactive les événements de pointage lorsque l'élément est masqué */
+    align-items: center; /* Centre le contenu verticalement */
 }
 
 /* Classes to trigger animations */

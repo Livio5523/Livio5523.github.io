@@ -5,7 +5,8 @@
 - [ ] gérer les outline/border
 - [ ] corriger le bug du clic qui ferme la barre (est réaparu pour une raison obscure)
 - [ ] ajustements visuels
-- [ ] responsive desktop  
+- [ ] responsive desktop
+- [ ] mettre le contenu en place   
 - [ ] device version    
    
 
