@@ -4,7 +4,8 @@
 
 
 body {
-    font-family: "Roc Grotesk Variable";
+    /*font-family: "Roc Grotesk Variable";*/
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     background-color: white;
@@ -13,7 +14,8 @@ body {
 }
 
 h1 {
-    font-family: "Roc Grotesk Variable";
+    /*font-family: "Roc Grotesk Variable";*/
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 140px;
     font-style: normal;
     font-weight: 700;
@@ -28,7 +30,8 @@ h1 {
 .introduction{
     width: 71.31%;
     text-align: justify;
-    font-family: "Roc Grotesk Variable";
+    /*font-family: "Roc Grotesk Variable";*/
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 22px;
     font-style: normal;
     font-weight: 400;
@@ -93,7 +96,8 @@ h1 {
 }
 
 .text-overlay {
-    font-family: "Roc Grotesk Variable";
+    /*font-family: "Roc Grotesk Variable";*/
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 80px;
     font-style: normal;
     font-weight: 700;

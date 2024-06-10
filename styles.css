@@ -5,7 +5,8 @@
 }
 
 body {
-    font-family: "Roc Grotesk Variable";
+    /*font-family: "Roc Grotesk Variable";*/
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -58,7 +59,8 @@ body {
 
 
 .bar span {
-    font-family: "Roc Grotesk Variable";
+    /*font-family: "Roc Grotesk Variable";*/
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 60px;
     font-style: normal;
     font-weight: 400;
@@ -105,7 +107,8 @@ body {
 /* PROJETS */
 
 .menu {
-    font-family: "Roc Grotesk Variable";
+    /*font-family: "Roc Grotesk Variable";*/
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 60px;
     font-style: normal;
     font-weight: 400;
@@ -303,7 +306,8 @@ body {
 
 #page-title {
     color: #000;
-    font-family: "Roc Grotesk Variable";
+    /*font-family: "Roc Grotesk Variable";*/
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 300px;
     font-style: normal;
     font-weight: 500;
@@ -314,7 +318,8 @@ body {
 
 #page-subtitle {
     color: #000;
-    font-family: "Roc Grotesk Variable";
+    /*font-family: "Roc Grotesk Variable";*/
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 60px;
     font-style: normal;
     font-weight: 400;
