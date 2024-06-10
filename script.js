@@ -1,3 +1,80 @@
+function closeProject(iframeContainer, projet) {
+    iframeContainer.classList.remove('opening');
+    iframeContainer.classList.add('closing');
+
+    iframeContainer.addEventListener('animationend', () => {
+        iframeContainer.style.display = 'none';
+        projet.classList.remove('open');
+        iframeContainer.classList.remove('closing');
+    }, { once: true });
+}
+
+function openProject(iframeContainer, projet, iframe) {
+    iframeContainer.style.display = 'block';
+    iframeContainer.classList.add('opening');
+    projet.classList.add('open');
+
+    // Ajuster la hauteur de l'iframe après son affichage
+    iframe.onload = function() {
+        adjustIframeHeight(iframe);
+    };
+
+    // Ajuster immédiatement la hauteur si le contenu est déjà chargé
+    if (iframe.contentWindow.document.readyState === 'complete') {
+        adjustIframeHeight(iframe);
+    }
+}
+
+function startSlideshows() {
+    const slideshows = [
+        { slides: document.getElementsByClassName('mySlidesRED'), index: 0 },
+        { slides: document.getElementsByClassName('mySlidesGREEN'), index: 0 },
+        { slides: document.getElementsByClassName('mySlidesBLUE'), index: 0 },
+    ];
+
+    slideshows.forEach(showSlides);
+
+    function showSlides(slideshow) {
+        const { slides, index } = slideshow;
+        if (slides.length === 0) return;
+
+        const currentSlide = slides[index];
+        const nextIndex = (index + 1) % slides.length;
+        const nextSlide = slides[nextIndex];
+
+        Array.from(slides).forEach(slide => {
+            slide.style.display = 'none';
+            slide.classList.remove('slide-in', 'slide-out');
+        });
+
+        currentSlide.style.display = 'block';
+        currentSlide.classList.add('slide-out');
+
+        nextSlide.style.display = 'block';
+        nextSlide.classList.add('slide-in');
+
+        slideshow.index = nextIndex;
+        setTimeout(() => showSlides(slideshow), 5000); // Duration to display the slide before starting the slide-out animation
+    }
+}
+
+function adjustIframeHeight(iframe) {
+    try {
+        const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        iframe.style.height = iframeDocument.documentElement.scrollHeight + 'px';
+
+        // Vérifier les changements dans le contenu pour ajuster dynamiquement la hauteur
+        const observer = new MutationObserver(() => {
+            iframe.style.height = iframeDocument.documentElement.scrollHeight + 'px';
+        });
+
+        observer.observe(iframeDocument.body, { childList: true, subtree: true, attributes: true });
+
+    } catch (error) {
+        console.error("Erreur lors de l'ajustement de la hauteur de l'iframe : ", error);
+    }
+}
+
 function toggleMenu(bar, barLength) {
     const menu = bar.querySelector('.menu');
     const mainMenu = document.querySelector('.mainMenu');
@@ -83,82 +160,5 @@ document.addEventListener("DOMContentLoaded", (e2) => {
     });
 });
 
-function closeProject(iframeContainer, projet) {
-    iframeContainer.classList.remove('opening');
-    iframeContainer.classList.add('closing');
-
-    iframeContainer.addEventListener('animationend', () => {
-        iframeContainer.style.display = 'none';
-        projet.classList.remove('open');
-        iframeContainer.classList.remove('closing');
-    }, { once: true });
-}
-
-function openProject(iframeContainer, projet, iframe) {
-    iframeContainer.style.display = 'block';
-    iframeContainer.classList.add('opening');
-    projet.classList.add('open');
-
-    // Ajuster la hauteur de l'iframe après son affichage
-    iframe.onload = function() {
-        adjustIframeHeight(iframe);
-    };
-
-    // Ajuster immédiatement la hauteur si le contenu est déjà chargé
-    if (iframe.contentWindow.document.readyState === 'complete') {
-        adjustIframeHeight(iframe);
-    }
-}
-
-function adjustIframeHeight(iframe) {
-    try {
-        const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-        iframe.style.height = iframeDocument.documentElement.scrollHeight + 'px';
-
-        // Vérifier les changements dans le contenu pour ajuster dynamiquement la hauteur
-        const observer = new MutationObserver(() => {
-            iframe.style.height = iframeDocument.documentElement.scrollHeight + 'px';
-        });
-
-        observer.observe(iframeDocument.body, { childList: true, subtree: true, attributes: true });
-
-    } catch (error) {
-        console.error("Erreur lors de l'ajustement de la hauteur de l'iframe : ", error);
-    }
-}
-
 
 startSlideshows();
-
-function startSlideshows() {
-    const slideshows = [
-        { slides: document.getElementsByClassName('mySlidesRED'), index: 0 },
-        { slides: document.getElementsByClassName('mySlidesGREEN'), index: 0 },
-        { slides: document.getElementsByClassName('mySlidesBLUE'), index: 0 },
-    ];
-
-    slideshows.forEach(showSlides);
-
-    function showSlides(slideshow) {
-        const { slides, index } = slideshow;
-        if (slides.length === 0) return;
-
-        const currentSlide = slides[index];
-        const nextIndex = (index + 1) % slides.length;
-        const nextSlide = slides[nextIndex];
-
-        Array.from(slides).forEach(slide => {
-            slide.style.display = 'none';
-            slide.classList.remove('slide-in', 'slide-out');
-        });
-
-        currentSlide.style.display = 'block';
-        currentSlide.classList.add('slide-out');
-
-        nextSlide.style.display = 'block';
-        nextSlide.classList.add('slide-in');
-
-        slideshow.index = nextIndex;
-        setTimeout(() => showSlides(slideshow), 5000); // Duration to display the slide before starting the slide-out animation
-    }
-}
