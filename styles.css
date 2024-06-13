@@ -34,13 +34,13 @@ body {
     width: var(--bar-size);
     background-color: white;
     color: rgb(0, 0, 0);
-    border-right: 5px solid black;
     cursor: pointer;
     top: 0; /* Garde les barres en haut lors du défilement */
     height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
     flex-shrink: 0;
     z-index: 1000;
+    outline: 5px solid black;
 }
 
 
@@ -168,11 +168,8 @@ body {
     display: flex;
     text-align: right;
     text-decoration: none;
-   
     align-items: center; /* Centre le contenu verticalement */
     justify-content: flex-end; /* Aligne le contenu à droite */
-    box-shadow: 0 -5px 0 #000;
-
 }
 
 /* Menu item hover colors */
@@ -211,6 +208,7 @@ body {
     background-color: white;
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
     z-index: 100;
+    outline: 5px solid black;
 }
 
 .projet.open{
@@ -325,7 +323,6 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: 100%; /* 60px */
-
     margin-top: -14%;
 }
 
