@@ -15,7 +15,7 @@ body {
     justify-content: center;
     align-items: flex-start;;
     height: 100vh;
-    background-color: white;
+   
     overflow-y: auto;
 }
 
@@ -35,14 +35,17 @@ body {
     justify-content: flex-start;
     align-items: center;
     width: var(--bar-size);
+
     background-color: white;
+    z-index: 1000;
+
+    
     color: rgb(0, 0, 0);
     cursor: pointer;
     top: 0; /* Garde les barres en haut lors du défilement */
     height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
     flex-shrink: 0;
-    z-index: 1000;
     outline: var(--outlineSize) solid black;
 }
 
