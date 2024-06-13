@@ -2,7 +2,8 @@
     --translate-x: 62.5%; /* 1200px 62.5% */
     --bar-size: 3.75%; /*72 px*/
     --iframeSize: 0px;
-    --outlineSize: 5px
+    --outlineSize: 5px;
+    --underlineOffset: 7px;
 }
 
 body {
@@ -81,28 +82,28 @@ body {
 .bar-red:hover:not(.expanded), .bar-red.expanded {
     background-color: #FF5B54;
     text-decoration: underline;
-    text-underline-offset: 11px;
+    text-underline-offset: var(--underlineOffset);
     text-decoration-thickness: 3px;
 }
 
 .bar-green:hover:not(.expanded), .bar-green.expanded {
     background-color: #38F88B;
     text-decoration: underline;
-    text-underline-offset: 11px;
+    text-underline-offset: var(--underlineOffset);
     text-decoration-thickness: 3px;
 }
 
 .bar-blue:hover:not(.expanded), .bar-blue.expanded {
     background-color: #5E97EC;
     text-decoration: underline;
-    text-underline-offset: 11px;
+    text-underline-offset: var(--underlineOffset);
     text-decoration-thickness: 3px;
 }
 
 .bar-about:hover:not(.expanded), .bar-about.expanded {
     background-color: #ECFF75;
     text-decoration: underline;
-    text-underline-offset: 11px;
+    text-underline-offset: var(--underlineOffset);
     text-decoration-thickness: 3px;
 }
 
@@ -184,28 +185,28 @@ body {
 .menu-red a:hover, .projet-red.open {
     background-color: #FF5B54;
     text-decoration: underline;
-    text-underline-offset: 11px;
+    text-underline-offset: var(--underlineOffset);
     text-decoration-thickness: 3px;
 }
 
 .menu-green a:hover, .projet-green.open{
     background-color: #38F88B;
     text-decoration: underline;
-    text-underline-offset: 11px;
+    text-underline-offset: var(--underlineOffset);
     text-decoration-thickness: 3px;
 }
 
 .menu-blue a:hover, .projet-blue.open{
     background-color: #5E97EC;
     text-decoration: underline;
-    text-underline-offset: 11px;
+    text-underline-offset: var(--underlineOffset);
     text-decoration-thickness: 3px;
 }
 
 .menu-about a:hover, .projet-about.open{
     background-color: #ECFF75;
     text-decoration: underline;
-    text-underline-offset: 11px;
+    text-underline-offset: var(--underlineOffset);
     text-decoration-thickness: 3px;
 }
 
