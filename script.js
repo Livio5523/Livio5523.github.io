@@ -1,29 +1,43 @@
 function closeProject(iframeContainer, projet) {
+    projet.classList.remove('open');
+    iframeContainer.style.height = iframeContainer.scrollHeight + 'px'; // Force la hauteur avant de retirer la classe 'opening'
     iframeContainer.classList.remove('opening');
     iframeContainer.classList.add('closing');
-
+    
+    // Écoute de la fin de l'animation de fermeture
     iframeContainer.addEventListener('animationend', () => {
-        iframeContainer.style.display = 'none';
-        projet.classList.remove('open');
-        iframeContainer.classList.remove('closing');
+        iframeContainer.style.height = ''; // Réinitialise la hauteur après la fermeture
+        iframeContainer.style.transition = 'height 0.5s'; // Ajoute une transition à la hauteur
+        iframeContainer.style.display = 'none'; // Cacher le conteneur de l'iframe à la fin de l'animation
+        iframeContainer.classList.remove('closing'); // Supprimer la classe 'closing' après l'animation
     }, { once: true });
 }
 
 function openProject(iframeContainer, projet, iframe) {
+    // Assurer que le conteneur de l'iframe est visible avant l'animation
     iframeContainer.style.display = 'block';
-    iframeContainer.classList.add('opening');
-    projet.classList.add('open');
+    projet.classList.add('open'); // Ajouter la classe 'open' pour indiquer que le projet est ouvert
+    iframeContainer.classList.add('opening'); // Ajouter la classe 'opening' pour l'animation d'ouverture
 
-    // Ajuster la hauteur de l'iframe après son affichage
+    // Réinitialiser la hauteur au cas où elle aurait été réduite lors de la fermeture précédente
+    iframeContainer.style.height = '0';
+    iframeContainer.style.transition = 'height 0.5s'; // Ajouter une transition à la hauteur
+
+    // Calculer la hauteur réelle du contenu de l'iframe après le chargement complet
     iframe.onload = function() {
         adjustIframeHeight(iframe);
+        iframeContainer.style.height = iframeContainer.scrollHeight + 'px'; // Réglez la hauteur sur la hauteur totale du contenu
     };
 
     // Ajuster immédiatement la hauteur si le contenu est déjà chargé
     if (iframe.contentWindow.document.readyState === 'complete') {
         adjustIframeHeight(iframe);
+        iframeContainer.style.height = iframeContainer.scrollHeight + 'px'; // Réglez la hauteur sur la hauteur totale du contenu
     }
+    
 }
+
+
 
 function startSlideshows() {
     const slideshows = [
