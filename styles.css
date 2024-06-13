@@ -224,7 +224,7 @@ body {
 
 .projet.open{
     position: sticky; 
-    top:  -(var(--outlineSize));
+    top: calc(-1 * var(--outlineSize));;
 }
 
 .projet.open ~ .projet {
