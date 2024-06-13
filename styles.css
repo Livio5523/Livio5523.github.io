@@ -15,6 +15,7 @@ body {
     align-items: flex-start;;
     height: 100vh;
     background-color: white;
+    overflow-y: auto;
 }
 
 .container {
@@ -110,15 +111,11 @@ body {
 
 .menu {
     display: none; /* Cache les menus par défaut */
-    min-height: min-content;
-    flex-grow: 1;
-    flex-direction: column;
-
     position: absolute;
     top: 0;
     left: 100%;
     width: calc(var(--translate-x) );
-    height: auto;
+    height: 100%;
 
     overflow-y: auto;
     
@@ -174,6 +171,7 @@ body {
 
 .menu a {
     height: 72px;
+    margin-bottom: var(--outlineSize);
     color: black;
     display: flex;
     text-align: right;

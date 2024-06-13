@@ -97,12 +97,12 @@ function toggleMenu(bar, barLength) {
         });
         // Ouvre le menu de la barre cliquée
         mainMenu.style.display = 'none';
-        menu.style.display = 'flex';
+        menu.style.display = 'block';
         menu.classList.add('show');
         bar.classList.add('expanded');
         const width = document.body.offsetWidth;
         const barsWidth = bar.clientWidth;
-        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) /* outline of bars */) + "px");
+        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) -10/* outline of bars */) + "px");
     } else {
         // Ferme le menu de la barre cliquée
         menu.classList.remove('show');
@@ -112,7 +112,7 @@ function toggleMenu(bar, barLength) {
             menu.classList.remove('hide');
         }, { once: true });
         bar.classList.remove('expanded');
-        mainMenu.style.display = 'flex';
+        mainMenu.style.display = 'block';
     }
 }
 
