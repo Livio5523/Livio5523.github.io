@@ -4,14 +4,17 @@ function closeProject(iframeContainer, projet) {
     iframeContainer.classList.remove('opening');
     iframeContainer.classList.add('closing');
     
+    // Ajoute une transition à la hauteur (si ce n'est pas déjà défini dans le CSS)
+    iframeContainer.style.transition = 'height 0.5s';
+
     // Écoute de la fin de l'animation de fermeture
     iframeContainer.addEventListener('animationend', () => {
         iframeContainer.style.height = ''; // Réinitialise la hauteur après la fermeture
-        iframeContainer.style.transition = 'height 0.5s'; // Ajoute une transition à la hauteur
         iframeContainer.style.display = 'none'; // Cacher le conteneur de l'iframe à la fin de l'animation
         iframeContainer.classList.remove('closing'); // Supprimer la classe 'closing' après l'animation
     }, { once: true });
 }
+
 
 function openProject(iframeContainer, projet, iframe) {
     // Assurer que le conteneur de l'iframe est visible avant l'animation
