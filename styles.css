@@ -29,10 +29,10 @@ body {
 }
 
 .bar {
-    position: sticky;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    position: sticky;
     align-items: center;
     width: var(--bar-size);
 
@@ -220,6 +220,8 @@ body {
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
     z-index: 100;
     outline: var(--outlineSize) solid black;
+    transition: transform 0.5s ease; /* Ajoute une transition pour le déplacement */
+
 }
 
 .projet.open{
@@ -237,8 +239,9 @@ body {
     overflow: hidden; 
     position: relative;
     background-color: white;
-    
+    transition: height 0.5s;
 }
+
 
 /* Ajoutez des sélecteurs supplémentaires pour ajuster selon le nombre d'iframes */
 
