@@ -269,18 +269,37 @@ body {
     overflow: hidden;
     position: relative;
     background-color: white;
-    transition: height 0.5s ease;
+    transition: height 0.5s ;
 }
 
 
 .projet-iframe-container.opening {
-    display: block;
     transform: translateY(0);
 }
 
 .projet-iframe-container.closing {
-    display: block;
-    transform: translateY(-100%);
+    animation: closeProject 0.5s ;
+}
+
+
+
+/* Simplifiez les animations */
+@keyframes openProject {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes closeProject {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .additional-text {

@@ -41,7 +41,6 @@ function openProject(iframeContainer, projet, iframe) {
 
     // Réinitialiser la hauteur au cas où elle aurait été réduite lors de la fermeture précédente
     iframeContainer.style.height = '0';
-    iframeContainer.style.transition = 'height 0.5s ease'; // Ajouter une transition à la hauteur
 
     // Calculer la hauteur réelle du contenu de l'iframe après le chargement complet
     iframe.onload = function() {
