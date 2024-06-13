@@ -2,6 +2,7 @@
     --translate-x: 62.5%; /* 1200px */
     --bar-size: 3.75%; /*72 px*/
     --iframeSize: 0px;
+    --outlineSize: 5px
 }
 
 body {
@@ -40,7 +41,7 @@ body {
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
     flex-shrink: 0;
     z-index: 1000;
-    outline: 5px solid black;
+    outline: var(--outlineSize) solid black;
 }
 
 
@@ -208,7 +209,7 @@ body {
     background-color: white;
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
     z-index: 100;
-    outline: 5px solid black;
+    outline: var(--outlineSize) solid black;
 }
 
 .projet.open{
@@ -226,6 +227,7 @@ body {
     overflow: hidden; /* Hide scrollbars */
     position: relative;
     background-color: white;
+    
 }
 
 /* Ajoutez des sélecteurs supplémentaires pour ajuster selon le nombre d'iframes */
@@ -233,6 +235,7 @@ body {
 .projet-iframe {
     width: 100%;
     border: none;
+    padding: var(--outlineSize); /* utile pour contrer les outlines (on chipote ici) */
 }
 
 .projet.open + .projet-iframe-container {

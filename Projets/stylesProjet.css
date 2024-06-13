@@ -1,5 +1,6 @@
 :root{
     --sectionHeight: 1002px; /*1002px*/
+    --outlineSize: 5px;
 }
 
 
@@ -61,17 +62,17 @@ h1 {
     width: 42.37vw; /* Set maximum width to one-third of viewport width */
     height: var(--sectionHeight); /* Set maximum height to full viewport height */
     object-fit: cover;
-    outline: 5px solid black;
+    outline: var(--outlineSize) solid black;
 }
 
 .triptique {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 0 5px; /* Padding to create space for the gap */
+    padding: 0 var(--outlineSize); /* Padding to create space for the gap */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     background-color: black; /* Set background color to black to show the gap */
-    gap: 5px;
+    gap: var(--outlineSize);
 }
 
 .image-container {
@@ -121,7 +122,7 @@ h1 {
 }
 
 .separation {
-    height: 5px;
+    height: var(--outlineSize);
     width: 100%;
     background-color: black; /* Couleur de fond de votre choix */
 }
