@@ -4,8 +4,6 @@ function closeProject(iframeContainer, projet) {
     iframeContainer.classList.remove('opening');
     iframeContainer.classList.add('closing');
     
-    // Assurez-vous que la transition de hauteur est définie
-    iframeContainer.style.transition = 'height 0.5s';
 
     // Écoute de la fin de l'animation de fermeture
     iframeContainer.addEventListener('transitionend', () => {
@@ -29,7 +27,6 @@ function openProject(iframeContainer, projet, iframe) {
 
     // Réinitialiser la hauteur au cas où elle aurait été réduite lors de la fermeture précédente
     iframeContainer.style.height = '0';
-    iframeContainer.style.transition = 'height 0.5s'; // Ajouter une transition à la hauteur
 
     // Calculer la hauteur réelle du contenu de l'iframe après le chargement complet
     iframe.onload = function() {
@@ -41,11 +38,8 @@ function openProject(iframeContainer, projet, iframe) {
     if (iframe.contentWindow.document.readyState === 'complete') {
         adjustIframeHeight(iframe);
         iframeContainer.style.height = iframeContainer.scrollHeight + 'px'; // Réglez la hauteur sur la hauteur totale du contenu
-    }
-    
+    }      
 }
-
-
 
 function startSlideshows() {
     const slideshows = [

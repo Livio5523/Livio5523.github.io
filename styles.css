@@ -217,10 +217,8 @@ body {
 .projet{
     position: relative;
     background-color: white;
-    transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
     z-index: 100;
     outline: var(--outlineSize) solid black;
-    transition: transform 0.5s ease; /* Ajoute une transition pour le déplacement */
 
 }
 
