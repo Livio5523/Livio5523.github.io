@@ -44,9 +44,7 @@ body {
     flex-shrink: 0;
     z-index: 1000;
     outline: var(--outlineSize) solid black;
-
 }
-
 
 
 .bar.expanded ~ .bar {
@@ -136,6 +134,17 @@ body {
     text-align: right;
 }
 
+.menu a {
+    height: 72px;
+    margin-bottom: var(--outlineSize);
+    color: black;
+    display: flex;
+    text-align: right;
+    text-decoration: none;
+    align-items: center; /* Centre le contenu verticalement */
+    justify-content: flex-end; /* Aligne le contenu à droite */
+}
+
 /* Classe pour afficher le menu avec une animation */
 .menu.show {
     animation: slideInMenu 0.5s forwards;
@@ -170,16 +179,6 @@ body {
     display: none;
 }
 
-.menu a {
-    height: 72px;
-    margin-bottom: var(--outlineSize);
-    color: black;
-    display: flex;
-    text-align: right;
-    text-decoration: none;
-    align-items: center; /* Centre le contenu verticalement */
-    justify-content: flex-end; /* Aligne le contenu à droite */
-}
 
 /* Menu item hover colors */
 .menu-red a:hover, .projet-red.open {
