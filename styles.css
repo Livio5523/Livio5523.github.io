@@ -224,20 +224,11 @@ body {
 
 .projet.open{
     position: sticky; 
-    transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
     top: -5px;;
 }
 
 .projet.open ~ .projet {
     transform: translateY(var(--iframeSize)); /* Ajustez la valeur en fonction de vos besoins */
-}
-
-.projet-iframe-container {
-    display: none;
-    overflow: hidden; 
-    position: relative;
-    background-color: white;
-    transition: height 0.5s;
 }
 
 
@@ -271,6 +262,27 @@ body {
     pointer-events: auto;
 }
 
+
+/* Classes to trigger animations */
+.projet-iframe-container {
+    display: none;
+    overflow: hidden;
+    position: relative;
+    background-color: white;
+    transition: height 0.5s ease;
+}
+
+
+.projet-iframe-container.opening {
+    display: block;
+    transform: translateY(0);
+}
+
+.projet-iframe-container.closing {
+    display: block;
+    transform: translateY(-100%);
+}
+
 .additional-text {
     opacity: 0;
     display: none;
@@ -279,34 +291,6 @@ body {
     align-content: center;
     pointer-events: none; /* Désactive les événements de pointage lorsque l'élément est masqué */
     align-items: center; /* Centre le contenu verticalement */
-}
-
-/* Classes to trigger animations */
-.projet-iframe-container.opening {
-    animation: openProject 0.5s forwards;
-}
-
-.projet-iframe-container.closing {
-    animation: closeProject 0.5s forwards;
-}
-
-/* Animations for project opening and closing */
-@keyframes openProject {
-        from {
-        transform: translateY(-100%);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
-
-@keyframes closeProject {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-100%);
-    }
 }
 
 
