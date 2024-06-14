@@ -6,6 +6,11 @@
     --underlineOffset: 7px;
 }
 
+@font-face {
+    font-family: "Roc Grotesk Variable";
+    src: url();
+}
+
 body {
     /*font-family: "Roc Grotesk Variable";*/
     font-family: Arial, Helvetica, sans-serif;
@@ -328,7 +333,8 @@ body {
 
 #page-title {
     color: #000;
-    font-family: "Roc Grotesk Variable";
+    font-family: "roc-grotesk-variable",sans-serif;
+    font-variation-settings: 'wdth' 100, 'wght' 500;
     /*font-family: Arial, Helvetica, sans-serif;*/
     font-size: 300px;
     font-style: normal;
