@@ -67,7 +67,6 @@ body {
     font-weight: 400;
     font-size: 60px;
     font-style: normal;
-    font-weight: 400;
     display: flex; /* Utilisation de flexbox */
     align-items: center; /* Centre le contenu verticalement */
     width: 100%;
