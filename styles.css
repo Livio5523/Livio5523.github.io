@@ -6,11 +6,6 @@
     --underlineOffset: 7px;
 }
 
-@font-face {
-    font-family: "Roc Grotesk Variable";
-    src: url();
-}
-
 body {
     font-family: roc-grotesk, sans-serif; 
     font-weight: 400;
@@ -20,7 +15,6 @@ body {
     justify-content: center;
     align-items: flex-start;;
     height: 100vh;
-   
     overflow-y: auto;
 }
 
