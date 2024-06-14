@@ -66,15 +66,26 @@ h1 {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 0 var(--outlineSize); /* Padding to create space for the gap */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     background-color: black; /* Set background color to black to show the gap */
+    gap: var(--outlineSize);
+}
+
+.triptique_A4 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: var(--sectionHeight);
+    align-items: center;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    background-color: white; /* Set background color to black to show the gap */
     gap: var(--outlineSize);
 }
 
 .image-container {
     position: relative;
     flex: 1;
+    outline: 5px solid black;
     
 }
 
@@ -93,16 +104,6 @@ h1 {
     display: flex;
 }
 
-
-.triptique_A4 {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0 var(--outlineSize); /* Padding to create space for the gap */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    background-color: black; /* Set background color to black to show the gap */
-    gap: var(--outlineSize);
-}
 
 
 .image-container:hover .text-overlay {
