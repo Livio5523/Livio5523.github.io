@@ -22,7 +22,7 @@ h1 {
     line-height: 85.714%; /* 85.714% 120px*/
     text-align: left;
     text-transform: uppercase;
-    width: 100%; /*50% au cas ou*/
+    width: 50%; /*50% au cas ou*/
     margin: 0;
     padding-bottom: 30px;
 }
