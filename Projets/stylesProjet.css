@@ -91,9 +91,9 @@ h1 {
 
 .triptique-image {
     width: 100%;
-    height: var(--sectionHeight); /* Set maximum height to full viewport height */
+    /*height: var(--sectionHeight);*/ /* Set maximum height to full viewport height */
     object-fit: cover;
-    display: block;
+    display: flex;
 }
 
 
