@@ -139,11 +139,9 @@ function toggleMenu(bar, barLength) {
         mainMenu.style.display = 'none';
         menu.style.display = 'block';
         bar.classList.add('expanded');
-        if (menu.classList.contains("hide")) {
-            menu.classList.remove("hide");
-        }
-        if (menu.style.display == "none") {
+        if (menu.style.display == "none" || menu.classList.contains("hide")) {
             menu.classList.remove('show');
+            bar.classList.remove("expended");
         } else {
             menu.classList.add('show');
         }
