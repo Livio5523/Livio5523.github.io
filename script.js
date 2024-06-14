@@ -118,40 +118,45 @@ function toggleMenu(bar, barLength) {
     const menu = bar.querySelector('.menu');
     const mainMenu = document.querySelector('.mainMenu');
     const isVisible = menu.classList.contains('show');
+    const width = document.body.offsetWidth;
+    const barsWidth = bar.clientWidth;
 
     if (!isVisible) {
         // Ferme tous les menus
         const bars = document.querySelectorAll('.bar');
-        bars.forEach(bar => {
-            const menu = bar.querySelector('.menu');
-            if (menu.classList.contains('show')) {
-                menu.classList.remove('show');
-                menu.classList.add('hide');
-                menu.addEventListener('animationend', () => {
-                    menu.style.display = 'none';
-                    menu.classList.remove('hide');
+        bars.forEach((indivBars) => {
+            const barMenu = indivBars.querySelector('.menu');
+            if (barMenu.classList.contains('show')) {
+                barMenu.classList.replace("show", "hide");
+                barMenu.addEventListener('animationend', () => {
+                    barMenu.style.display = 'none';
+                    barMenu.classList.remove('hide');
                 }, { once: true });
             }
-            bar.classList.remove('expanded');
+            indivBars.classList.remove('expanded');
         });
         // Ouvre le menu de la barre cliquée
         mainMenu.style.display = 'none';
         menu.style.display = 'block';
-        menu.classList.add('show');
         bar.classList.add('expanded');
-        const width = document.body.offsetWidth;
-        const barsWidth = bar.clientWidth;
-        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) -10/* outline of bars */) + "px");
+        if (menu.classList.contains("hide")) {
+            menu.classList.remove("hide");
+        }
+        if (menu.style.display == "none") {
+            menu.classList.remove('show');
+        } else {
+            menu.classList.add('show');
+        }
+        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) -10 /* outline of bars */) + "px");
     } else {
         // Ferme le menu de la barre cliquée
-        menu.classList.remove('show');
-        menu.classList.add('hide');
+        menu.classList.replace("show", "hide");
         menu.addEventListener('animationend', () => {
-            menu.style.display = 'none';
             menu.classList.remove('hide');
+            menu.style.display = 'none';
         }, { once: true });
-        bar.classList.remove('expanded');
         mainMenu.style.display = 'block';
+        bar.classList.remove('expanded');
     }
 }
 
