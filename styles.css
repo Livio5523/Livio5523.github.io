@@ -274,7 +274,7 @@ body {
 
 
 .projet-iframe-container.opening {
-    transform: translateY(0);
+    animation: closeProject 0.5s ;
 }
 
 .projet-iframe-container.closing {
