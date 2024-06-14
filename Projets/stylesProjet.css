@@ -5,8 +5,8 @@
 
 
 body {
-    font-family: "roc-grotesk-variable",sans-serif;
-    font-variation-settings: 'wdth' 100, 'wght' 400; 
+    font-family: roc-grotesk, sans-serif;    
+    font-weight: 700;
     margin: 0;
     padding: 0;
     background-color: white;
@@ -15,14 +15,14 @@ body {
 }
 
 h1 {
-    font-family: "roc-grotesk-variable",sans-serif;
-    font-variation-settings: 'wdth' 100, 'wght' 700; 
+    font-family: roc-grotesk, sans-serif;
+    font-weight: 600;
     font-size: 140px;
     font-style: normal;
     line-height: 85.714%; /* 85.714% 120px*/
     text-align: left;
     text-transform: uppercase;
-    width: 100%;
+    width: 100%; /*50% au cas ou*/
     margin: 0;
     padding-bottom: 30px;
 }
@@ -30,8 +30,8 @@ h1 {
 .introduction{
     width: 71.31%;
     text-align: justify;
-    font-family: "roc-grotesk-variable",sans-serif;
-    font-variation-settings: 'wdth' 100, 'wght' 400; 
+    font-family: roc-grotesk, sans-serif; 
+    font-weight: 400;
     font-size: 22px;
     font-style: normal;
     line-height: normal;
@@ -95,8 +95,8 @@ h1 {
 }
 
 .text-overlay {
-    font-family: "roc-grotesk-variable",sans-serif;
-    font-variation-settings: 'wdth' 100, 'wght' 700; 
+    font-family: roc-grotesk, sans-serif; 
+    font-weight: 700;
     font-size: 80px;
     font-style: normal;
     line-height: 100%;

@@ -12,8 +12,8 @@
 }
 
 body {
-    font-family: "roc-grotesk-variable",sans-serif;
-    font-variation-settings: 'wdth' 100, 'wght' 400; 
+    font-family: roc-grotesk, sans-serif; 
+    font-weight: 400;
     margin: 0;
     padding: 0;
     display: flex;
@@ -69,8 +69,8 @@ body {
 
 
 .bar span {
-    font-family: "roc-grotesk-variable",sans-serif;
-    font-variation-settings: 'wdth' 100, 'wght' 400; 
+    font-family: roc-grotesk, sans-serif; 
+    font-weight: 400;
     font-size: 60px;
     font-style: normal;
     font-weight: 400;
@@ -133,8 +133,8 @@ body {
     z-index: -10000;
     gap: var(--outlineSize);
 
-    font-family: "roc-grotesk-variable",sans-serif;
-    font-variation-settings: 'wdth' 100, 'wght' 400; 
+    font-family: roc-grotesk, sans-serif; 
+    font-weight: 400;
     font-size: 60px;
     font-style: normal;
     text-transform: uppercase;
@@ -332,8 +332,8 @@ body {
 
 #page-title {
     color: #000;
-    font-family: "roc-grotesk-variable",sans-serif;
-    font-variation-settings: 'wdth' 100, 'wght' 500;
+    font-family: roc-grotesk, sans-serif; 
+    font-weight: 500;
     font-size: 300px;
     font-style: normal;
     line-height: 75%; /* 225px */
@@ -345,8 +345,8 @@ body {
 
 #page-subtitle {
     color: #000;
-    font-family: "roc-grotesk-variable",sans-serif;
-    font-variation-settings: 'wdth' 100, 'wght' 400; 
+    font-family: roc-grotesk, sans-serif; 
+    font-weight: 400;
     font-size: 60px;
     font-style: normal;
     line-height: 100%; /* 60px */
