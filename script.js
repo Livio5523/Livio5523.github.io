@@ -165,19 +165,6 @@ document.addEventListener("DOMContentLoaded", (e2) => {
         });
     });
 
-    const iframeContainers = document.querySelectorAll('.projet-iframe-container');
-    
-    // Parcours de chaque conteneur d'iframe
-    iframeContainers.forEach((container, index) => {
-        // Ajuster le z-index en fonction de la position dans le DOM
-        container.style.zIndex = iframeContainers.length - index;
-    });
-    bars.forEach((container, index) => {
-        // Ajuster le z-index en fonction de la position dans le DOM
-        container.style.zIndex = bars.length - index;
-    });
-
-
     projets.forEach((projet) => {
         projet.addEventListener("click", (e) => {
             e.preventDefault(); // Empêcher le comportement par défaut du lien
