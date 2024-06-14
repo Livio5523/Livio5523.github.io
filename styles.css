@@ -116,15 +116,15 @@ body {
     position: absolute;
     top: 0;
     left: 100%;
-    width: calc(var(--translate-x) );
+    width: calc(var(--translate-x));
     height: 100%;
+    
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 
-    overflow-y: auto;
-    
-    /*overflow-y: scroll;
-    overflow-x: hidden;*/
     box-sizing: content-box;
-    
     z-index: -1;
     gap: var(--outlineSize);
 
