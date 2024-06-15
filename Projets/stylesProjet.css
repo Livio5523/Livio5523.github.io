@@ -5,8 +5,7 @@
 
 
 body {
-    /*font-family: "Roc Grotesk Variable";*/
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: roc-grotesk, sans-serif;    
     margin: 0;
     padding: 0;
     background-color: white;
@@ -15,28 +14,26 @@ body {
 }
 
 h1 {
-    /*font-family: "Roc Grotesk Variable";*/
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: roc-grotesk, sans-serif;
+    font-weight: 600;
     font-size: 140px;
     font-style: normal;
-    font-weight: 700;
     line-height: 85.714%; /* 85.714% 120px*/
     text-align: left;
     text-transform: uppercase;
-    width: 50%;
+    width: 50%; /*50% au cas ou*/
     margin: 0;
     padding-bottom: 30px;
 }
 
 .introduction{
-    width: 71.31%;
-    text-align: justify;
-    /*font-family: "Roc Grotesk Variable";*/
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: roc-grotesk, sans-serif; 
+    font-weight: 400;
     font-size: 22px;
     font-style: normal;
-    font-weight: 400;
     line-height: normal;
+    width: 71.31%;
+    text-align: justify;
     letter-spacing: 0.22px;
     margin: 0;
 }
@@ -69,15 +66,26 @@ h1 {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 0 var(--outlineSize); /* Padding to create space for the gap */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     background-color: black; /* Set background color to black to show the gap */
+    gap: var(--outlineSize);
+}
+
+.triptique_A4 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: var(--sectionHeight);
+    align-items: center;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    background-color: white; /* Set background color to black to show the gap */
     gap: var(--outlineSize);
 }
 
 .image-container {
     position: relative;
     flex: 1;
+    outline: 5px solid black;
     
 }
 
@@ -91,28 +99,21 @@ h1 {
 
 .triptique-image {
     width: 100%;
-    height: var(--sectionHeight); /* Set maximum height to full viewport height */
+    /*height: var(--sectionHeight);*/ /* Set maximum height to full viewport height */
     object-fit: cover;
-    display: block;
+    display: flex;
 }
 
-.text-overlay {
-    /*font-family: "Roc Grotesk Variable";*/
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 80px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 100%;
-    position: absolute;
-    top: 2%;
-    left: 2%;
-    color: white;
-    opacity: 0;
-}
+
 
 .image-container:hover .text-overlay {
     opacity: 1;
 }
+
+.image-container:hover .text-overlay-black {
+    opacity: 1;
+}
+
 
 .img-fullWidth{
     width: 100%;
@@ -125,4 +126,31 @@ h1 {
     height: var(--outlineSize);
     width: 100%;
     background-color: black; /* Couleur de fond de votre choix */
+}
+
+
+.text-overlay {
+    font-family: roc-grotesk, sans-serif; 
+    font-weight: 600;
+    font-size: 80px;
+    font-style: normal;
+    line-height: 100%;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    color: white;
+    opacity: 0;
+}
+
+.text-overlay-black {
+    font-family: roc-grotesk, sans-serif;  
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    color: black;
+    opacity: 0;
 }
