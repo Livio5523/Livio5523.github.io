@@ -218,12 +218,11 @@ body {
     background-color: white;
     z-index: 100;
     outline: var(--outlineSize) solid black;
-
 }
 
 .projet.open{
     position: sticky; 
-    top: calc(-1 * var(--outlineSize));;
+    top: 0;
 }
 
 .projet.open ~ .projet {
