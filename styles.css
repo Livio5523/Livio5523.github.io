@@ -315,9 +315,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Align all elements at the top */
-    height: 100%;
-    margin-left: 2.2%;
-    margin-top: 2.2%;
+    height: 92vh; /*91.2*/
+    /*height: 100%;*/
+    margin: 2.2%;
     z-index: -1; /* Ensure it is above other elements if necessary */
 }
 
@@ -354,6 +354,7 @@ body {
     height: 433px;
     width: 100%;
     margin: 0%;
+    margin-right: 10%;
     flex-wrap: nowrap; /* Empêche les éléments d'aller à la ligne */
     justify-content: center;
     gap:var(--outlineSize); /* Espacement entre les diaporamas */
@@ -368,7 +369,6 @@ body {
 .mySlidesRED, .mySlidesGREEN, .mySlidesBLUE {
     position: absolute; /* Positioning the slides absolutely within the container */
     width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
     display: none; /* Slides are hidden by default */
