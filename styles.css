@@ -317,7 +317,10 @@ body {
     align-items: flex-start; /* Align all elements at the top */
     height: 92vh; /*91.2*/
     /*height: 100%;*/
-    margin: 2.2%;
+    margin-top: 3.5%;
+    margin-right: 2.5%;
+    margin-left: 1.4%;
+    margin-bottom: 2.5%;
     z-index: -1; /* Ensure it is above other elements if necessary */
 }
 
