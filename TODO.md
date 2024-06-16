@@ -22,4 +22,5 @@
 - [x] mise en page d'un projet type (voir si transferable depuis Figma)
 - [x] scroll en bas des projet qui ne va pas au bout
 - [x] gérer les outline/border
-- [x] animation d'ouverture de projet  
+- [x] animation d'ouverture de projet
+- [x] Bonne typographie en ligne   
