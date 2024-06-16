@@ -155,7 +155,7 @@ function toggleMenu(bar, barLength) {
             menu.classList.remove('hide');
             menu.style.display = 'none';
         }, { once: true });
-        mainMenu.style.display = 'block';
+        mainMenu.style.display = 'flex';
         bar.classList.remove('expanded');
     }
 }
