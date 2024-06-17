@@ -316,9 +316,9 @@ body {
     flex-direction: column;
     align-items: flex-start; /* Align all elements at the top */
     margin-top: 2.5%;
-    margin-right: 2.5%;
+    margin-right: 2%;
     margin-left: 1.4%;
-    margin-bottom: 2.5%;
+    margin-bottom: 1.5%;
     z-index: -1; /* Ensure it is above other elements if necessary */
     position: relative;
 }
