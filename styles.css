@@ -315,13 +315,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Align all elements at the top */
-    height: 92vh; /*91.2*/
-    /*height: 100%;*/
-    margin-top: 3.5%;
+    margin-top: 2.5%;
     margin-right: 2.5%;
     margin-left: 1.4%;
     margin-bottom: 2.5%;
     z-index: -1; /* Ensure it is above other elements if necessary */
+    position: relative;
 }
 
 #page-title {
@@ -332,11 +331,11 @@ body {
     line-height: 75%; /* 225px */
     text-transform: uppercase;
     text-align: left;
-    text-align: start;
     margin: 0%;
     color: #000;
-    margin-bottom: 35px;
-
+    margin-bottom: 1%;
+    position: relative;
+    left: -1.1%; /* Ajustez cette valeur selon vos besoins */
 }
 
 #page-subtitle {
@@ -346,21 +345,19 @@ body {
     font-size: 60px;
     font-style: normal;
     line-height: 100%; /* 60px */
-    margin: 0;
-    margin-left: 1.1%;
-    
+    margin: 0;    
+    position: relative;
+    left: 0; /* Ajustez cette valeur selon vos besoins */
 }
 
-
-.mainSlideShow-container{
+.mainSlideShow-container {
     display: flex;
-    height: 433px;
+    height: 100%;
     width: 100%;
     margin: 0%;
-    margin-right: 10%;
     flex-wrap: nowrap; /* Empêche les éléments d'aller à la ligne */
     justify-content: center;
-    gap:var(--outlineSize); /* Espacement entre les diaporamas */
+    gap: var(--outlineSize); /* Espacement entre les diaporamas */
 }
 
 .slideshow-container {
