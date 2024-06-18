@@ -140,7 +140,9 @@ function toggleMenu(bar, barLength) {
             indivBars.classList.remove('expanded');
         });
         // Ouvre le menu de la barre cliquée
-        mainMenu.style.display = 'none';
+        setTimeout(function() {
+            mainMenu.style.display = 'none';
+        }, 500); // 500 milliseconds = 0.5 second
         menu.style.display = 'block';
         bar.classList.add('expanded');
         if (menu.style.display == "none" || menu.classList.contains("hide")) {
