@@ -140,9 +140,8 @@ function toggleMenu(bar, barLength) {
             indivBars.classList.remove('expanded');
         });
         // Ouvre le menu de la barre cliquée
-        setTimeout(function() {
-            mainMenu.style.display = 'none';
-        }, 500); // 500 milliseconds = 0.5 second attention peut provoquer un soucis au double clic
+        
+        //mainMenu.style.display = 'none';
         menu.style.display = 'block';
         bar.classList.add('expanded');
         if (menu.style.display == "none" || menu.classList.contains("hide")) {
@@ -155,7 +154,7 @@ function toggleMenu(bar, barLength) {
     } else {
         // Ferme le menu de la barre cliquée
         CloseSmth(menu);
-        mainMenu.style.display = 'flex';
+        //mainMenu.style.display = 'flex';
         bar.classList.remove('expanded');
     }
 }
