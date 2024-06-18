@@ -79,9 +79,7 @@ body {
     z-index: 5;
 }
 
-.bar.expanded{
-    z-index: 3; /* Z-index plus élevé pour la barre étendue */
-}
+
 
 .barBG{
     position: absolute;
