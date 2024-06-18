@@ -36,7 +36,7 @@ body {
     width: var(--bar-size);
 
     background-color: white;
-    z-index: 1000;
+    z-index: 5;
 
     
     color: rgb(0, 0, 0);
@@ -46,6 +46,7 @@ body {
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
     flex-shrink: 0;
     outline: var(--outlineSize) solid black;
+    overflow: visible;
 }
 
 
@@ -54,6 +55,7 @@ body {
 }
 
 .icon {
+    z-index: 5;
     transition: transform 0.5s;
 }
 
@@ -74,11 +76,45 @@ body {
     transform-origin: center; /* Centre de rotation */
     transform: rotate(90deg); /* Rotation de 90 degrés (sens horaire) */
     white-space: nowrap;
+    z-index: 5;
 }
 
+.bar.expanded{
+    z-index: 3; /* Z-index plus élevé pour la barre étendue */
+}
+
+.barBG{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 2; /* Z-index pour être au-dessus du menu */
+}
+
+.bar-red:hover:not(.expanded) .barBG-red,
+.bar-red.expanded .barBG-red {
+    background-color: #FF5B54
+}
+
+.bar-green:hover:not(.expanded) .barBG-green,
+.bar-green.expanded .barBG-green {
+    background-color: #38F88B
+}
+
+.bar-blue:hover:not(.expanded) .barBG-blue,
+.bar-blue.expanded .barBG-blue {
+    background-color: #5E97EC
+}
+
+.bar-about:hover:not(.expanded) .barBG-about,
+.bar-about.expanded .barBG-about {
+    background-color: #ECFF75
+}
 
 /* Specific hover and expanded colors */
-.bar-red:hover:not(.expanded), .bar-red.expanded {
+.bar-red:hover:not(.expanded), .bar-red.expanded{
     background-color: #FF5B54;
     text-decoration: underline;
     text-underline-offset: var(--underlineOffset);
@@ -127,7 +163,7 @@ body {
     scrollbar-width: none;  /* Firefox */
 
     box-sizing: content-box;
-    z-index: -10000;
+    z-index: -1;
     gap: var(--outlineSize);
 
     font-family: roc-grotesk, sans-serif; 
@@ -139,6 +175,7 @@ body {
 
     background-color: white;
 }
+
 
 .menu a {
     height: 72px;
