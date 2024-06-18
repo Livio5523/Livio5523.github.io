@@ -142,7 +142,7 @@ function toggleMenu(bar, barLength) {
         // Ouvre le menu de la barre cliquée
         setTimeout(function() {
             mainMenu.style.display = 'none';
-        }, 500); // 500 milliseconds = 0.5 second
+        }, 500); // 500 milliseconds = 0.5 second attention peut provoquer un soucis au double clic
         menu.style.display = 'block';
         bar.classList.add('expanded');
         if (menu.style.display == "none" || menu.classList.contains("hide")) {
