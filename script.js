@@ -114,6 +114,16 @@ function adjustIframeHeight(iframe) {
     }
 }
 
+function CloseSmth(smth) {
+    if (smth.classList.contains('show')) {
+        smth.classList.replace("show", "hide");
+        smth.addEventListener('animationend', () => {
+            smth.style.display = 'none';
+            smth.classList.remove('hide');
+        }, { once: true });
+    }
+}
+
 function toggleMenu(bar, barLength) {
     const menu = bar.querySelector('.menu');
     const mainMenu = document.querySelector('.mainMenu');
@@ -126,35 +136,23 @@ function toggleMenu(bar, barLength) {
         const bars = document.querySelectorAll('.bar');
         bars.forEach((indivBars) => {
             const barMenu = indivBars.querySelector('.menu');
-            if (barMenu.classList.contains('show')) {
-                barMenu.classList.replace("show", "hide");
-                barMenu.addEventListener('animationend', () => {
-                    barMenu.style.display = 'none';
-                    barMenu.classList.remove('hide');
-                }, { once: true });
-            }
+            CloseSmth(barMenu);
             indivBars.classList.remove('expanded');
         });
         // Ouvre le menu de la barre cliquée
         mainMenu.style.display = 'none';
         menu.style.display = 'block';
         bar.classList.add('expanded');
-        if (menu.classList.contains("hide")) {
-            menu.classList.remove("hide");
-        }
-        if (menu.style.display == "none") {
+        if (menu.style.display == "none" || menu.classList.contains("hide")) {
             menu.classList.remove('show');
+            bar.classList.remove("expended");
         } else {
             menu.classList.add('show');
         }
-        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) -10 /* outline of bars */) + "px");
+        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) /* outline of bars */) + "px");
     } else {
         // Ferme le menu de la barre cliquée
-        menu.classList.replace("show", "hide");
-        menu.addEventListener('animationend', () => {
-            menu.classList.remove('hide');
-            menu.style.display = 'none';
-        }, { once: true });
+        CloseSmth(menu);
         mainMenu.style.display = 'flex';
         bar.classList.remove('expanded');
     }

@@ -9,7 +9,7 @@
 body {
     font-family: roc-grotesk, sans-serif; 
     font-weight: 400;
-    margin: 0;
+    margin: 0px;
     padding: 0;
     display: flex;
     justify-content: center;
@@ -109,6 +109,10 @@ body {
 
 /* PROJETS */
 
+
+.menu::-webkit-scrollbar {
+    display: none;
+}
 .menu {
     display: none; /* Cache les menus par défaut */
     position: absolute;
@@ -176,10 +180,6 @@ body {
     }
 }
 
-
-.menu::-webkit-scrollbar {
-    display: none;
-}
 
 
 /* Menu item hover colors */

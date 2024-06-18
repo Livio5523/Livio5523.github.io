@@ -8,8 +8,10 @@
 - [ ] ajustements visuels
 - [ ] responsive desktop
 - [ ] mettre le contenu en place   
-- [ ] device version    
-   
+- [ ] device version
+- [ ] corriger bug margin: 0; et document.body.offsetWidth;
+- [ ] corriger animation bug that retract
+- [ ] corriger bug bas de page
 
 ### In Progress
 
