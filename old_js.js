@@ -13,9 +13,9 @@ function toggleMenu(bar, barLength) {
     const mainMenu = document.querySelector('.mainMenu');
     const isVisible = menu.classList.contains('show');
     const width = document.body.offsetWidth;
-    const widthScollbar = document.style.width;
     const barsWidth = bar.clientWidth;
 
+    menu.classList.remove("hide");
     if (!isVisible) {
         // Ferme tous les menus
         const bars = document.querySelectorAll('.bar');
@@ -25,19 +25,23 @@ function toggleMenu(bar, barLength) {
             indivBars.classList.remove('expanded');
         });
         // Ouvre le menu de la barre cliquée
-        mainMenu.style.display = 'none';
+        
+        //mainMenu.style.display = 'none';
         menu.style.display = 'block';
         bar.classList.add('expanded');
-        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) /* outline of bars */) + "px");
-        if (menu.style.display == "none" || menu.classList.contains("hide")) {
-            menu.classList.remove('show');
-            bar.classList.remove("expended");
-        } else {
+        if (bar.classList.contains("expanded")) {
             menu.classList.add('show');
+            menu.style.display = "block";
         }
+        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) /* outline of bars */) + "px");
     } else {
         // Ferme le menu de la barre cliquée
         CloseSmth(menu);
+        //mainMenu.style.display = 'flex';
         bar.classList.remove('expanded');
+        if (menu.classList.contains("show")) {
+            menu.classList.add('show');
+            menu.style.display = "block";
+        }
     }
 }
