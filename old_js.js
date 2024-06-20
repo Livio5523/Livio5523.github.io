@@ -1,5 +1,6 @@
 function CloseSmth(smth) {
     if (smth.classList.contains('show')) {
+        smth.style.display = 'block';
         smth.classList.replace("show", "hide");
         smth.addEventListener('animationend', () => {
             smth.style.display = 'none';
@@ -24,24 +25,20 @@ function toggleMenu(bar, barLength) {
             CloseSmth(barMenu);
             indivBars.classList.remove('expanded');
         });
-        // Ouvre le menu de la barre cliquée
         
-        //mainMenu.style.display = 'none';
-        menu.style.display = 'block';
+        // Ouvre le menu de la barre cliquée
         bar.classList.add('expanded');
-        if (bar.classList.contains("expanded")) {
-            menu.classList.add('show');
-            menu.style.display = "block";
-        }
+        menu.classList.add('show');
+        menu.style.display = "block";
         document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) /* outline of bars */) + "px");
     } else {
-        // Ferme le menu de la barre cliquée
         CloseSmth(menu);
-        //mainMenu.style.display = 'flex';
         bar.classList.remove('expanded');
-        if (menu.classList.contains("show")) {
-            menu.classList.add('show');
-            menu.style.display = "block";
-        }
+        menu.classList.remove("show");
+        menu.addEventListener("animationend", () => {
+            if (bar.classList.contains("expanded") && menu.classList.contains("show") && menu.style.display == "none") {
+                menu.style.display = "block";
+            }
+        });
     }
 }
