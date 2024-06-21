@@ -173,7 +173,6 @@ body {
 
     background-color: white;
 
-    transition: width  0.5 ease;
 }
 
 
@@ -203,10 +202,10 @@ body {
 
 @keyframes fadeInLeft {
     0% {
-        clip-path: inset(0 100% 0 0); /* Masque l'élément entièrement */
+        clip-path: polygon(0% 0%,0% 100%,0% 100%,0% 0%);
     }
     100% {
-        clip-path: inset(0 0 0 0); /* Masque l'élément entièrement */
+        clip-path: polygon(100% 0%,100% 100%,0% 100%,0% 0%); 
     }
 }
 
