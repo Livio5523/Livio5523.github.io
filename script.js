@@ -2,6 +2,39 @@ WebFont.load({
     typekit: { id: 'epr6byt' }
 });
 
+function startSlideshows() {
+    const slideshows = [
+        { slides: document.getElementsByClassName('mySlidesRED'), index: 0 },
+        { slides: document.getElementsByClassName('mySlidesGREEN'), index: 0 },
+        { slides: document.getElementsByClassName('mySlidesBLUE'), index: 0 },
+    ];
+
+    slideshows.forEach(showSlides);
+
+    function showSlides(slideshow) {
+        const { slides, index } = slideshow;
+        if (slides.length === 0) return;
+
+        const currentSlide = slides[index];
+        const nextIndex = (index + 1) % slides.length;
+        const nextSlide = slides[nextIndex];
+
+        Array.from(slides).forEach(slide => {
+            slide.style.display = 'none';
+            slide.classList.remove('slide-in', 'slide-out');
+        });
+
+        currentSlide.style.display = 'block';
+        currentSlide.classList.add('slide-out');
+
+        nextSlide.style.display = 'block';
+        nextSlide.classList.add('slide-in');
+
+        slideshow.index = nextIndex;
+        setTimeout(() => showSlides(slideshow), 5000); // Duration to display the slide before starting the slide-out animation
+    }
+}
+
 function CloseSmth(smth) {
     if (smth.classList.contains('show')) {
         smth.style.display = 'block';
@@ -56,39 +89,6 @@ function toggleMenu(bar, barLength) {
             e.stopPropagation();
             e.preventDefault();
         });
-    }
-}
-
-function startSlideshows() {
-    const slideshows = [
-        { slides: document.getElementsByClassName('mySlidesRED'), index: 0 },
-        { slides: document.getElementsByClassName('mySlidesGREEN'), index: 0 },
-        { slides: document.getElementsByClassName('mySlidesBLUE'), index: 0 },
-    ];
-
-    slideshows.forEach(showSlides);
-
-    function showSlides(slideshow) {
-        const { slides, index } = slideshow;
-        if (slides.length === 0) return;
-
-        const currentSlide = slides[index];
-        const nextIndex = (index + 1) % slides.length;
-        const nextSlide = slides[nextIndex];
-
-        Array.from(slides).forEach(slide => {
-            slide.style.display = 'none';
-            slide.classList.remove('slide-in', 'slide-out');
-        });
-
-        currentSlide.style.display = 'block';
-        currentSlide.classList.add('slide-out');
-
-        nextSlide.style.display = 'block';
-        nextSlide.classList.add('slide-in');
-
-        slideshow.index = nextIndex;
-        setTimeout(() => showSlides(slideshow), 5000); // Duration to display the slide before starting the slide-out animation
     }
 }
 
