@@ -3,8 +3,6 @@
 
 ### Todo
 
-- [ ] corriger le bug du clic qui ferme la barre (est réaparu pour une raison obscure)
-- [ ] corriger le bug de scroll
 - [ ] ajustements visuels
 - [ ] responsive desktop
 - [ ] mettre le contenu en place   
@@ -15,7 +13,8 @@
 
 ### In Progress
 
-- [ ] animation d'ouverture des section de couleurs
+- [ ] corriger le bug du clic qui ferme la barre (est réaparu pour une raison obscure)
+- [ ] corriger le bug de scroll
 
 ### Done ✓
 
@@ -25,4 +24,5 @@
 - [x] scroll en bas des projet qui ne va pas au bout
 - [x] gérer les outline/border
 - [x] animation d'ouverture de projet
-- [x] Bonne typographie en ligne   
+- [x] Bonne typographie en ligne
+- [x] animation d'ouverture des section de couleurs   

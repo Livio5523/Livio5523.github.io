@@ -309,16 +309,16 @@ body {
     overflow: hidden;
     position: relative;
     background-color: white;
-    transition: height 0.5s ;
+    transition: height 0.8s ;
 }
 
 
 .projet-iframe-container.opening {
-    animation: closeProject 0.5s ;
+    animation: closeProject 0.8s ;
 }
 
 .projet-iframe-container.closing {
-    animation: closeProject 0.5s ;
+    animation: closeProject 0.8s ;
 }
 
 

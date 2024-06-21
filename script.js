@@ -9,7 +9,7 @@ function closeProject(iframeContainer, projet) {
     iframeContainer.classList.add('closing');
 
     // Assurez-vous que la transition de hauteur est définie
-    iframeContainer.style.transition = 'height 0.5s ease';
+    iframeContainer.style.transition = 'height 0.8s ease';
 
     // Forcer un repaint pour que la transition soit appliquée
     requestAnimationFrame(() => {
