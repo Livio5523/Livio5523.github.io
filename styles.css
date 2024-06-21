@@ -1,6 +1,6 @@
 :root {
     --translate-x: 62.5%; /* 1200px 62.5% */
-    --bar-size: 3.75%; /*72 px*/
+    --bar-size: 4%; /*72 px*/
     --iframeSize: 0px;
     --outlineSize: 5px;
     --underlineOffset: 7px;
@@ -44,7 +44,7 @@ body {
     top: 0; /* Garde les barres en haut lors du défilement */
     height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
     transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
-    flex-shrink: 0;
+    flex-shrink: 0; 
     outline: var(--outlineSize) solid black;
     overflow: visible;
 }
@@ -190,12 +190,12 @@ body {
 
 /* Classe pour afficher le menu avec une animation */
 .menu.show {
-    animation: fadeInLeft 0.5s forwards;
+    animation: fadeInLeft 0.45s forwards;
 }
 
 /* Classe pour cacher le menu avec une animation */
 .menu.hide {
-    animation: fadeInRight 0.5s forwards;
+    animation: fadeInRight 0.45s forwards;
 }
 
 /* Animations */
@@ -319,15 +319,6 @@ body {
 
 
 /* Simplifiez les animations */
-@keyframes openProject {
-    from {
-        transform: translateY(-100%);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
-
 @keyframes closeProject {
     from {
         opacity: 1;

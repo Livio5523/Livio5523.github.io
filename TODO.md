@@ -7,9 +7,6 @@
 - [ ] responsive desktop
 - [ ] mettre le contenu en place   
 - [ ] device version
-- [ ] corriger bug margin: 0; et document.body.offsetWidth;
-- [ ] corriger animation bug that retract
-- [ ] corriger bug bas de page
 
 ### In Progress
 
@@ -25,4 +22,8 @@
 - [x] gérer les outline/border
 - [x] animation d'ouverture de projet
 - [x] Bonne typographie en ligne
-- [x] animation d'ouverture des section de couleurs   
+- [x] animation d'ouverture des section de couleurs
+- [x] corriger animation bug that retract
+- [x] outline differente
+- [x] animation bug voir à travers
+- [x] corriger bug bas de page

@@ -127,10 +127,10 @@ function CloseSmth(smth) {
 
 function toggleMenu(bar, barLength) {
     const menu = bar.querySelector('.menu');
-    const mainMenu = document.querySelector('.mainMenu');
     const isVisible = menu.classList.contains('show');
     const width = document.body.offsetWidth;
     const barsWidth = bar.clientWidth;
+    const mainMenu = document.querySelector(".mainMenu");
 
     menu.classList.remove("hide");
     if (!isVisible) {
@@ -146,17 +146,22 @@ function toggleMenu(bar, barLength) {
         bar.classList.add('expanded');
         menu.classList.add('show');
         menu.style.display = "block";
-        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) /* outline of bars */) + "px");
+        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) - 25/* outline of bars */) + "px");
+
     } else {
+        mainMenu.style.display = "flex";
         CloseSmth(menu);
         bar.classList.remove('expanded');
         menu.classList.remove("show");
-        menu.addEventListener("animationend", () => {
-            if (bar.classList.contains("expanded") && menu.classList.contains("show") && menu.style.display == "none") {
-                menu.style.display = "block";
-            }
-        });
     }
+    menu.addEventListener("animationend", () => {
+        if (bar.classList.contains("expanded")) {
+            mainMenu.style.display = "none";
+        }
+        if (bar.classList.contains("expanded") && menu.classList.contains("show") && menu.style.display == "none") {
+            menu.style.display = "block";
+        }
+    });
 }
 
 document.addEventListener("DOMContentLoaded", (e2) => {
