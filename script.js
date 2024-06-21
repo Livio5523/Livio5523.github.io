@@ -10,7 +10,6 @@ function startSlideshows() {
     ];
 
     slideshows.forEach(showSlides);
-
     function showSlides(slideshow) {
         const { slides, index } = slideshow;
         if (slides.length === 0) return;
