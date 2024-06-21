@@ -172,7 +172,10 @@ function toggleMenu(bar, barLength) {
 }
 
 
-document.addEventListener("DOMContentLoaded", (e2) => {
+document.addEventListener("DOMContentLoaded", () => {
+    WebFont.load({
+        typekit: { id: 'epr6byt' }
+      });
     const bars = document.querySelectorAll('.bar');
     const projets = document.querySelectorAll('.projet');
 

@@ -1,0 +1,111 @@
+:root {
+    --bar-size: 4%; /*72 px*/
+}
+
+.bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: sticky;
+    align-items: center;
+    width: var(--bar-size);
+
+    background-color: white;
+    z-index: 5;
+
+    
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    top: 0; /* Garde les barres en haut lors du défilement */
+    height: 100vh; /* S'assure que les barres couvrent toute la hauteur de la fenêtre */
+    transition: transform 0.5s; /* Ajoute une transition uniquement pour la translation */
+    flex-shrink: 0; 
+    outline: var(--outlineSize) solid black;
+    overflow: visible;
+}
+
+
+.bar.expanded ~ .bar {
+    transform: translateX(var(--translate-x)); /* Adjust the width of the menu here */
+}
+
+
+.bar.expanded .icon {
+    transform: rotate(45deg);
+}
+
+
+.bar span {
+    font-family: roc-grotesk, sans-serif; 
+    font-weight: 400;
+    font-size: 60px;
+    font-style: normal;
+    display: flex; /* Utilisation de flexbox */
+    align-items: center; /* Centre le contenu verticalement */
+    width: 100%;
+    height: 11%;
+    transform-origin: center; /* Centre de rotation */
+    transform: rotate(90deg); /* Rotation de 90 degrés (sens horaire) */
+    white-space: nowrap;
+    z-index: 5;
+}
+
+
+.barBG{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    z-index: 2; /* Z-index pour être au-dessus du menu */
+}
+
+.bar-red:hover:not(.expanded) .barBG-red,
+.bar-red.expanded .barBG-red {
+    background-color: #FF5B54
+}
+
+.bar-green:hover:not(.expanded) .barBG-green,
+.bar-green.expanded .barBG-green {
+    background-color: #38F88B
+}
+
+.bar-blue:hover:not(.expanded) .barBG-blue,
+.bar-blue.expanded .barBG-blue {
+    background-color: #5E97EC
+}
+
+.bar-about:hover:not(.expanded) .barBG-about,
+.bar-about.expanded .barBG-about {
+    background-color: #ECFF75
+}
+
+/* Specific hover and expanded colors */
+.bar-red:hover:not(.expanded), .bar-red.expanded{
+    background-color: #FF5B54;
+    text-decoration: underline;
+    text-underline-offset: var(--underlineOffset);
+    text-decoration-thickness: 3px;
+}
+
+.bar-green:hover:not(.expanded), .bar-green.expanded {
+    background-color: #38F88B;
+    text-decoration: underline;
+    text-underline-offset: var(--underlineOffset);
+    text-decoration-thickness: 3px;
+}
+
+.bar-blue:hover:not(.expanded), .bar-blue.expanded {
+    background-color: #5E97EC;
+    text-decoration: underline;
+    text-underline-offset: var(--underlineOffset);
+    text-decoration-thickness: 3px;
+}
+
+.bar-about:hover:not(.expanded), .bar-about.expanded {
+    background-color: #ECFF75;
+    text-decoration: underline;
+    text-underline-offset: var(--underlineOffset);
+    text-decoration-thickness: 3px;
+}

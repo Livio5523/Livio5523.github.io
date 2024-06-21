@@ -1,0 +1,92 @@
+:root {
+    --iframeSize: 0px;
+}
+/* PROJETS */
+
+.projet{
+    position: relative;
+    background-color: white;
+    z-index: 1;
+    outline: var(--outlineSize) solid black;
+}
+
+.projet.open{
+    position: sticky; 
+    top: 0;
+}
+
+.projet.open ~ .projet {
+    transform: translateY(var(--iframeSize)); /* Ajustez la valeur en fonction de vos besoins */
+}
+
+
+/* Ajoutez des sélecteurs supplémentaires pour ajuster selon le nombre d'iframes */
+
+.projet-iframe {
+    width: 100%;
+    border: none;
+}
+
+.projet.open + .projet-iframe-container {
+    display: flex;
+}
+
+
+.projet-icon{
+    transition: all 0.5s;
+}
+
+.projet.open .projet-icon {
+    transform: rotate(45deg);
+}
+
+
+.projet:hover .additional-text, .projet.open .additional-text {
+    opacity: 1;
+    position: absolute;
+    display: flex;
+    transform: rotate(0deg);
+    left: 1%;    
+    pointer-events: auto;
+}
+
+
+/* Classes to trigger animations */
+.projet-iframe-container {
+    display: none;
+    overflow: hidden;
+    position: relative;
+    background-color: white;
+    transition: height 0.5s ;
+}
+
+
+.projet-iframe-container.opening {
+    animation: closeProject 0.5s ;
+}
+
+.projet-iframe-container.closing {
+    animation: closeProject 0.5s ;
+}
+
+
+
+/* Simplifiez les animations */
+@keyframes closeProject {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.additional-text {
+    opacity: 0;
+    display: none;
+    position: absolute;
+    text-align: left;
+    align-content: center;
+    pointer-events: none; /* Désactive les événements de pointage lorsque l'élément est masqué */
+    align-items: center; /* Centre le contenu verticalement */
+}

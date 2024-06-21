@@ -1,0 +1,110 @@
+:root {
+    --translate-x: 62.5%; /* 1200px 62.5% */
+    --outlineSize: 5px;
+    --underlineOffset: 7px;
+}
+
+.menu::-webkit-scrollbar {
+    display: none;
+}
+.menu {
+    display: none; /* Cache les menus par défaut */
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 100%;
+    width: calc(var(--translate-x));
+    height: 100%;
+    
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    box-sizing: content-box;
+    
+    gap: var(--outlineSize);
+
+    font-family: roc-grotesk, sans-serif; 
+    font-weight: 400;
+    font-size: 60px;
+    font-style: normal;
+    text-transform: uppercase;
+    text-align: right;
+
+    background-color: white;
+
+}
+
+
+.menu a {
+    height: 72px;
+    margin-bottom: var(--outlineSize);
+    color: black;
+    display: flex;
+    text-align: right;
+    text-decoration: none;
+    align-items: center; /* Centre le contenu verticalement */
+    justify-content: flex-end; /* Aligne le contenu à droite */
+    text-wrap: nowrap;
+}
+
+/* Classe pour afficher le menu avec une animation */
+.menu.show {
+    animation: fadeInLeft 0.45s forwards;
+}
+
+/* Classe pour cacher le menu avec une animation */
+.menu.hide {
+    animation: fadeInRight 0.45s forwards;
+}
+
+/* Animations */
+
+@keyframes fadeInLeft {
+    0% {
+        clip-path: polygon(0% 0%,0% 100%,0% 100%,0% 0%);
+    }
+    100% {
+        clip-path: polygon(100% 0%,100% 100%,0% 100%,0% 0%); 
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        clip-path: polygon(100% 0%,100% 100%,0% 100%,0% 0%); 
+    }
+    100% {
+        clip-path: polygon(0% 0%,0% 100%,0% 100%,0% 0%);
+    }
+}
+
+
+/* Menu item hover colors */
+.menu-red a:hover, .projet-red.open {
+    background-color: #FF5B54;
+    text-decoration: underline;
+    text-underline-offset: var(--underlineOffset);
+    text-decoration-thickness: 3px;
+}
+
+.menu-green a:hover, .projet-green.open{
+    background-color: #38F88B;
+    text-decoration: underline;
+    text-underline-offset: var(--underlineOffset);
+    text-decoration-thickness: 3px;
+}
+
+.menu-blue a:hover, .projet-blue.open{
+    background-color: #5E97EC;
+    text-decoration: underline;
+    text-underline-offset: var(--underlineOffset);
+    text-decoration-thickness: 3px;
+}
+
+.menu-about a:hover, .projet-about.open{
+    background-color: #ECFF75;
+    text-decoration: underline;
+    text-underline-offset: var(--underlineOffset);
+    text-decoration-thickness: 3px;
+}
