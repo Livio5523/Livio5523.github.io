@@ -146,7 +146,7 @@ function toggleMenu(bar, barLength) {
         bar.classList.add('expanded');
         menu.classList.add('show');
         menu.style.display = "block";
-        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) - 25/* outline of bars */) + "px");
+        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) - 19/* outline of bars */) + "px");
 
     } else {
         mainMenu.style.display = "flex";
@@ -162,7 +162,15 @@ function toggleMenu(bar, barLength) {
             menu.style.display = "block";
         }
     });
+    const show = document.querySelector(".show");
+    if (show) {
+        show.addEventListener("click", (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+        });
+    }
 }
+
 
 document.addEventListener("DOMContentLoaded", (e2) => {
     const bars = document.querySelectorAll('.bar');
@@ -176,8 +184,6 @@ document.addEventListener("DOMContentLoaded", (e2) => {
 
     projets.forEach((projet) => {
         projet.addEventListener("click", (e) => {
-            e.preventDefault(); // Empêcher le comportement par défaut du lien
-            e.stopPropagation(); // Empêcher la propagation de l'événement
 
             const projetId = projet.getAttribute('href').substring(1);
             const iframeContainer = document.getElementById(`container-${projetId}`);

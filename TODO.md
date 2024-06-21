@@ -5,8 +5,9 @@
 
 - [ ] ajustements visuels
 - [ ] responsive desktop
-- [ ] mettre le contenu en place   
+- [ ] mettre le contenu en place
 - [ ] device version
+- [ ] scroll in mainMenu
 
 ### In Progress
 
