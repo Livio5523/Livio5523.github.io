@@ -191,14 +191,33 @@ body {
 
 /* Classe pour afficher le menu avec une animation */
 .menu.show {
-    animation: slideInMenu 0.5s forwards;
+    animation: fadeInLeft 0.5s forwards;
+    /*animation: slideInMenu 0.5s forwards;*/
 }
 
 /* Classe pour cacher le menu avec une animation */
 .menu.hide {
-    animation: slideOutMenu 0.5s forwards;
+    animation: fadeInRight 0.5s forwards;
+    /*animation: slideOutMenu 0.5s forwards;*/
 }
 
+@keyframes fadeInLeft {
+    0% {
+        clip-path: inset(0 100% 0 0); /* Masque l'élément entièrement */
+    }
+    100% {
+        clip-path: inset(0 0 0 0); /* Masque l'élément entièrement */
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        clip-path: inset(0 0 0 100%); /* Masque l'élément entièrement à partir de la droite */
+    }
+    100% {
+        clip-path: inset(0 0 0 0); /* Masque l'élément entièrement */
+    }
+}
 /* Animations */
 @keyframes slideInMenu {
     from {

@@ -51,7 +51,7 @@ function openProject(iframeContainer, projet, iframe) {
     // Ajuster immédiatement la hauteur si le contenu est déjà chargé
     if (iframe.contentWindow.document.readyState === 'complete') {
         adjustIframeHeight(iframe);
-        iframeContainer.style.height = iframeContainer.scrollHeight + 'px'; // Réglez la hauteur sur la hauteur totale du contenu
+        iframeContainer.style.height = iframeContainer.scrollHeight - 15 + 'px'; // Réglez la hauteur sur la hauteur totale du contenu
     }
 
     // Écoute de la fin de la transition de hauteur
