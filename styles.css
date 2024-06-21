@@ -149,6 +149,7 @@ body {
 .menu {
     display: none; /* Cache les menus par défaut */
     position: absolute;
+    z-index: -1;
     top: 0;
     left: 100%;
     width: calc(var(--translate-x));
@@ -160,7 +161,7 @@ body {
     scrollbar-width: none;  /* Firefox */
 
     box-sizing: content-box;
-    z-index: -1;
+    
     gap: var(--outlineSize);
 
     font-family: roc-grotesk, sans-serif; 
@@ -171,6 +172,8 @@ body {
     text-align: right;
 
     background-color: white;
+
+    transition: all 0.5 ease;
 }
 
 
@@ -198,19 +201,23 @@ body {
 /* Animations */
 @keyframes slideInMenu {
     from {
-        transform: translateX(-100%);
+        width: 0%;
+        /*transform: translateX(-100%);*/
     }
     to {
-        transform: translateX(0);
+        width: calc(var(--translate-x));
+        /*transform: translateX(0);*/
     }
 }
 
 @keyframes slideOutMenu {
     from {
-        transform: translateX(0);
+        width: calc(var(--translate-x));
+        /*transform: translateX(0);*/
     }
     to {
-        transform: translateX(-100%);
+        width: 0%;
+        /*transform: translateX(-100%);*/
     }
 }
 
