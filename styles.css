@@ -192,14 +192,14 @@ body {
 /* Classe pour afficher le menu avec une animation */
 .menu.show {
     animation: fadeInLeft 0.5s forwards;
-    /*animation: slideInMenu 0.5s forwards;*/
 }
 
 /* Classe pour cacher le menu avec une animation */
 .menu.hide {
     animation: fadeInRight 0.5s forwards;
-    /*animation: slideOutMenu 0.5s forwards;*/
 }
+
+/* Animations */
 
 @keyframes fadeInLeft {
     0% {
@@ -212,35 +212,12 @@ body {
 
 @keyframes fadeInRight {
     0% {
-        clip-path: inset(0 0 0 100%); /* Masque l'élément entièrement à partir de la droite */
+        clip-path: polygon(100% 0%,100% 100%,0% 100%,0% 0%); 
     }
     100% {
-        clip-path: inset(0 0 0 0); /* Masque l'élément entièrement */
+        clip-path: polygon(0% 0%,0% 100%,0% 100%,0% 0%);
     }
 }
-/* Animations */
-@keyframes slideInMenu {
-    from {
-        width: 0%;
-        /*transform: translateX(-100%);*/
-    }
-    to {
-        width: calc(var(--translate-x));
-        /*transform: translateX(0);*/
-    }
-}
-
-@keyframes slideOutMenu {
-    from {
-        width: calc(var(--translate-x));
-        /*transform: translateX(0);*/
-    }
-    to {
-        width: 0%;
-        /*transform: translateX(-100%);*/
-    }
-}
-
 
 
 /* Menu item hover colors */
