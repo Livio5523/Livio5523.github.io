@@ -173,7 +173,7 @@ body {
 
     background-color: white;
 
-    transition: all 0.5 ease;
+    transition: width  0.5 ease;
 }
 
 
@@ -186,6 +186,7 @@ body {
     text-decoration: none;
     align-items: center; /* Centre le contenu verticalement */
     justify-content: flex-end; /* Aligne le contenu à droite */
+    text-wrap: nowrap;
 }
 
 /* Classe pour afficher le menu avec une animation */
