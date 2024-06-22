@@ -3,16 +3,14 @@
 
 ### Todo
 
-- [ ] ajustements visuels
-- [ ] responsive desktop
-- [ ] mettre le contenu en place
 - [ ] device version
-- [ ] scroll in mainMenu
 
 ### In Progress
 
-- [ ] corriger le bug du clic qui ferme la barre (est réaparu pour une raison obscure)
+- [ ] corriger le bug du clic qui ferme la barre (corrigé mais toujours la souris qui montre que l'on peut cliquer)
 - [ ] corriger le bug de scroll
+- [ ] ajustements visuels
+- [ ] responsive desktop
 
 ### Done ✓
 
@@ -28,3 +26,4 @@
 - [x] outline differente
 - [x] animation bug voir à travers
 - [x] corriger bug bas de page
+- [x] mettre le contenu en place
