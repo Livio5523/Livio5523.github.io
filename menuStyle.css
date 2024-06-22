@@ -49,6 +49,11 @@
     text-wrap: nowrap;
 }
 
+.menu #text{
+    bottom: 40%;
+    background-color: #ECFF75;
+}
+
 /* Classe pour afficher le menu avec une animation */
 .menu.show {
     animation: fadeInLeft 0.45s forwards;

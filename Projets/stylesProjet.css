@@ -1,6 +1,7 @@
 :root{
     --sectionHeight: 1002px; /*1002px*/
     --outlineSize: 5px;
+    --bar-size: 72px; /*72 px ou 4%*/
 }
 
 
@@ -128,6 +129,13 @@ h1 {
     background-color: black; /* Couleur de fond de votre choix */
 }
 
+.separation-large {
+    height: var(--bar-size);
+    width: 100%;
+    background-color: white; /* Couleur de fond de votre choix */
+}
+
+
 
 .text-overlay {
     font-family: roc-grotesk, sans-serif; 
@@ -179,4 +187,28 @@ h1 {
     position: relative;
     width: 100%;
     padding-bottom: 100%; /* Aspect ratio 1:1 to make it square */
+}
+
+.grille_4{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: var(--outlineSize);
+    height: var(--sectionHeight); /* Set maximum height to full viewport height */
+}
+
+.img-grille-4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire container */
+    outline: var(--outlineSize) solid black;
+}
+
+.grille3x3{
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    grid-gap: var(--outlineSize);
+    height: var(--sectionHeight); /* Set maximum height to full viewport height */
 }
