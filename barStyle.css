@@ -63,22 +63,22 @@
 
 .bar-red:hover:not(.expanded) .barBG-red,
 .bar-red.expanded .barBG-red {
-    background-color: #FF5B54
+    background-color: #FF5B54;
 }
 
 .bar-green:hover:not(.expanded) .barBG-green,
 .bar-green.expanded .barBG-green {
-    background-color: #38F88B
+    background-color: #38F88B;
 }
 
 .bar-blue:hover:not(.expanded) .barBG-blue,
 .bar-blue.expanded .barBG-blue {
-    background-color: #5E97EC
+    background-color: #5E97EC;
 }
 
 .bar-about:hover:not(.expanded) .barBG-about,
 .bar-about.expanded .barBG-about {
-    background-color: #ECFF75
+    background-color: #ECFF75;
 }
 
 /* Specific hover and expanded colors */

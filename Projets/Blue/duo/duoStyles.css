@@ -1,0 +1,28 @@
+:root{
+    --sectionHeight: 1002px; /*1002px*/
+    --outlineSize: 5px;
+    --bar-size: 72px; /*72 px ou 4%*/
+}
+
+
+.duo-textSeul{
+    display: flex;
+    position: relative;
+    height: var(--sectionHeight);
+    background-color: #5E97EC;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.textDuo{
+    font-family: roc-grotesk, sans-serif; 
+    font-weight: 600;
+    font-size: 80px;
+    font-style: normal;
+    line-height: 100%;
+    text-align: center;
+    color: white;
+    justify-content: center;
+    top: 50%;
+}
