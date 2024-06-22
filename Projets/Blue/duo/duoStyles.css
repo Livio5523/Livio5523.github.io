@@ -32,6 +32,11 @@
     width: 51%;
 }
 
+.imageFade2{
+    position: relative;
+    width: 41%;
+}
+
 .img-for-fade{
     width: 100%;
     position: relative;
