@@ -84,11 +84,20 @@ h1 {
 }
 
 .image-container {
+    display: flex;
+    justify-content: center;
     position: relative;
     flex: 1;
     outline: 5px solid black;
     
 }
+
+.img-vertical{
+    width: 33.33%;
+    background-color: black; /* Couleur de fond de votre choix */
+    outline: 5px solid black;
+}
+
 
 .image-container:first-child {
     margin-left: 0; /* No left margin for the first image */
@@ -212,3 +221,4 @@ h1 {
     grid-gap: var(--outlineSize);
     height: var(--sectionHeight); /* Set maximum height to full viewport height */
 }
+
