@@ -45,18 +45,19 @@ function CloseSmth(smth) {
     }
 }
 
-function updateMenuPosition(bar, barLength) {
-   
-    const menu = bar.querySelector('.menu');
-    const isVisible = menu.classList.contains('show');
+function updateMenuPosition(bars) {
 
+    const barLength = bars.length;
     const width = document.body.offsetWidth;
-    const barsWidth = bar.clientWidth;
-    console.log("update");
-
-    if (!isVisible) {
-        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) /* outline of bars */) + "px");
-    }
+    bars.forEach((bar) => {
+        const menu = bar.querySelector('.menu');
+        const isVisible = menu.classList.contains('show');
+    
+        if (!isVisible) {
+            const barsWidth = bar.clientWidth;
+            document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) - 19/* outline of bars */) + "px");
+        }
+    });
 }
 
 
@@ -138,9 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-
-
-    bars.forEach((bar) => {
-        window.addEventListener('resize', updateMenuPosition(bar, bars.length));
+    window.addEventListener('resize', () => {
+        updateMenuPosition(bars)
     });
 });
