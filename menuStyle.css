@@ -36,7 +36,6 @@
 
 }
 
-
 .menu a {
     height: 72px;
     margin-bottom: var(--outlineSize);
@@ -48,7 +47,10 @@
     justify-content: flex-end; /* Aligne le contenu à droite */
     text-wrap: nowrap;
 }
-
+.resize-down {
+    padding-top: 10px;
+    background-color: #38F88B;
+}
 .menu #text{
     bottom: 40%;
     background-color: #ECFF75;
