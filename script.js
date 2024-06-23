@@ -45,13 +45,29 @@ function CloseSmth(smth) {
     }
 }
 
+function updateMenuPosition(bar, barLength) {
+   
+    const menu = bar.querySelector('.menu');
+    const isVisible = menu.classList.contains('show');
+
+    const width = document.body.offsetWidth;
+    const barsWidth = bar.clientWidth;
+    console.log("update");
+
+    if (!isVisible) {
+        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) /* outline of bars */) + "px");
+    }
+}
+
+
+
 function toggleMenu(bar, barLength) {
     const menu = bar.querySelector('.menu');
     const isVisible = menu.classList.contains('show');
     const width = document.body.offsetWidth;
     const barsWidth = bar.clientWidth;
     const mainMenu = document.querySelector(".mainMenu");
-
+    
     menu.classList.remove("hide");
     if (!isVisible) {
         // Ferme tous les menus
@@ -91,6 +107,8 @@ function toggleMenu(bar, barLength) {
     }
 }
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const bars = document.querySelectorAll('.bar');
     const projets = document.querySelectorAll('.projet');
@@ -119,5 +137,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 openProject(iframeContainer, projet, iframe);
             }
         });
+    });
+
+
+    bars.forEach((bar) => {
+        window.addEventListener('resize', updateMenuPosition(bar, bars.length));
     });
 });
