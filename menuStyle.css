@@ -48,12 +48,7 @@
     text-wrap: nowrap;
 }
 .resize-down {
-    padding-top: 10px;
-    background-color: #38F88B;
-}
-.menu #text{
-    bottom: 40%;
-    background-color: #ECFF75;
+    padding-top: 9px;
 }
 
 /* Classe pour afficher le menu avec une animation */
