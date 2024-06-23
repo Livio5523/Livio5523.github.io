@@ -46,13 +46,12 @@ function CloseSmth(smth) {
 }
 
 function updateMenuPosition(bars) {
-
     const barLength = bars.length;
     const width = document.body.offsetWidth;
+
     bars.forEach((bar) => {
         const menu = bar.querySelector('.menu');
         const isVisible = menu.classList.contains('show');
-    
         if (!isVisible) {
             const barsWidth = bar.clientWidth;
             document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) - 19/* outline of bars */) + "px");
