@@ -243,7 +243,7 @@ h1 {
 
 
 /* small laptop */
-@media (max-width: 1280px) {
+@media (max-width: 1045px) {
    
     :root{
         --outlineSize: 4px; /*3.75 px si on fait le bon calcul*/
@@ -251,12 +251,12 @@ h1 {
     html {
         font-size: 12px; /* 1rem = 16px */
         
-      }
-    
-    #page-title {
-        
-        background-color: yellow;
     }
+
+    h1{
+        background-color: aqua;
+    }
+    
     
   }
   
