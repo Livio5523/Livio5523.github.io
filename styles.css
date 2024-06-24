@@ -1,7 +1,12 @@
+html {
+    font-size: 16px; /* 1rem = 16px */
+  }
+
 :root {
     --iframeSize: 0px;
     --outlineSize: 5px;
 }
+
 
 body {
     font-family: roc-grotesk, sans-serif; 
@@ -45,7 +50,7 @@ body {
 #page-title {
     font-family: roc-grotesk, sans-serif; 
     font-weight: 500;
-    font-size: 300px;
+    font-size: 18.75rem; /*300px*/
     font-style: normal;
     line-height: 75%; /* 225px */
     text-transform: uppercase;
@@ -61,7 +66,7 @@ body {
     color: #000;
     font-family: roc-grotesk, sans-serif; 
     font-weight: 400;
-    font-size: 60px;
+    font-size: 3.75rem; /*60px*/
     font-style: normal;
     line-height: 100%; /* 60px */
     margin: 0;    
@@ -127,3 +132,55 @@ body {
     height: 100%;
     object-fit: contain; /* Ensure the image fits within the container without being cropped or distorted */
 }
+
+
+/* small laptop */
+@media (max-width: 1280px) {
+   
+    html {
+        font-size: 12px; /* 1rem = 16px */
+      }
+    
+    #page-title {
+        
+        background-color: yellow;
+    }
+    
+  }
+  
+
+
+
+/* small laptop */
+@media (max-width: 1024px) {
+   
+    #page-title {
+        font-size: 100px;
+        background-color: aqua;
+    }
+    
+    #page-subtitle {
+        font-size: 20px;
+    }
+    
+  }
+  
+
+
+/* Tablet */
+@media (max-width: 768px) {
+    :root {
+        --outlineSize: 3px;
+    }
+
+    #page-title {
+        font-size: 100px;
+        background-color: red;
+    }
+    
+    #page-subtitle {
+        font-size: 20px;
+    }
+    
+  }
+  

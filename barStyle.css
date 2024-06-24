@@ -1,5 +1,5 @@
 :root {
-    --bar-size: 4%; /*72 px*/
+    --bar-size: 72px; /*72 px 4%*/
 }
 
 .bar {
@@ -38,7 +38,7 @@
 .bar span {
     font-family: roc-grotesk, sans-serif; 
     font-weight: 400;
-    font-size: 60px;
+    font-size: 3.75rem; /*60px*/
     font-style: normal;
     display: flex; /* Utilisation de flexbox */
     align-items: center; /* Centre le contenu verticalement */
@@ -108,3 +108,19 @@
     text-underline-offset: var(--underlineOffset);
     text-decoration-thickness: 3px;
 }
+
+/* small laptop */
+@media (max-width: 1280px) {
+    :root {
+        --bar-size: 54px; /*72 px 4%*/
+    }
+   
+    .icon {
+        transform: scale(0.75); /* Équivalent à scaleX(0.7) scaleY(0.7) */
+    }
+    .bar.expanded .icon {
+        transform:  scale(0.75) rotate(45deg);
+    }
+    
+  }
+  

@@ -4,6 +4,10 @@
     --bar-size: 72px; /*72 px ou 4%*/
 }
 
+html {
+    font-size: 16px; /* 1rem = 16px */
+  }
+
 
 body {
     font-family: roc-grotesk, sans-serif;    
@@ -17,7 +21,7 @@ body {
 h1 {
     font-family: roc-grotesk, sans-serif;
     font-weight: 600;
-    font-size: 140px;
+    font-size: 8.75rem; /*140px*/
     font-style: normal;
     line-height: 85.714%; /* 85.714% 120px*/
     text-align: left;
@@ -30,7 +34,7 @@ h1 {
 .introduction{
     font-family: roc-grotesk, sans-serif; 
     font-weight: 400;
-    font-size: 22px;
+    font-size: 1.375rem; /*22px*/
     font-style: normal;
     line-height: 30px;
     width: 71.31%;
@@ -148,7 +152,7 @@ h1 {
 .text-overlay {
     font-family: roc-grotesk, sans-serif; 
     font-weight: 600;
-    font-size: 80px;
+    font-size: 5rem; /*80px*/
     font-style: normal;
     line-height: 100%;
     position: absolute;
@@ -165,7 +169,7 @@ h1 {
 
 .text-overlay-black {
     font-family: roc-grotesk, sans-serif;  
-    font-size: 80px;
+    font-size: 5rem; /*80px*/
     font-style: normal;
     font-weight: 600;
     line-height: 100%;
@@ -237,3 +241,22 @@ h1 {
     height: var(--sectionHeight); /* Set maximum height to full viewport height */
 }
 
+
+/* small laptop */
+@media (max-width: 1280px) {
+   
+    :root{
+        --outlineSize: 4px; /*3.75 px si on fait le bon calcul*/
+    }
+    html {
+        font-size: 12px; /* 1rem = 16px */
+        
+      }
+    
+    #page-title {
+        
+        background-color: yellow;
+    }
+    
+  }
+  

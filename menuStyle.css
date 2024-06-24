@@ -2,7 +2,9 @@
     --translate-x: 62.5%; /* 1200px 62.5% */
     --outlineSize: 5px;
     --underlineOffset: 7px;
+    --bar-size: 72px; /*72 px 4%*/
 }
+
 
 .menu::-webkit-scrollbar {
     display: none;
@@ -27,7 +29,7 @@
 
     font-family: roc-grotesk, sans-serif; 
     font-weight: 400;
-    font-size: 60px;
+    font-size: 3.75rem; /*60px*/
     font-style: normal;
     text-transform: uppercase;
     text-align: right;
@@ -37,7 +39,7 @@
 }
 
 .menu a {
-    height: 72px;
+    height: var(--bar-size);
     margin-bottom: var(--outlineSize);
     color: black;
     display: flex;
@@ -110,3 +112,12 @@
     text-underline-offset: var(--underlineOffset);
     text-decoration-thickness: 3px;
 }
+
+/* small laptop */
+@media (max-width: 1280px) {
+    :root {
+        --bar-size: 54px; /*72 px 4%*/
+    }
+    
+  }
+  

@@ -1,5 +1,6 @@
 :root {
     --iframeSize: 0px;
+    --outlineSize: 5px;
 }
 /* PROJETS */
 
@@ -90,3 +91,20 @@
     pointer-events: none; /* Désactive les événements de pointage lorsque l'élément est masqué */
     align-items: center; /* Centre le contenu verticalement */
 }
+
+/* small laptop */
+@media (max-width: 1280px) {
+    :root {
+        --bar-size: 54px; /*72 px 4%*/
+        --outlineSize: 4px; /*3.75 px si on fait le bon calcul*/
+    }
+   
+    .projet-icon {
+        transform: scale(0.75); /* Équivalent à scaleX(0.7) scaleY(0.7) */
+    }
+
+    .projet.open .projet-icon {
+        transform:  scale(0.75) rotate(45deg);
+    }
+  }
+  
