@@ -142,3 +142,26 @@ document.addEventListener("DOMContentLoaded", () => {
         updateMenuPosition(bars)
     });
 });
+
+
+function adjustLayout() {
+    if (window.innerWidth <= 768) {
+      // Charger la version mobile
+      loadMobileLayout();
+    } else {
+      // Charger la version desktop
+      loadDesktopLayout();
+    }
+  }
+  
+  window.addEventListener('resize', adjustLayout);
+  
+  function loadMobileLayout() {
+    // Code pour charger la version mobile
+    window.location.href = 'index_smartphone.html'; //pas parfait et non final mais suffisant pour les test
+  }
+  
+  function loadDesktopLayout() {
+    // Code pour charger la version desktop
+    window.location.href = 'index.html';
+  }
