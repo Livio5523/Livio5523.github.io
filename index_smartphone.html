@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Mobile</title>
+    <link rel="stylesheet" href="https://use.typekit.net/epr6byt.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./smartphone.css">
+    <link rel="stylesheet" href="./menuStyle.css">
+    <link rel="stylesheet" href="./menuProjectStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script src="./project.js"></script>
+    <script src="./script.js"></script>
+    <script src="./smartphoneNav.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <button data-section="section1">RED</button>
+            <button data-section="section2">GREEN</button>
+            <button data-section="section3">BLUE</button>
+            <button data-section="section4">ABOUT</button>
+        </nav>
+    </header>
+    <div class="sections">
+        <section id="section1">
+            <div class="menu menu-red menuSmart">
+                <a href="#organes" class="projet projet-red">
+                    <div class="resize-down">organes</div>
+                    <img src="./Icons/+.svg" alt="Plus Icon" class="projet-icon">
+                    <span class="additional-text">
+                        illustrations
+                    </span>
+                </a>
+                <div class="projet-iframe-container" id="container-organes">
+                    <iframe id="organes" src="./Projets/RED/organes/organes.html" class="projet-iframe" scrolling="no"></iframe>
+                </div>
+
+                <a href="#rasterGrid" class="projet projet-red">
+                    <div class ="resize-down">
+                        raster grid
+                    </div>
+                    <img src="./Icons/+.svg" alt="Plus Icon" class="projet-icon">
+                    <div class="additional-text resize-down">
+                        code
+                    </div>
+                </a>
+                <div class="projet-iframe-container" id="container-rasterGrid">
+                    <iframe id="rasterGrid" src="./Projets/RED/raster_grid/rasterGrid.html" class="projet-iframe" scrolling="no"></iframe>
+                </div>
+
+                <a href="#workshop" class="projet projet-red">
+                    <div class="resize-down">workshop x basil denereaz</div>
+                    <img src="./Icons/+.svg" alt="Plus Icon" class="projet-icon">
+                    <div class="additional-text resize-down">
+                        3d
+                    </div>
+                </a>
+                <div class="projet-iframe-container" id="container-workshop">
+                    <iframe id="workshop" src="./Projets/RED/workshop/workshop.html" class="projet-iframe" scrolling="no"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="section2">Contenu de la Section 2</section>
+        <section id="section3">Contenu de la Section 3</section>
+        <section id="section4">Contenu de la Section 4</section>
+    </div>
+</body>
+</html>
