@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('nav button');
     const sections = document.querySelector('.sections');
-    const sectionCount = document.querySelectorAll('.sections section').length;
 
     // Calcul de la largeur d'une section
     const sectionWidth = sections.offsetWidth;
@@ -23,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     let startX;
-    let scrollLeft;
     let isDown = false;
     let dragStart;
     let dragEnd;
@@ -32,18 +30,20 @@ document.addEventListener('DOMContentLoaded', () => {
         isDown = true;
         startX = e.pageX;
         dragStart = sections.scrollLeft;
+        checkSlide()
     });
 
     sections.addEventListener('mouseup', () => {
         isDown = false;
         dragEnd = sections.scrollLeft;
-        checkSlide();
+        checkSlide()
     });
 
     sections.addEventListener('mouseleave', () => {
         isDown = false;
         dragEnd = sections.scrollLeft;
-        checkSlide();
+        checkSlide()
+        console.log("check slide");
     });
 
     sections.addEventListener('mousemove', (e) => {
@@ -54,12 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.scrollLeft = dragStart - walk;
     });
 
+
     function checkSlide() {
+        console.log("check slide");
         // Calculate the current section index
         const currentSectionIndex = Math.round(sections.scrollLeft / sectionWidth);
 
         // Check if scrolled to the end and loop back to the beginning
-        if (sections.scrollLeft <= 0) {
+        if (currentSectionIndex = 3) {
             sections.scrollLeft = sections.scrollWidth - sectionWidth;
         }
         // Check if scrolled to the beginning and loop back to the end
