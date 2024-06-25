@@ -24,27 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let startX;
     let isDown = false;
     let dragStart;
-    let dragEnd;
 
-    sections.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX;
-        dragStart = sections.scrollLeft;
-        checkSlide()
-    });
 
-    sections.addEventListener('mouseup', () => {
-        isDown = false;
-        dragEnd = sections.scrollLeft;
-        checkSlide()
-    });
-
-    sections.addEventListener('mouseleave', () => {
-        isDown = false;
-        dragEnd = sections.scrollLeft;
-        checkSlide()
-        console.log("check slide");
-    });
 
     sections.addEventListener('mousemove', (e) => {
         if (!isDown) return;
@@ -54,21 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.scrollLeft = dragStart - walk;
     });
 
-
-    function checkSlide() {
-        console.log("check slide");
-        // Calculate the current section index
-        const currentSectionIndex = Math.round(sections.scrollLeft / sectionWidth);
-
-        // Check if scrolled to the end and loop back to the beginning
-        if (currentSectionIndex = 3) {
-            sections.scrollLeft = sections.scrollWidth - sectionWidth;
-        }
-        // Check if scrolled to the beginning and loop back to the end
-        else if (sections.scrollLeft >= sections.scrollWidth - sections.clientWidth) {
-            sections.scrollLeft = 0;
-        }
-    }
 
     // Highlight the active button based on the visible section
     sections.addEventListener('scroll', () => {
