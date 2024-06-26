@@ -20,7 +20,9 @@ nav {
     height: 40px;
 }
 
-nav button {
+/*nav button {} au cas ou*/
+
+.smartButton{
     background: none;
     border: none;
     font-size: 16px;
@@ -28,11 +30,25 @@ nav button {
     width: 25%;
     color: black;
     outline: solid 2px black;
+    background-color: white;
 }
 
-nav button.active {
-    background-color: aqua;
+.smartButton-red.active {
+    background-color: #FF5B54;
 }
+
+.smartButton-green.active {
+    background-color: #38F88B;
+}
+
+.smartButton-blue.active {
+    background-color: #5E97EC;
+}
+
+.smartButton-about.active {
+    background-color: #ECFF75;
+}
+
 
 .sections {
     display: flex;
