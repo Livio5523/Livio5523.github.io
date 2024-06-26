@@ -114,7 +114,7 @@
         --bar-size: 50px; /*72 px 4%*/
         --outlineSize: 2px; /*3.75 px si on fait le bon calcul*/
     }
-
+    
     .projet-icon {
         transform: scale(0.6944); /* Équivalent à scaleX(0.7) scaleY(0.7) */
     }
