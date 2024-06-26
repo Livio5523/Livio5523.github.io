@@ -49,12 +49,10 @@ h1 {
 }
 
 .text-container {
-    flex: 2; /* Take two-thirds of the space */
     padding: 20px;
 }
 
 .img-container {
-    flex: 1; /* Take one-third of the space */
     display: flex;
     justify-content: flex-end; /* Align to the right */
 }
@@ -91,7 +89,7 @@ h1 {
     justify-content: center;
     position: relative;
     flex: 1;
-    outline: 5px solid black;
+    outline: var(--outlineSize) solid black;
     
 }
 
@@ -252,11 +250,44 @@ h1 {
         font-size: 12px; /* 1rem = 16px */
         
     }
-
-    h1{
-        background-color: aqua;
-    }
-    
     
   }
+
+  /* small laptop */
+@media (max-width: 768px) {
+    :root{
+        --outlineSize: 2px; /*3.75 px si on fait le bon calcul*/
+        --sectionHeight: 820px;
+    }
+    html {
+        font-size: 8px; /* 1rem = 8px */   
+    }
+   
+    .title-page {
+        flex-direction: column;
+        height: var(--sectionHeight);
+    }
+
+    .text-container {
+        padding: 7px;
+        height: calc(var(--sectionHeight)*0.5);
+    }
+
+    h1{
+        padding-bottom: 7px;
+    }
+
+    .introduction{
+        font-size: 1.75rem; /*22px*/
+        line-height: 22px;
+        width: 75%;
+    }
+
+    .img-titre {
+        width: 100%; /* Set maximum width to one-third of viewport width */
+        height: calc(var(--sectionHeight)*0.5);;
+    }
+    
+}
+  
   

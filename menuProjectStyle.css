@@ -106,5 +106,13 @@
     .projet.open .projet-icon {
         transform:  scale(0.75) rotate(45deg);
     }
-  }
+}
   
+
+@media (max-width: 768px) {
+    :root {
+        --bar-size: 50px; /*72 px 4%*/
+        --outlineSize: 4px; /*3.75 px si on fait le bon calcul*/
+    }
+}
+
