@@ -51,4 +51,5 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+   /* outline: solid 2px black; possible pour une séparation entre les section mais pas idéal car cré un cadre*/
 }

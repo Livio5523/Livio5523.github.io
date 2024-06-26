@@ -173,6 +173,10 @@ body {
         --outlineSize: 3px;
     }
 
+    html {
+        font-size: 8px; /* 1rem = 16px */
+      }
+
     #page-title {
         font-size: 100px;
         background-color: red;
