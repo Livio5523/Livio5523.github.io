@@ -96,7 +96,7 @@ h1 {
 .img-vertical{
     width: 33.33%;
     background-color: black; /* Couleur de fond de votre choix */
-    outline: 5px solid black;
+    outline:  var(--outlineSize) solid black;
 }
 
 
@@ -285,7 +285,26 @@ h1 {
 
     .img-titre {
         width: 100%; /* Set maximum width to one-third of viewport width */
-        height: calc(var(--sectionHeight)*0.5);;
+        height: calc(var(--sectionHeight)*0.5);
+    }
+
+    .triptique {
+        flex-direction: column;
+    }
+
+    .triptique_A4{
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .grille_6_carré{
+        display: none;
+        flex-direction: column;
+        padding: 0%;
+    }
+
+    .img-vertical{
+        width: 100%;
     }
     
 }

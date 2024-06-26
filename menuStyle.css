@@ -3,6 +3,7 @@
     --outlineSize: 5px;
     --underlineOffset: 7px;
     --bar-size: 72px; /*72 px 4%*/
+    --underlineThickness: 3px;
 }
 
 
@@ -89,28 +90,28 @@
     background-color: #FF5B54;
     text-decoration: underline;
     text-underline-offset: var(--underlineOffset);
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: var(--underlineThickness);
 }
 
 .menu-green a:hover, .projet-green.open{
     background-color: #38F88B;
     text-decoration: underline;
     text-underline-offset: var(--underlineOffset);
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: var(--underlineThickness);
 }
 
 .menu-blue a:hover, .projet-blue.open{
     background-color: #5E97EC;
     text-decoration: underline;
     text-underline-offset: var(--underlineOffset);
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: var(--underlineThickness);
 }
 
 .menu-about a:hover, .projet-about.open{
     background-color: #ECFF75;
     text-decoration: underline;
     text-underline-offset: var(--underlineOffset);
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: var(--underlineThickness);
 }
 
 /* small laptop */
@@ -133,6 +134,17 @@
 @media (max-width: 768px) {
     :root {
         --bar-size: 50px; /*72 px 4%*/
+        --outlineSize: 2px;
+        --underlineOffset: 4px;
+        --underlineThickness: 2px;
+    }
+
+    .menu{
+        font-size: 2.5rem; /*60px*/
+    }
+    
+    .resize-down {
+        padding-top: 1px;
     }
     
 }
