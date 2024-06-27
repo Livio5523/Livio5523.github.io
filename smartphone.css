@@ -54,6 +54,7 @@ nav {
 .sections {
     display: flex;
     overflow-x: scroll;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     position: absolute;
     width: 100%;
@@ -69,6 +70,6 @@ section {
     justify-content: center;
     align-items: center;
    /* outline: solid 2px black; possible pour une séparation entre les section mais pas idéal car cré un cadre*/
-   top: 52px;
-   
+    top: 52px;
+    overflow-y: hidden;  
 }
