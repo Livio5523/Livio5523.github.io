@@ -124,7 +124,7 @@
 
 
 .menuSmart{
-    display: block;
+    display: none;
     z-index: 0;
     position: unset;
     width: 100%;
@@ -147,6 +147,14 @@
     
     .resize-down {
         padding-top: 1px;
+    }
+
+    .menuSmart{
+        display: block;
+        z-index: 0;
+        position: unset;
+        width: 100%;
+        top: 52px;
     }
     
 }

@@ -133,6 +133,15 @@ body {
     object-fit: contain; /* Ensure the image fits within the container without being cropped or distorted */
 }
 
+.desktop_container {
+    display: block;
+  }
+  
+.mobile_container {
+    display: none;
+}
+  
+
 
 /* small laptop */
 @media (max-width: 1280px) {
@@ -145,7 +154,6 @@ body {
         
         background-color: yellow;
     }
-    
   }
   
 
@@ -185,6 +193,14 @@ body {
     #page-subtitle {
         font-size: 20px;
     }
+
+    .desktop_container {
+        display: none;
+    }
+    .mobile_container {
+        display: block;
+    }
+    
     
   }
   
