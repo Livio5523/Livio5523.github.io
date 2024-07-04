@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     window.addEventListener('resize', () => {
-        updateMenuPosition(bars)
+        updateMenuPosition(bars);
     });
 });
 
@@ -165,3 +165,25 @@ function adjustLayout() {
     // Code pour charger la version desktop
     window.location.href = 'index.html';
   }
+
+function updateCSSVariable() {
+    // Obtenez la hauteur de la fenêtre
+    const windowHeight = window.innerHeight;
+    // Obtenez la valeur de l'autre variable CSS
+    const barSize = getComputedStyle(document.documentElement).getPropertyValue(' --bar-size').trim();
+    
+    // Convertissez la valeur en nombre (assumant qu'elle est en px)
+    const barSizeValue = parseFloat( barSize.replace('px', ''));
+
+    // Calculez la nouvelle valeur pour la variable CSS
+    const newHeight = windowHeight - barSizeValue;
+
+    // Mettez à jour la variable CSS
+    document.documentElement.style.setProperty('--sectionHeight', `${newHeight}px`);
+}
+
+// Appelez la fonction lors du chargement de la page
+updateCSSVariable();
+
+// Appelez la fonction à chaque fois que la taille de la fenêtre change
+window.addEventListener('resize', updateCSSVariable);
