@@ -11,6 +11,7 @@
 - [ ] corriger le bug de scroll
 - [ ] ajustements visuels
 - [ ] responsive desktop
+- [ ] chargement + court : Optimiser les images, ! bug quand on ouvre et que pas tout a charger
 
 ### Done ✓
 
