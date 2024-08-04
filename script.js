@@ -57,6 +57,7 @@ function updateMenuPosition(bars) {
             document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) - 19/* outline of bars */) + "px");
         }
     });
+    console.log("aaa");
 }
 
 
@@ -107,13 +108,14 @@ function toggleMenu(bar, barLength) {
     }
 }
 
-function stopRefresh(fn, delay) {
-    let timerId;
-    return (...args) => {
-      clearTimeout(timerId);
-      timerId = setTimeout(fn, delay, [...args]);
+function stopRefresh(func, time){
+    var time = time || 200; // 100 by default if no param
+    var timer;
+    return function(event){
+        if(timer) clearTimeout(timer);
+        timer = setTimeout(func, time, event);
     };
-  };
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const bars = document.querySelectorAll('.bar');
@@ -144,9 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-    window.addEventListener('resize', () => {
-        stopRefresh(updateMenuPosition(bars), 200);
-    });
+    window.addEventListener("resize", stopRefresh(updateMenuPosition(bars), 200));
 });
 
 
