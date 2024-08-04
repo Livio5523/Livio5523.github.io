@@ -116,40 +116,6 @@ function stopRefresh(func, time){
     };
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const bars = document.querySelectorAll('.bar');
-    const projets = document.querySelectorAll('.projet');
-
-
-    startSlideshows();
-    bars.forEach((bar) => {
-        bar.addEventListener("click", () => {
-            toggleMenu(bar, bars.length);
-        });
-    });
-
-    projets.forEach((projet) => {
-        projet.addEventListener("click", () => {
-
-            const projetId = projet.getAttribute('href').substring(1);
-            const iframeContainer = document.getElementById(`container-${projetId}`);
-            const iframe = iframeContainer.querySelector('iframe');
-            const isOpen = projet.classList.contains('open');
-
-            if (isOpen) {
-                // Si le projet est déjà ouvert, le fermer
-                closeProject(iframeContainer, projet);
-            } else {
-                // Ouvrir le projet cliqué
-                openProject(iframeContainer, projet, iframe);
-            }
-        });
-    });
-    // Appelez la fonction lors du chargement de la page
-    updateCSSVariable();
-});
-
-  
 function loadMobileLayout() {
     // Code pour charger la version mobile
     window.location.href = 'index_smartphone.html'; //pas parfait et non final mais suffisant pour les test
@@ -187,9 +153,41 @@ function updateCSSVariable() {
     document.documentElement.style.setProperty('--sectionHeight', `${newHeight}px`);
 }
 
-window.addEventListener('resize', () => {
-    stopRefresh(adjustLayout(), 200)
+document.addEventListener("DOMContentLoaded", () => {
     const bars = document.querySelectorAll('.bar');
-    updateMenuPosition(bars)
-    updateCSSVariable()
+    const projets = document.querySelectorAll('.projet');
+
+
+    startSlideshows();
+    bars.forEach((bar) => {
+        bar.addEventListener("click", () => {
+            toggleMenu(bar, bars.length);
+        });
+    });
+
+    projets.forEach((projet) => {
+        projet.addEventListener("click", () => {
+
+            const projetId = projet.getAttribute('href').substring(1);
+            const iframeContainer = document.getElementById(`container-${projetId}`);
+            const iframe = iframeContainer.querySelector('iframe');
+            const isOpen = projet.classList.contains('open');
+
+            if (isOpen) {
+                // Si le projet est déjà ouvert, le fermer
+                closeProject(iframeContainer, projet);
+            } else {
+                // Ouvrir le projet cliqué
+                openProject(iframeContainer, projet, iframe);
+            }
+        });
+    });
+    // Appelez la fonction lors du chargement de la page
+    updateCSSVariable();
+    window.addEventListener('resize', () => {
+        stopRefresh(adjustLayout(), 200)
+        const bars = document.querySelectorAll('.bar');
+        updateMenuPosition(bars)
+        updateCSSVariable()
+    });
 });
