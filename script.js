@@ -107,7 +107,13 @@ function toggleMenu(bar, barLength) {
     }
 }
 
-
+function stopRefresh(fn, delay) {
+    let timerId;
+    return (...args) => {
+      clearTimeout(timerId);
+      timerId = setTimeout(fn, delay, [...args]);
+    };
+  };
 
 document.addEventListener("DOMContentLoaded", () => {
     const bars = document.querySelectorAll('.bar');
@@ -139,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     window.addEventListener('resize', () => {
-        updateMenuPosition(bars);
+        stopRefresh(updateMenuPosition(bars), 200);
     });
 });
 
