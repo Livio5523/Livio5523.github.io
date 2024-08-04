@@ -3,7 +3,6 @@
 
 ### Todo
 
-- [ ] device version
 
 ### In Progress
 
@@ -11,7 +10,8 @@
 - [ ] corriger le bug de scroll
 - [ ] ajustements visuels
 - [ ] responsive desktop
-- [ ] chargement + court : Optimiser les images, ! bug quand on ouvre et que pas tout a charger
+- [ ] bug quand on ouvre et que pas tout a charger
+- [ ] téléphone, gerer l'ouverture des projets
 
 ### Done ✓
 
@@ -28,3 +28,4 @@
 - [x] animation bug voir à travers
 - [x] corriger bug bas de page
 - [x] mettre le contenu en place
+- [x] chargement + court : Optimiser les images,
