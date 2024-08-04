@@ -161,6 +161,7 @@ function loadMobileLayout() {
 }
 
 function adjustLayout() {
+    console.log(window.location.pathname)
     if (window.innerWidth <= 768 && window.location.pathname != '/index_smartphone.html') {
       // Charger la version mobile
       loadMobileLayout();
@@ -187,7 +188,7 @@ function updateCSSVariable() {
 }
 
 window.addEventListener('resize', () => {
-    stopRefresh(adjustLayout, 200)
+    stopRefresh(adjustLayout(), 200)
     const bars = document.querySelectorAll('.bar');
     updateMenuPosition(bars)
     updateCSSVariable()
