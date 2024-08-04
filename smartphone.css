@@ -60,6 +60,9 @@ nav {
     position: absolute;
     width: 100%;
     top: 52px;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 section {
