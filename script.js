@@ -57,7 +57,6 @@ function updateMenuPosition(bars) {
             document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) - 19/* outline of bars */) + "px");
         }
     });
-    console.log("aaa");
 }
 
 
@@ -146,31 +145,30 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-    window.addEventListener("resize", stopRefresh(updateMenuPosition(bars), 200));
+    // Appelez la fonction lors du chargement de la page
+    updateCSSVariable();
 });
 
-
-function adjustLayout() {
-    if (window.innerWidth <= 768) {
-      // Charger la version mobile
-      loadMobileLayout();
-    } else {
-      // Charger la version desktop
-      loadDesktopLayout();
-    }
-  }
   
-  window.addEventListener('resize', adjustLayout);
-  
-  function loadMobileLayout() {
+function loadMobileLayout() {
     // Code pour charger la version mobile
     window.location.href = 'index_smartphone.html'; //pas parfait et non final mais suffisant pour les test
-  }
+}
   
   function loadDesktopLayout() {
     // Code pour charger la version desktop
     window.location.href = 'index.html';
-  }
+}
+
+function adjustLayout() {
+    if (window.innerWidth <= 768 && window.location.pathname != '/index_smartphone.html') {
+      // Charger la version mobile
+      loadMobileLayout();
+    } else if (window.innerWidth > 768 && window.location.pathname != '/index.html') {
+      // Charger la version desktop
+      loadDesktopLayout();
+    }
+}
 
 function updateCSSVariable() {
     // Obtenez la hauteur de la fenêtre
@@ -188,8 +186,9 @@ function updateCSSVariable() {
     document.documentElement.style.setProperty('--sectionHeight', `${newHeight}px`);
 }
 
-// Appelez la fonction lors du chargement de la page
-updateCSSVariable();
-
-// Appelez la fonction à chaque fois que la taille de la fenêtre change
-window.addEventListener('resize', updateCSSVariable);
+window.addEventListener('resize', () => {
+    stopRefresh(adjustLayout, 200)
+    const bars = document.querySelectorAll('.bar');
+    updateMenuPosition(bars)
+    updateCSSVariable()
+});
