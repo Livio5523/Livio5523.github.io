@@ -124,7 +124,7 @@
     }
 
     .projet.open{
-        top: 52px;
+        top: 52px !important;
     }
     
 }
