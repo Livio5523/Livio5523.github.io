@@ -122,5 +122,10 @@
     .projet.open .projet-icon {
         transform:  scale(0.6944) rotate(45deg);
     }
+
+    .projet.open{
+        top: 52px;
+    }
+    
 }
 
