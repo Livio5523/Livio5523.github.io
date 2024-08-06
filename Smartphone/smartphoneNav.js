@@ -1,5 +1,40 @@
+function startSlideshows() {
+    const slideshows = [
+        { slides: document.getElementsByClassName('mySlidesRED'), index: 0 },
+        { slides: document.getElementsByClassName('mySlidesGREEN'), index: 0 },
+        { slides: document.getElementsByClassName('mySlidesBLUE'), index: 0 },
+    ];
+
+    slideshows.forEach(showSlides);
+    function showSlides(slideshow) {
+        const { slides, index } = slideshow;
+        if (slides.length === 0) return;
+
+        const currentSlide = slides[index];
+        const nextIndex = (index + 1) % slides.length;
+        const nextSlide = slides[nextIndex];
+
+        Array.from(slides).forEach(slide => {
+            slide.style.display = 'none';
+            slide.classList.remove('slide-in', 'slide-out');
+        });
+
+        currentSlide.style.display = 'block';
+        currentSlide.classList.add('slide-out');
+
+        nextSlide.style.display = 'block';
+        nextSlide.classList.add('slide-in');
+
+        slideshow.index = nextIndex;
+        setTimeout(() => showSlides(slideshow), 5000); // Duration to display the slide before starting the slide-out animation
+    }
+}
+
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
+
     const buttons = document.querySelectorAll('nav button');
     const sections = document.querySelector('.sections');
     const sectionElems = Array.from(sections.children);
@@ -10,6 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Clone first and last sections for infinite scroll illusion
     const firstClone = sectionElems[0].cloneNode(true);
     const lastClone = sectionElems[sectionElems.length - 1].cloneNode(true);
+
+    startSlideshows();
     
     // Add clones to DOM
     sections.appendChild(firstClone);
@@ -79,5 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
 
 

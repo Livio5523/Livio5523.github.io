@@ -71,6 +71,7 @@ nav {
 }
 
 section {
+    flex-direction: column;
     flex: 0 0 100%;
     width: 100%;
     height: 100%;
@@ -80,4 +81,43 @@ section {
    /* outline: solid 2px black; possible pour une séparation entre les section mais pas idéal car cré un cadre*/
     /*overflow-y: hidden;*/
     position: sticky; 
+
+    align-items: center;   
+}
+
+
+
+
+.mainSlideShowSmart-container {
+    display: flex;
+    position: absolute;
+    width: 97%;
+    height: 50%;
+    margin: 2%;
+    top: 40%;
+
+    z-index: -10;
+}
+
+.slideshowSmart-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative; /* Positioning the container relative to its parent */
+}
+
+.mySlidesRED, .mySlidesGREEN, .mySlidesBLUE {
+    position: absolute; /* Positioning the slides absolutely within the container */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none; /* Slides are hidden by default */
+    object-fit: cover; /* Ensure the image fits within the container without being cropped or distorted */
+}
+
+.slideshowSmart-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image fits within the container without being cropped or distorted */
 }
