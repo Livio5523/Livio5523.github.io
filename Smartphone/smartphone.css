@@ -1,3 +1,7 @@
+:root{
+    --adjustment: 52px;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -59,7 +63,7 @@ nav {
     scroll-snap-type: x mandatory;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: calc(100% - var(--adjustment)); /* Ajustez la hauteur ici */
     top: 52px;
 
     -ms-overflow-style: none;  /* IE and Edge */
