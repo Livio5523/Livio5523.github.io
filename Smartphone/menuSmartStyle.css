@@ -1,0 +1,56 @@
+:root {
+    --bar-size: 50px;
+    --outlineSize: 2px;
+    --underlineOffset: 4px;
+    --underlineThickness: 2px;
+}
+
+
+.menuSmart::-webkit-scrollbar {
+    display: none;
+}
+
+.menuSmart{
+    display: block;
+    z-index: 0;
+    position: unset;
+    width: 100%;
+    top: 52px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    box-sizing: content-box;
+    
+    gap: var(--outlineSize);
+
+    font-family: roc-grotesk, sans-serif; 
+    font-weight: 400;
+    font-size: 2.5rem; /*60px*/
+    font-style: normal;
+    text-transform: uppercase;
+    text-align: right;
+
+    background-color: white;
+
+}
+
+
+.menuSmart a {
+    height: var(--bar-size);
+    margin-bottom: var(--outlineSize);
+    color: black;
+    display: flex;
+    text-align: right;
+    text-decoration: none;
+    align-items: center; /* Centre le contenu verticalement */
+    justify-content: flex-end; /* Aligne le contenu à droite */
+    text-wrap: nowrap;
+}
+
+.resize-down {
+    padding-top: 1px;
+}
+

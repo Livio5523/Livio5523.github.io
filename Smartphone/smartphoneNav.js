@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 behavior: 'smooth'
             });
         });
+
+        
     });
 
     let startX;
@@ -79,4 +81,27 @@ document.addEventListener('DOMContentLoaded', () => {
             sections.scrollTo({ left: sectionWidth * sectionElems.length, behavior: 'instant' });
         }
     });
+
+    const projetsSmart = document.querySelectorAll('.projetSmart');
+
+
+    projetsSmart.forEach((projetSmart) => {
+        projetSmart.addEventListener("click", () => {
+
+            const projetSmartId = projetSmart.getAttribute('href').substring(1);
+            const iframeContainer = document.getElementById(`container-${projetSmartId}`);
+            const iframe = iframeContainer.querySelector('iframe');
+            const isOpen = projetSmart.classList.contains('open');
+
+            if (isOpen) {
+                // Si le projet est déjà ouvert, le fermer
+                closeProject(iframeContainer, projetSmart);
+            } else {
+                // Ouvrir le projet cliqué
+                openProject(iframeContainer, projetSmart, iframe);
+            }
+        });
+    });
 });
+
+

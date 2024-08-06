@@ -1,0 +1,126 @@
+:root {
+    --bar-size: 50px; /*72 px 4%*/
+    --outlineSize: 2px; /*3.75 px si on fait le bon calcul*/
+}
+/* PROJETS */
+
+
+.projetSmart{
+    position: relative;
+    background-color:white;
+    z-index: 1;
+    outline: var(--outlineSize) solid black;
+}
+
+.projetSmart.open{
+    position: sticky; 
+    top: 0;
+}
+
+.projetSmart.open ~ .projetSmart {
+    transform: translateY(var(--iframeSize)); /* Ajustez la valeur en fonction de vos besoins */
+}
+
+
+/* Ajoutez des sélecteurs supplémentaires pour ajuster selon le nombre d'iframes */
+
+.projetSmart-iframe {
+    width: 100%;
+    border: none;
+}
+
+.projetSmart.open + .projetSmart-iframe-container {
+    display: flex;
+}
+
+
+.projetSmart-icon{
+    transform: scale(0.6944); /* Équivalent à scaleX(0.7) scaleY(0.7) */
+    transition: all 0.5s;
+}
+
+.projetSmart.open .projetSmart-icon {
+    transform: rotate(45deg) scale(0.6944); /* Équivalent à scaleX(0.7) scaleY(0.7) */;
+ 
+}
+
+
+.projetSmart.open .additional-text {
+    opacity: 1;
+    position: absolute;
+    display: flex;
+    transform: rotate(0deg);
+    left: 1%;    
+    pointer-events: auto;
+}
+
+
+/* Classes to trigger animations */
+.projetSmart-iframe-container {
+    display: none;
+    overflow: hidden;
+    position: relative;
+    background-color: white;
+    transition: height 0.5s ;
+}
+
+
+.projetSmart-iframe-container.opening {
+    animation: closeProject 0.5s ;
+}
+
+.projetSmart-iframe-container.closing {
+    animation: closeProject 0.5s ;
+}
+
+
+
+/* Simplifiez les animations */
+@keyframes closeProject {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.additional-text {
+    opacity: 0;
+    display: none;
+    position: absolute;
+    text-align: left;
+    align-content: center;
+    pointer-events: none; /* Désactive les événements de pointage lorsque l'élément est masqué */
+    align-items: center; /* Centre le contenu verticalement */
+}
+  
+
+/* Menu item hover colors */
+.projetSmart-red.open {
+    background-color: #FF5B54;
+    text-decoration: underline;
+    text-underline-offset: var(--underlineOffset);
+    text-decoration-thickness: var(--underlineThickness);
+}
+
+.projetSmart-green.open{
+    background-color: #38F88B;
+    text-decoration: underline;
+    text-underline-offset: var(--underlineOffset);
+    text-decoration-thickness: var(--underlineThickness);
+}
+
+.projetSmart-blue.open{
+    background-color: #5E97EC;
+    text-decoration: underline;
+    text-underline-offset: var(--underlineOffset);
+    text-decoration-thickness: var(--underlineThickness);
+}
+
+.projetSmart-about.open{
+    background-color: #ECFF75;
+    text-decoration: underline;
+    text-underline-offset: var(--underlineOffset);
+    text-decoration-thickness: var(--underlineThickness);
+}
