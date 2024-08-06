@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('nav button');
     const sections = document.querySelector('.sections');
@@ -9,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Clone first and last sections for infinite scroll illusion
     const firstClone = sectionElems[0].cloneNode(true);
     const lastClone = sectionElems[sectionElems.length - 1].cloneNode(true);
-
+    
     // Add clones to DOM
     sections.appendChild(firstClone);
     sections.insertBefore(lastClone, sectionElems[0]);
@@ -71,36 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.classList.remove('active');
             }
         });
-    });
-
-    // Ajout de la boucle de défilement
-    sections.addEventListener('scroll', () => {
         if (sections.scrollLeft >= (sectionWidth * (sectionElems.length + 1))) {
+            console.log(sections);
+            console.log(firstClone);
+            console.log(lastClone);
             sections.scrollTo({ left: sectionWidth, behavior: 'instant' });
         } else if (sections.scrollLeft <= 0) {
             sections.scrollTo({ left: sectionWidth * sectionElems.length, behavior: 'instant' });
         }
-    });
-
-    const projetsSmart = document.querySelectorAll('.projetSmart');
-
-
-    projetsSmart.forEach((projetSmart) => {
-        projetSmart.addEventListener("click", () => {
-
-            const projetSmartId = projetSmart.getAttribute('href').substring(1);
-            const iframeContainer = document.getElementById(`container-${projetSmartId}`);
-            const iframe = iframeContainer.querySelector('iframe');
-            const isOpen = projetSmart.classList.contains('open');
-
-            if (isOpen) {
-                // Si le projet est déjà ouvert, le fermer
-                closeProject(iframeContainer, projetSmart);
-            } else {
-                // Ouvrir le projet cliqué
-                openProject(iframeContainer, projetSmart, iframe);
-            }
-        });
     });
 });
 
