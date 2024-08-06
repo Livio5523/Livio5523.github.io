@@ -59,6 +59,7 @@ nav {
     scroll-snap-type: x mandatory;
     position: absolute;
     width: 100%;
+    height: 100%;
     top: 52px;
 
     -ms-overflow-style: none;  /* IE and Edge */
@@ -71,8 +72,7 @@ section {
     height: 100%;
     scroll-snap-align: start;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    
    /* outline: solid 2px black; possible pour une séparation entre les section mais pas idéal car cré un cadre*/
     /*overflow-y: hidden;*/
     position: sticky; 
