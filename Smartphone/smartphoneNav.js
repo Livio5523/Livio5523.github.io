@@ -72,13 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.classList.remove('active');
             }
         });
-        if (sections.scrollLeft >= (sectionWidth * (sectionElems.length + 1))) {
-            console.log(sections);
-            console.log(firstClone);
-            console.log(lastClone);
-            sections.scrollTo({ left: sectionWidth, behavior: 'instant' });
-        } else if (sections.scrollLeft <= 0) {
+        if (sections.scrollLeft <= 0) {
             sections.scrollTo({ left: sectionWidth * sectionElems.length, behavior: 'instant' });
+        } else if (sections.scrollLeft >= (sectionWidth * sectionElems.length)) {
+            sections.scrollTo({ left: 0, behavior: 'instant' });
         }
     });
 });
