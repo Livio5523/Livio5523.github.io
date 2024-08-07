@@ -1,6 +1,7 @@
 WebFont.load({
-    typekit: { id: 'epr6byt' }
+    typekit: { id: 'alq1cgi' }
 });
+
 
 function startSlideshows() {
     const slideshows = [
