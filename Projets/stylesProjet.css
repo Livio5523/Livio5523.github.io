@@ -274,6 +274,7 @@ h1 {
     }
 
     h1{
+        font-size: 7rem; /* 1rem = 8px */   
         padding-bottom: 7px;
     }
 
@@ -327,9 +328,30 @@ h1 {
     
     .image-container:hover .text-overlay-black, .image-container_grille_6:hover .text-overlay-black {
         opacity: 0;
+    }  
+}
+
+
+@media (max-width: 380px) {
+    
+    h1{
+        font-size: 6rem; /* 1rem = 8px */   
+        padding-bottom: 7px;
+    }
+
+  }
+  
+
+/* small mobile */
+@media (max-width: 300px) {
+    html{
+        font-size: 6.5px;
     }
     
-    
-}
-  
+    h1{
+        font-size: 6rem; /* 1rem = 8px */   
+        padding-bottom: 7px;
+    }
+
+  }
   

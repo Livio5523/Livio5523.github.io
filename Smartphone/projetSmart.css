@@ -124,3 +124,14 @@
     text-underline-offset: var(--underlineOffset);
     text-decoration-thickness: var(--underlineThickness);
 }
+
+
+
+/* small mobile */
+@media (max-width: 300px) {
+    .projetSmart.open .additional-text {
+        opacity: 0;
+    }
+
+  }
+  

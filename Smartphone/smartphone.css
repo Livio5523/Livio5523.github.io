@@ -5,8 +5,10 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: roc-grotesk, sans-serif; 
+    font-family: roc-grotesk, sans-serif;
 }
+
+
 
 header {
     position: sticky;
@@ -30,7 +32,6 @@ nav {
 .smartButton{
     background: none;
     border: none;
-    font-size: 16px;
     cursor: pointer;
     width: 25%;
     color: black;
@@ -121,3 +122,11 @@ section {
     height: 100%;
     object-fit: cover; /* Ensure the image fits within the container without being cropped or distorted */
 }
+
+/* small mobile */
+@media (max-width: 300px) {
+    html{
+        font-size: 6.5px;
+    }
+    
+  }
