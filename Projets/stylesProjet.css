@@ -253,7 +253,7 @@ h1 {
     
   }
 
-  /* small laptop */
+  /* smobile */
 @media (max-width: 768px) {
     :root{
         --outlineSize: 2px; /*3.75 px si on fait le bon calcul*/
@@ -286,7 +286,7 @@ h1 {
 
     .img-titre {
         width: 100%; /* Set maximum width to one-third of viewport width */
-        height: calc(var(--sectionHeight)*0.5);
+        height: calc(var(--sectionHeight)*0.55);
     }
 
     .triptique {
