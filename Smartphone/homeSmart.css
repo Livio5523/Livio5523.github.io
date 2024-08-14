@@ -1,11 +1,14 @@
 html{
     font-size: 8px;
 }
+body{
+    margin: 5px;
+}
 
 .mainMenuSmart{
     display: flex;
     flex-direction: column;
-    margin-top: 9vh;
+    height: 100vh;
 }
 
 #pageSmart-title {
@@ -18,7 +21,8 @@ html{
     text-align: left;
     margin: 0%;
     color: #000;
-    margin-bottom: 1%;
+    margin-bottom: 2.15%;
+    margin-top: 9%;
     position: relative;
     left: -1.1%; /* Ajustez cette valeur selon vos besoins */
 }
@@ -33,28 +37,27 @@ html{
     margin: 0;    
     position: relative;
     left: 0; /* Ajustez cette valeur selon vos besoins */
+
+    margin-bottom: 8%;
 }
 
 .colorChoice{
     display: flex;
     flex-direction: column;
-    overflow: hidden;
     width: 100%;
+    height: 50%;
     gap: 5px;
-    margin-top: 7.5vh;
+   
 }
 
 
 .choice.choiceAbout {
     position: relative;
-    overflow: hidden; /* Empêche le contenu de sortir du bloc */
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
     margin-top: 5%;
-
-    border-top: solid black 5px;
+    border-top: solid black 2px;
 }
 
 .about-link {
@@ -64,6 +67,8 @@ html{
     align-items: center;
     justify-content: flex-end;
     width: 100%; /* Utilise toute la largeur disponible */
+    margin-top: 2%;    
+
 }
 
 .about-link h2 {
@@ -80,9 +85,38 @@ h2{
     font-size: 2.5rem; /*60px*/
     font-style: normal;
     line-height: 100%; /* 60px */
-    margin: 0;    
+    margin: 0;
     position: relative;
     left: 0; /* Ajustez cette valeur selon vos besoins */
+}
+
+
+
+.about-icon{
+    width: 25px; /* Définir la largeur de l'icône selon vos besoins */
+    height: 25px; /* Définir la hauteur de l'icône selon vos besoins */
+}
+
+.choice{
+    position: relative;
+    overflow: hidden;    
+    width: 100%;
+    height: 33%;
+}
+
+.color-img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.color-icon {
+    position: absolute;
+    top: 2px; /* Ajustez la valeur pour positionner l'icône en fonction de vos préférences */
+    right: 2px; /* Ajustez la valeur pour positionner l'icône en fonction de vos préférences */
+    width: 25px; /* Définir la largeur de l'icône selon vos besoins */
+    height: 25px; /* Définir la hauteur de l'icône selon vos besoins */
+
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%);
 }
 
 .choiceAbout{
@@ -96,32 +130,5 @@ h2{
     position: relative;
     left: 0; /* Ajustez cette valeur selon vos besoins */
     text-decoration: none;
-}
-
-.about-icon{
-    width: 25px; /* Définir la largeur de l'icône selon vos besoins */
-    height: 25px; /* Définir la hauteur de l'icône selon vos besoins */
-}
-
-.choice{
-    position: relative;
-    overflow: hidden;    
-    width: 100%;
-    height: 128px;
-}
-
-.color-img{
-    width: 100%;
-    height: 128px;
-    object-fit: cover;
-}
-
-.color-icon {
-    position: absolute;
-    top: 2px; /* Ajustez la valeur pour positionner l'icône en fonction de vos préférences */
-    right: 2px; /* Ajustez la valeur pour positionner l'icône en fonction de vos préférences */
-    width: 25px; /* Définir la largeur de l'icône selon vos besoins */
-    height: 25px; /* Définir la hauteur de l'icône selon vos besoins */
-
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%);
+    overflow: visible;    
 }
