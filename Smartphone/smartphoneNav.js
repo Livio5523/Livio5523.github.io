@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.insertBefore(lastClone, sectionElems[0]);
 
     // Adjust scroll position to account for the initial clone
-    sections.scrollLeft = sectionWidth;
+    sections.scrollLeft = 0;
 
-    // Associer chaque bouton à sa section respective
+    //Associer chaque bouton à sa section respective
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             const sectionId = button.getAttribute('data-section');
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 behavior: 'smooth'
             });
         });
-
+    
         
     });
 
@@ -55,7 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     sections.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
+        if (!isDown)
+            return;
         e.preventDefault();
         const x = e.pageX;
         const walk = (x - startX) * 3; // scroll-fast
@@ -73,9 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         if (sections.scrollLeft <= 0) {
-            sections.scrollTo({ left: sectionWidth * sectionElems.length, behavior: 'instant' });
-        } else if (sections.scrollLeft >= (sectionWidth * sectionElems.length)) {
-            sections.scrollTo({ left: 0, behavior: 'instant' });
+            sections.scrollBy({ left: sectionWidth * sectionElems.length, behavior: 'smooth'})
+            //sections.scrollTo({ left: sectionWidth * sectionElems.length, behavior: 'smooth' });
         }
     });
 });
