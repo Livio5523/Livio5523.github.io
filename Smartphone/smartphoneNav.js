@@ -31,7 +31,7 @@ function startSlideshows() {
 }
 
 
-
+function copy_node(sectionElems, sections){}
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Clone first and last sections for infinite scroll illusion
     const firstClone = sectionElems[0].cloneNode(true);
-    const lastClone = sectionElems[sectionElems.length - 1].cloneNode(true);
+    const lastClone = sectionElems[3].cloneNode(true);
 
     startSlideshows();
     
@@ -101,6 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Highlight the active button based on the visible section
     sections.addEventListener('scroll', () => {
+        const firstClone = sectionElems[0].cloneNode(true);
+        const lastClone = sectionElems[3].cloneNode(true);
+        sections.children[5] = firstClone;
+        sections.children[0] = lastClone;
         const currentSectionIndex = Math.round(sections.scrollLeft / sectionWidth);
         buttons.forEach((button, index) => {
             if (index === currentSectionIndex - 1) {
@@ -109,10 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.classList.remove('active');
             }
         });
-        if (sections.scrollLeft <= 0) {
+        if (sections.scrollLeft >= (sectionWidth * (sectionElems.length + 1))) {
+            sections.scrollTo({ left: sectionWidth, behavior: 'instant' });
+        } else if (sections.scrollLeft <= 0) {
             sections.scrollTo({ left: sectionWidth * sectionElems.length, behavior: 'instant' });
-        } else if (sections.scrollLeft >= (sectionWidth * sectionElems.length)) {
-            sections.scrollTo({ left: 0, behavior: 'instant' });
         }
     });
 });
