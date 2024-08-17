@@ -7,11 +7,12 @@
 ### In Progress
 
 - [ ] corriger le bug du clic qui ferme la barre (corrigé mais toujours la souris qui montre que l'on peut cliquer)
-- [ ] corriger le bug de scroll
 - [ ] ajustements visuels
 - [ ] responsive desktop
 - [ ] bug quand on ouvre et que pas tout a charger
-- [ ] téléphone, gerer l'ouverture des projets
+- [ ] regler la navigation smartphone
+- [ ] bug photo contact
+
 
 ### Done ✓
 
@@ -29,3 +30,5 @@
 - [x] corriger bug bas de page
 - [x] mettre le contenu en place
 - [x] chargement + court : Optimiser les images,
+- [x] téléphone, gerer l'ouverture des projets
+- [x] corriger le bug de scroll
