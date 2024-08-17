@@ -242,7 +242,7 @@ h1 {
 
 
 /* small laptop */
-@media (max-width: 1030px) {
+@media (max-width: 1500px) {
    
     :root{
         --outlineSize: 4px; /*3.75 px si on fait le bon calcul*/
@@ -252,7 +252,23 @@ h1 {
         
     }
     
-  }
+}
+
+
+
+
+/* small laptop */
+@media (max-width: 1030px) {
+   
+    :root{
+        --outlineSize: 4px; /*3.75 px si on fait le bon calcul*/
+    }
+    html {
+        font-size: 10px; /* 1rem = 16px */
+        
+    }
+    
+}
 
   /* smobile */
 @media (max-width: 768px) {
