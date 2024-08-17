@@ -11,7 +11,6 @@
 - [ ] responsive desktop
 - [ ] bug quand on ouvre et que pas tout a charger
 - [ ] regler la navigation smartphone
-- [ ] bug photo contact
 
 
 ### Done ✓
@@ -32,3 +31,4 @@
 - [x] chargement + court : Optimiser les images,
 - [x] téléphone, gerer l'ouverture des projets
 - [x] corriger le bug de scroll
+- [x] bug photo contact

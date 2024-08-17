@@ -50,16 +50,18 @@ h1 {
 
 .text-container {
     padding: 20px;
+    width: 57.63%; /* Set maximum width to one-third of viewport width */
 }
 
-.img-container {
+.image-title-container {
     display: flex;
     justify-content: flex-end; /* Align to the right */
+    width: 42.37vw; /* Set maximum width to one-third of viewport width */
 }
 
 .img-titre {
-    width: 42.37vw; /* Set maximum width to one-third of viewport width */
     height: var(--sectionHeight); /* Set maximum height to full viewport height */
+    width: 100%;
     object-fit: cover;
     outline: var(--outlineSize) solid black;
 }
@@ -90,7 +92,6 @@ h1 {
     position: relative;
     flex: 1;
     outline: var(--outlineSize) solid black;
-    
 }
 
 .img-vertical{
