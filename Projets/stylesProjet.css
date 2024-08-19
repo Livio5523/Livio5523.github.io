@@ -285,6 +285,10 @@ h1 {
         height: var(--sectionHeight);
     }
 
+    .image-title-container {
+        width: 100vw; /* Set maximum width to one-third of viewport width */
+    }
+
     .text-container {
         padding: 7px;
         height: calc(var(--sectionHeight)*0.5);

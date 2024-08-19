@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (iframe.contentWindow.document.readyState === 'complete') {
             adjustIframeHeight(iframe);
-            iframeContainer.style.height = iframeContainer.scrollHeight + 'px';
+            iframeContainer.style.height = iframeContainer.scrollHeight - 15 + 'px';
         }
 
         iframeContainer.addEventListener('transitionend', function transitionListener(event) {
