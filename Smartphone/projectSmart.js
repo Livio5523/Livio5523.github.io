@@ -63,6 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Charger l'iframe seulement maintenant
+        const src = iframe.getAttribute('data-src');
+        if (iframe.src !== src) {
+            iframe.src = src;
+        }
+
         iframeContainer.style.display = 'block';
         projetSmart.classList.add('open');
         iframeContainer.classList.add('opening');
@@ -73,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         iframe.onload = function() {
             adjustIframeHeight(iframe);
-            iframeContainer.style.height = iframeContainer.scrollHeight + 'px';
+            iframeContainer.style.height = iframeContainer.scrollHeight - 15 + 'px';
         };
 
         if (iframe.contentWindow.document.readyState === 'complete') {
