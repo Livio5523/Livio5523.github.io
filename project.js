@@ -50,7 +50,13 @@ function openProject(iframeContainer, projet, iframe) {
     if (iframeContainer.classList.contains('opening') || iframeContainer.classList.contains('closing')) {
         return; // Empêcher d'ouvrir si une animation est déjà en cours
     }
-    
+
+    // Charger l'iframe seulement maintenant
+    const src = iframe.getAttribute('data-src');
+    if (iframe.src !== src) {
+        iframe.src = src;
+    }
+
     // Assurer que le conteneur de l'iframe est visible avant l'animation
     iframeContainer.style.display = 'block';
     projet.classList.add('open'); // Ajouter la classe 'open' pour indiquer que le projet est ouvert
@@ -62,7 +68,7 @@ function openProject(iframeContainer, projet, iframe) {
     // Calculer la hauteur réelle du contenu de l'iframe après le chargement complet
     iframe.onload = function() {
         adjustIframeHeight(iframe);
-        iframeContainer.style.height = iframeContainer.scrollHeight + 'px'; // Réglez la hauteur sur la hauteur totale du contenu
+        iframeContainer.style.height = iframeContainer.scrollHeight - 15 + 'px'; // Réglez la hauteur sur la hauteur totale du contenu
     };
 
     // Ajuster immédiatement la hauteur si le contenu est déjà chargé
@@ -79,3 +85,12 @@ function openProject(iframeContainer, projet, iframe) {
         }
     }, { once: true });
 }
+
+// Utilisation de l'exemple pour ouvrir et fermer un projet
+document.querySelector('.projet-about').addEventListener('click', (event) => {
+    event.preventDefault();
+    const iframeContainer = document.getElementById('container-aboutMe');
+    const projet = event.currentTarget;
+    const iframe = document.getElementById('aboutMe');
+    openProject(iframeContainer, projet, iframe);
+});
