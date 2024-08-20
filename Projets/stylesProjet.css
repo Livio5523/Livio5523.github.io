@@ -175,6 +175,14 @@ h1 {
     opacity: 0;
 }
 
+.text-overlay a:link {
+    color: white;
+}
+
+.text-overlay a:visited {
+    color: white;
+}
+
 .text-overlay-vertical{
     left: 34.5%;
     width: 33.333%;
