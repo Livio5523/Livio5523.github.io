@@ -11,6 +11,7 @@
 - [ ] responsive desktop
 - [ ] regler la navigation smartphone
 - [ ] chargement menu ou projet par projet?
+- [ ] update le déplacement des bar quand les outlines font 2px (changer la valeur 19)
 
 
 ### Done ✓
