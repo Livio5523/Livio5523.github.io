@@ -31,28 +31,26 @@ function startSlideshows() {
 }
 
 
-function copy_node(sectionElems, sections){}
-
 document.addEventListener('DOMContentLoaded', () => {
-
     const buttons = document.querySelectorAll('nav button');
     const sections = document.querySelector('.sections');
-    const sectionElems = Array.from(sections.children);
+    const originalSectionElems = Array.from(sections.children);
     
     // Calcul de la largeur d'une section
-    const sectionWidth = sections.offsetWidth;
+    let sectionWidth = sections.offsetWidth;
 
-    // Clone first and last sections for infinite scroll illusion
-    const firstClone = sectionElems[0].cloneNode(true);
-    const lastClone = sectionElems[3].cloneNode(true);
+    // Initialisation des clones (basés sur les sections correctes)
+    let firstClone = originalSectionElems[0].cloneNode(true);
+    let lastClone = originalSectionElems[originalSectionElems.length - 1].cloneNode(true);
 
-    startSlideshows();
-    
-    // Add clones to DOM
+    // Ajout des clones au DOM
     sections.appendChild(firstClone);
-    sections.insertBefore(lastClone, sectionElems[0]);
+    sections.insertBefore(lastClone, originalSectionElems[0]);
 
-    // Adjust scroll position to account for the initial clone
+    // Mise à jour de sectionElems pour inclure les clones
+    let sectionElems = Array.from(sections.children);
+
+    // Positionnement initial pour afficher la première section réelle
     sections.scrollLeft = sectionWidth;
 
     // Associer chaque bouton à sa section respective
@@ -60,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             const sectionId = button.getAttribute('data-section');
             const section = document.getElementById(sectionId);
-            const sectionIndex = sectionElems.indexOf(section) + 1; // Adjust index for clone
+            const sectionIndex = originalSectionElems.indexOf(section) + 1; // Ajuster l'index pour tenir compte du clone
             const scrollDistance = sectionIndex * sectionWidth;
     
             // Faire défiler jusqu'à la section de manière contrôlée
@@ -69,43 +67,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 behavior: 'smooth'
             });
         });
-
-        
     });
 
-    let startX;
-    let isDown = false;
-    let dragStart;
+    // Fonction pour mettre à jour les clones de manière dynamique
+    function updateClones() {
+        // Supprimer les anciens clones
+        sections.removeChild(firstClone);
+        sections.removeChild(lastClone);
 
-    sections.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX;
-        dragStart = sections.scrollLeft;
-    });
+        // Recréer les clones basés sur l'état actuel des sections originales
+        firstClone = originalSectionElems[0].cloneNode(true);
+        lastClone = originalSectionElems[originalSectionElems.length - 1].cloneNode(true);
 
-    sections.addEventListener('mouseup', () => {
-        isDown = false;
-    });
+        // Ajouter les nouveaux clones au DOM
+        sections.appendChild(firstClone);
+        sections.insertBefore(lastClone, originalSectionElems[0]);
 
-    sections.addEventListener('mouseleave', () => {
-        isDown = false;
-    });
+        // Mettre à jour la liste des éléments de section pour inclure les nouveaux clones
+        sectionElems = Array.from(sections.children);
+    }
 
-    sections.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX;
-        const walk = (x - startX) * 3; // scroll-fast
-        sections.scrollLeft = dragStart - walk;
-    });
-
-    // Highlight the active button based on the visible section
+    // Gestion des événements de défilement
     sections.addEventListener('scroll', () => {
-        const firstClone = sectionElems[0].cloneNode(true);
-        const lastClone = sectionElems[3].cloneNode(true);
-        sections.children[5] = firstClone;
-        sections.children[0] = lastClone;
         const currentSectionIndex = Math.round(sections.scrollLeft / sectionWidth);
+
+        if (sections.scrollLeft >= sectionWidth * (sectionElems.length - 1)) {
+            // Transition de la dernière section à la première
+            updateClones();
+            sections.scrollTo({
+                left: sectionWidth,
+                behavior: 'instant'
+            });
+        } else if (sections.scrollLeft <= 0) {
+            // Transition de la première section à la dernière
+            updateClones();
+            sections.scrollTo({
+                left: sectionWidth * (sectionElems.length - 2),
+                behavior: 'instant'
+            });
+        }
+
+        // Mise à jour des boutons actifs
         buttons.forEach((button, index) => {
             if (index === currentSectionIndex - 1) {
                 button.classList.add('active');
@@ -113,13 +115,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.classList.remove('active');
             }
         });
-        if (sections.scrollLeft >= (sectionWidth * (sectionElems.length + 1))) {
-            sections.scrollTo({ left: sectionWidth, behavior: 'instant' });
-        } else if (sections.scrollLeft <= 0) {
-            sections.scrollTo({ left: sectionWidth * sectionElems.length, behavior: 'instant' });
-        }
     });
+
+    // Réinitialisation des clones et de la position au redimensionnement de la fenêtre
+    window.addEventListener('resize', () => {
+        sectionWidth = sections.offsetWidth;
+        sections.scrollLeft = sectionWidth;
+        updateClones();
+    });
+
+    // Initialisation de la position et des boutons actifs
+    setTimeout(() => {
+        sections.scrollLeft = sectionWidth;
+        buttons[0].classList.add('active');
+    }, 0);
 });
-
-
-
