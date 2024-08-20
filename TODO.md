@@ -9,8 +9,8 @@
 - [ ] corriger le bug du clic qui ferme la barre (corrigé mais toujours la souris qui montre que l'on peut cliquer)
 - [ ] ajustements visuels
 - [ ] responsive desktop
-- [ ] bug quand on ouvre et que pas tout a charger
 - [ ] regler la navigation smartphone
+- [ ] chargement menu ou projet par projet?
 
 
 ### Done ✓
@@ -32,3 +32,4 @@
 - [x] téléphone, gerer l'ouverture des projets
 - [x] corriger le bug de scroll
 - [x] bug photo contact
+- [x] bug quand on ouvre et que pas tout a charger
