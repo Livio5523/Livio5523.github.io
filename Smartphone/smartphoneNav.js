@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let sectionWidth = sections.offsetWidth;
 
     // Fonction pour générer un ID unique aux clones (a voir si vraiment nécessaire mais utile pour déboggage)
-     // Fonction pour générer un ID unique pour les clones
      function generateUniqueId(baseId, suffix) {
         return `${baseId}-${suffix}`;
     }
@@ -16,9 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let firstClone = originalSectionElems[0].cloneNode(true);
     let lastClone = originalSectionElems[originalSectionElems.length - 1].cloneNode(true);
 
-      // Assigner des IDs uniques aux clones
-      firstClone.id = generateUniqueId(originalSectionElems[0].id, 'firstClone');
-      lastClone.id = generateUniqueId(originalSectionElems[originalSectionElems.length - 1].id, 'lastClone');
+    // Assigner des IDs uniques aux clones
+    firstClone.id = generateUniqueId(originalSectionElems[0].id, 'firstClone');
+    lastClone.id = generateUniqueId(originalSectionElems[originalSectionElems.length - 1].id, 'lastClone');
+
 
     // Ajout des clones au DOM
     sections.appendChild(firstClone);
@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
         lastClone = originalSectionElems[originalSectionElems.length - 1].cloneNode(true);
 
         // Assigner des IDs uniques aux nouveaux clones
-        firstClone.id = generateUniqueId(firstClone.id);
-        lastClone.id = generateUniqueId(lastClone.id);
+        firstClone.id = generateUniqueId(originalSectionElems[0].id, 'firstClone');
+        lastClone.id = generateUniqueId(originalSectionElems[originalSectionElems.length - 1].id, 'lastClone');
 
         // Ajouter les nouveaux clones au DOM
         sections.appendChild(firstClone);
