@@ -1,36 +1,3 @@
-function startSlideshows() {
-    const slideshows = [
-        { slides: document.getElementsByClassName('mySlidesRED'), index: 0 },
-        { slides: document.getElementsByClassName('mySlidesGREEN'), index: 0 },
-        { slides: document.getElementsByClassName('mySlidesBLUE'), index: 0 },
-    ];
-
-    slideshows.forEach(showSlides);
-    function showSlides(slideshow) {
-        const { slides, index } = slideshow;
-        if (slides.length === 0) return;
-
-        const currentSlide = slides[index];
-        const nextIndex = (index + 1) % slides.length;
-        const nextSlide = slides[nextIndex];
-
-        Array.from(slides).forEach(slide => {
-            slide.style.display = 'none';
-            slide.classList.remove('slide-in', 'slide-out');
-        });
-
-        currentSlide.style.display = 'block';
-        currentSlide.classList.add('slide-out');
-
-        nextSlide.style.display = 'block';
-        nextSlide.classList.add('slide-in');
-
-        slideshow.index = nextIndex;
-        setTimeout(() => showSlides(slideshow), 5000); // Duration to display the slide before starting the slide-out animation
-    }
-}
-
-
 document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('nav button');
     const sections = document.querySelector('.sections');
@@ -39,9 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Calcul de la largeur d'une section
     let sectionWidth = sections.offsetWidth;
 
-    // Initialisation des clones (basés sur les sections correctes)
+    // Fonction pour générer un ID unique aux clones (a voir si vraiment nécessaire mais utile pour déboggage)
+     // Fonction pour générer un ID unique pour les clones
+     function generateUniqueId(baseId, suffix) {
+        return `${baseId}-${suffix}`;
+    }
+
+    // Initialisation des clones avec des IDs uniques
     let firstClone = originalSectionElems[0].cloneNode(true);
     let lastClone = originalSectionElems[originalSectionElems.length - 1].cloneNode(true);
+
+      // Assigner des IDs uniques aux clones
+      firstClone.id = generateUniqueId(originalSectionElems[0].id, 'firstClone');
+      lastClone.id = generateUniqueId(originalSectionElems[originalSectionElems.length - 1].id, 'lastClone');
 
     // Ajout des clones au DOM
     sections.appendChild(firstClone);
@@ -78,6 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Recréer les clones basés sur l'état actuel des sections originales
         firstClone = originalSectionElems[0].cloneNode(true);
         lastClone = originalSectionElems[originalSectionElems.length - 1].cloneNode(true);
+
+        // Assigner des IDs uniques aux nouveaux clones
+        firstClone.id = generateUniqueId(firstClone.id);
+        lastClone.id = generateUniqueId(lastClone.id);
 
         // Ajouter les nouveaux clones au DOM
         sections.appendChild(firstClone);
