@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let sectionElems = Array.from(sections.children);
 
     let sectionWidth = sections.offsetWidth;
-  
     let isUpdating = false; // Flag to prevent infinite updates
+    let lastUpdatedSectionIndex = null; // Track the last updated section index
 
     function generateUniqueId(baseId, suffix) {
         return `${baseId}-${suffix}`;
@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isUpdating) return; // Prevent duplicate updates
         isUpdating = true;
 
-
         console.log("Updating clones");
 
         // Supprimer les anciens clones
@@ -58,22 +57,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentSectionIndex = Math.round(currentScrollLeft / sectionWidth);
 
 
-        console.log(sectionWidth * (totalSections - 2));
-
         // Vérifier si l'utilisateur a atteint la fin des sections réelles
-        
         if (currentScrollLeft >= sectionWidth * (totalSections - 1) - 1) {
-            sections.scrollLeft = sectionWidth; // Repositionner vers le début des clones
-            updateClones(); // Mettre à jour les clones
-        } else if (currentScrollLeft <= 1 ) {
-            sections.scrollLeft = sectionWidth * (totalSections - 2); // Repositionner vers la fin réelle
-        }
-        
-
-        if(currentScrollLeft === sectionWidth * (totalSections - 2)){ //permet de mettre a jour les clone quand on passe de blue a about
             if (!isUpdating) {
-                updateClones(); // Mettre à jour les clones lorsque proche du début
+                sections.scrollLeft = sectionWidth; // Repositionner vers le début des clones
+                updateClones(); // Mettre à jour les clones
+            } 
+        } else if (currentScrollLeft <= 1) {
+            if (!isUpdating) {
+                sections.scrollLeft = sectionWidth * (totalSections - 2); // Repositionner vers la fin réelle
+                updateClones(); 
+            } 
+        } else if (currentScrollLeft === sectionWidth * (totalSections - 2)) { //quand on est sur la section About
+            if (!isUpdating && lastUpdatedSectionIndex !== currentSectionIndex) {
+                updateClones(); 
+                lastUpdatedSectionIndex = currentSectionIndex; // Mettre à jour l'index de la section
             }
+        }else if (currentScrollLeft === sectionWidth) { //quand on est sur la section rouge
+            if (!isUpdating && lastUpdatedSectionIndex !== currentSectionIndex) {
+                updateClones(); 
+                lastUpdatedSectionIndex = currentSectionIndex; // Mettre à jour l'index de la section
+            }
+        }else {
+            // Réinitialiser le suivi de la section mise à jour
+            lastUpdatedSectionIndex = null;
         }
 
         // Mettre à jour les boutons actifs
@@ -107,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('resize', () => {
         sectionWidth = sections.offsetWidth;
-        sections.scrollLeft = sectionWidth;
+        sections.scrollLeft = sectionWidth; // Repositionner le défilement en fonction de la nouvelle largeur
     });
 
     setTimeout(() => {
