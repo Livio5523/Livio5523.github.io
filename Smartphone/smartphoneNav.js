@@ -61,12 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentScrollLeft >= sectionWidth * (totalSections - 1) - 1) {
             if (!isUpdating) {
                 sections.scrollLeft = sectionWidth; // Repositionner vers le début des clones
-                updateClones(); // Mettre à jour les clones
+                updateClones(); //pas forcément nécessaire
             } 
         } else if (currentScrollLeft <= 1) {
             if (!isUpdating) {
                 sections.scrollLeft = sectionWidth * (totalSections - 2); // Repositionner vers la fin réelle
-                updateClones(); 
+                updateClones(); //pas forcément nécessaire
             } 
         } else if (currentScrollLeft === sectionWidth * (totalSections - 2)) { //quand on est sur la section About
             if (!isUpdating && lastUpdatedSectionIndex !== currentSectionIndex) {
