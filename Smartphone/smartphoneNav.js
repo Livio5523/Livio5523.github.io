@@ -1,111 +1,65 @@
-function startSlideshows() {
-    const slideshows = [
-        { slides: document.getElementsByClassName('mySlidesRED'), index: 0 },
-        { slides: document.getElementsByClassName('mySlidesGREEN'), index: 0 },
-        { slides: document.getElementsByClassName('mySlidesBLUE'), index: 0 },
-    ];
-
-    slideshows.forEach(showSlides);
-    function showSlides(slideshow) {
-        const { slides, index } = slideshow;
-        if (slides.length === 0) return;
-
-        const currentSlide = slides[index];
-        const nextIndex = (index + 1) % slides.length;
-        const nextSlide = slides[nextIndex];
-
-        Array.from(slides).forEach(slide => {
-            slide.style.display = 'none';
-            slide.classList.remove('slide-in', 'slide-out');
-        });
-
-        currentSlide.style.display = 'block';
-        currentSlide.classList.add('slide-out');
-
-        nextSlide.style.display = 'block';
-        nextSlide.classList.add('slide-in');
-
-        slideshow.index = nextIndex;
-        setTimeout(() => showSlides(slideshow), 5000); // Duration to display the slide before starting the slide-out animation
-    }
-}
-
-
-function copy_node(sectionElems, sections){}
-
 document.addEventListener('DOMContentLoaded', () => {
-
     const buttons = document.querySelectorAll('nav button');
     const sections = document.querySelector('.sections');
-    const sectionElems = Array.from(sections.children);
+    let sectionElems = Array.from(sections.children);
     
-    // Calcul de la largeur d'une section
-    const sectionWidth = sections.offsetWidth;
+    let sectionWidth = sections.offsetWidth;
 
-    // Clone first and last sections for infinite scroll illusion
-    const firstClone = sectionElems[0].cloneNode(true);
-    const lastClone = sectionElems[3].cloneNode(true);
+    function generateUniqueId(baseId, suffix) {
+        return `${baseId}-${suffix}`;
+    }
 
-    startSlideshows();
+    function createClones() {
+        const originalSections = document.querySelectorAll('.sections > section');
+        const firstClone = originalSections[0].cloneNode(true);
+        const lastClone = originalSections[originalSections.length - 1].cloneNode(true);
     
-    // Add clones to DOM
-    sections.appendChild(firstClone);
-    sections.insertBefore(lastClone, sectionElems[0]);
+        updateCloneIds(firstClone, 'first-clone');
+        updateCloneIds(lastClone, 'last-clone');
+    
+        sections.appendChild(firstClone);
+        sections.insertBefore(lastClone, originalSections[0]);
+    }
+    
+    function updateCloneIds(clone, suffix) {
+        clone.id = generateUniqueId(clone.id, suffix);
+        const iframes = clone.querySelectorAll('iframe');
+        iframes.forEach(iframe => {
+            iframe.id = generateUniqueId(iframe.id, suffix);
+            iframe.parentNode.id = generateUniqueId(iframe.parentNode.id, suffix);
+        });
+    
+        const projets = clone.querySelectorAll('.projetSmart');
+        projets.forEach(projet => {
+            const href = projet.getAttribute('href').substring(1);
+            projet.setAttribute('href', `#${href}-${suffix}`);
+        });
+    }
+    
+    createClones();
+    sectionElems = Array.from(sections.children);
 
-    // Adjust scroll position to account for the initial clone
     sections.scrollLeft = sectionWidth;
 
-    // Associer chaque bouton à sa section respective
-    buttons.forEach(button => {
+    buttons.forEach((button, index) => {
         button.addEventListener('click', () => {
-            const sectionId = button.getAttribute('data-section');
-            const section = document.getElementById(sectionId);
-            const sectionIndex = sectionElems.indexOf(section) + 1; // Adjust index for clone
-            const scrollDistance = sectionIndex * sectionWidth;
-    
-            // Faire défiler jusqu'à la section de manière contrôlée
+            const scrollDistance = (index + 1) * sectionWidth;
             sections.scrollTo({
                 left: scrollDistance,
                 behavior: 'smooth'
             });
         });
-
-        
     });
 
-    let startX;
-    let isDown = false;
-    let dragStart;
-
-    sections.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX;
-        dragStart = sections.scrollLeft;
-    });
-
-    sections.addEventListener('mouseup', () => {
-        isDown = false;
-    });
-
-    sections.addEventListener('mouseleave', () => {
-        isDown = false;
-    });
-
-    sections.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX;
-        const walk = (x - startX) * 3; // scroll-fast
-        sections.scrollLeft = dragStart - walk;
-    });
-
-    // Highlight the active button based on the visible section
     sections.addEventListener('scroll', () => {
-        const firstClone = sectionElems[0].cloneNode(true);
-        const lastClone = sectionElems[3].cloneNode(true);
-        sections.children[5] = firstClone;
-        sections.children[0] = lastClone;
         const currentSectionIndex = Math.round(sections.scrollLeft / sectionWidth);
+
+        if (sections.scrollLeft >= sectionWidth * (sectionElems.length - 1)) {
+            sections.scrollLeft = sectionWidth;
+        } else if (sections.scrollLeft <= 0) {
+            sections.scrollLeft = sectionWidth * (sectionElems.length - 2);
+        }
+
         buttons.forEach((button, index) => {
             if (index === currentSectionIndex - 1) {
                 button.classList.add('active');
@@ -113,13 +67,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.classList.remove('active');
             }
         });
-        if (sections.scrollLeft >= (sectionWidth * (sectionElems.length + 1))) {
-            sections.scrollTo({ left: sectionWidth, behavior: 'instant' });
-        } else if (sections.scrollLeft <= 0) {
-            sections.scrollTo({ left: sectionWidth * sectionElems.length, behavior: 'instant' });
-        }
     });
+
+    window.addEventListener('resize', () => {
+        sectionWidth = sections.offsetWidth;
+        sections.scrollLeft = sectionWidth;
+    });
+
+    setTimeout(() => {
+        sections.scrollLeft = sectionWidth;
+        buttons[0].classList.add('active');
+    }, 0);
 });
-
-
-
