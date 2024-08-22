@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let sectionWidth = sections.offsetWidth;
   
+    let isUpdating = false; // Flag to prevent infinite updates
 
     function generateUniqueId(baseId, suffix) {
         return `${baseId}-${suffix}`;
@@ -32,6 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateClones() {
+        if (isUpdating) return; // Prevent duplicate updates
+        isUpdating = true;
+
+
         console.log("Updating clones");
 
         // Supprimer les anciens clones
@@ -43,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Réinitialiser les éléments de section
         sectionElems = Array.from(sections.children);
+
+        isUpdating = false;
     }
 
     function handleScroll() {
@@ -58,14 +65,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentScrollLeft >= sectionWidth * (totalSections - 1) - 1) {
             sections.scrollLeft = sectionWidth; // Repositionner vers le début des clones
             updateClones(); // Mettre à jour les clones
-        } else if (currentScrollLeft <= 1) {
+        } else if (currentScrollLeft <= 1 ) {
             sections.scrollLeft = sectionWidth * (totalSections - 2); // Repositionner vers la fin réelle
-            updateClones(); // Mettre à jour les clones
         }
         
 
         if(currentScrollLeft === sectionWidth * (totalSections - 2)){ //permet de mettre a jour les clone quand on passe de blue a about
-            updateClones();
+            if (!isUpdating) {
+                updateClones(); // Mettre à jour les clones lorsque proche du début
+            }
         }
 
         // Mettre à jour les boutons actifs
