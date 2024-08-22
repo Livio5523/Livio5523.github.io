@@ -42,6 +42,11 @@ h1 {
     margin: 0;
 }
 
+.introductionSmartPhone{
+    display: none;
+}
+
+
 /* unvisited link */
 .introduction a:link {
     color: black;
@@ -292,7 +297,7 @@ h1 {
     
 }
 
-  /* smobile */
+  /* mobile */
 @media (max-width: 768px) {
     :root{
         --outlineSize: 2px; /*3.75 px si on fait le bon calcul*/
@@ -323,9 +328,24 @@ h1 {
     }
 
     .introduction{
-        font-size: 1.75rem; /*22px*/
+        font-size: 1.75rem; /*22px ->1.75*/
         line-height: 22px;
         width: 75%;
+    }
+
+    .introductionSmartPhone{
+        display: flex;
+    }
+
+    .suiteIntroSmart{
+        display: flex;
+        padding: 7px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .introductionDesktop{
+        display: none;
     }
 
     .img-titre {
