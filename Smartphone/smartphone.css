@@ -77,7 +77,7 @@ nav {
     scroll-snap-type: x mandatory;
     position: absolute;
     width: 100%;
-    height: calc(100% - var(--adjustment)); /* Ajustez la hauteur ici */
+    height: 1%;
     top: 52px;
 
     -ms-overflow-style: none;  /* IE and Edge */
@@ -91,6 +91,7 @@ nav {
 }
 
 .sections.open{
+    height: calc(100% - var(--adjustment)); /* Ajustez la hauteur ici */
     transform: translateY(0);
 }
 
