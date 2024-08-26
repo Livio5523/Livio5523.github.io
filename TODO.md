@@ -10,6 +10,7 @@
 - [ ] ajustements visuels
 - [ ] responsive desktop
 - [ ] chargement menu ou projet par projet?
+- [ ] chargement page acceuil smartphone
 
 ### Done ✓
 

@@ -136,37 +136,11 @@ body {
 
 /* small laptop */
 @media (max-width: 1280px) {
-   
     html {
         font-size: 12px; /* 1rem = 16px */
       }
-    
-    #page-title {
-        
-        background-color: yellow;
-    }
-    
-  }
+}
   
-
-
-
-/* small laptop */
-@media (max-width: 1024px) {
-   
-    #page-title {
-        font-size: 100px;
-        background-color: aqua;
-    }
-    
-    #page-subtitle {
-        font-size: 20px;
-    }
-    
-  }
-  
-
-
 /* Tablet */
 @media (max-width: 768px) {
     :root {
@@ -175,16 +149,6 @@ body {
 
     html {
         font-size: 8px; /* 1rem = 16px */
-      }
-
-    #page-title {
-        font-size: 100px;
-        background-color: red;
-    }
-    
-    #page-subtitle {
-        font-size: 20px;
-    }
-    
-  }
+      }  
+}
   
