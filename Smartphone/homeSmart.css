@@ -19,7 +19,8 @@ html{
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transition: transform 0.5s linear;
+    
 }
 
 /* Hidden state after the animation */

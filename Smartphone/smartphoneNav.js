@@ -11,11 +11,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     choices.forEach((choice) => {
         choice.addEventListener("click", () => {
+            // Récupérer la section cible à partir de data-target
+            const targetIndex = parseInt(choice.getAttribute('data-target'));
+
+            // Défilement vers la section cible
+            const scrollDistance = targetIndex * sectionWidth;
+            sections.scrollTo({
+                left: scrollDistance,
+                behavior: 'instant'
+            });
+            // Lancer l'animation de fermeture du menu après le défilement
             const mainMenuSmart = document.querySelector('.mainMenuSmart');
             mainMenuSmart.classList.add('hidden');
+            sections.classList.add("open");
+            const smartButtons = document.querySelector(".smartButtons");
+            smartButtons.classList.add("open");
+            
         });
     });
-        
 
     function generateUniqueId(baseId, suffix) {
         return `${baseId}-${suffix}`;
