@@ -1,14 +1,32 @@
 html{
     font-size: 8px;
 }
-body{
+/*body{
     margin: 5px;
-}
+}*/
+
 
 .mainMenuSmart{
     display: flex;
     flex-direction: column;
+    position: absolute;
     height: 100vh;
+    z-index: 10;
+    background-color: white;
+   
+    overflow-y: hidden;
+    overflow-x: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Hidden state after the animation */
+.mainMenuSmart.hidden {
+    transform: translateY(-100%);
+    opacity: 1;
+    pointer-events: none; /* Prevent interaction after hiding */
 }
 
 #pageSmart-title {

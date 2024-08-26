@@ -7,6 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
     let isUpdating = false; // Flag to prevent infinite updates
     let lastUpdatedSectionIndex = null; // Track the last updated section index
 
+    const choices = document.querySelectorAll('.choice');
+
+    choices.forEach((choice) => {
+        choice.addEventListener("click", () => {
+            const mainMenuSmart = document.querySelector('.mainMenuSmart');
+            mainMenuSmart.classList.add('hidden');
+        });
+    });
+        
+
     function generateUniqueId(baseId, suffix) {
         return `${baseId}-${suffix}`;
     }

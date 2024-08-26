@@ -128,7 +128,7 @@ function stopRefresh(func, time){
 
 function loadMobileLayout() {
     // Code pour charger la version mobile
-    window.location.href = 'Smartphone/homeSmart.html'; //pas parfait et non final mais suffisant pour les test
+    window.location.href = 'index_smartphone.html'; //pas parfait et non final mais suffisant pour les test
 }
   
   function loadDesktopLayout() {
@@ -147,7 +147,7 @@ function adjustLayout() {
       //loadDesktopLayout();
     //}
 
-    if (window.innerWidth <= window.innerHeight && window.location.pathname != 'Smartphone/homeSmart.html') {
+    if (window.innerWidth <= window.innerHeight && window.location.pathname != '/index_smartphone.html') {
         // Charger la version mobile
         loadMobileLayout();
       } else if (window.innerWidth > window.innerHeight && window.location.pathname != '/index.html') {
