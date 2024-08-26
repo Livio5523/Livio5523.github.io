@@ -269,32 +269,53 @@ h1 {
 
 
 /* small laptop */
-@media (max-width: 1500px) {
-   
+@media (max-width: 1500px) {  
     :root{
         --outlineSize: 4px; /*3.75 px si on fait le bon calcul*/
     }
     html {
         font-size: 12px; /* 1rem = 16px */
-        
     }
-    
 }
 
-
-
-
 /* small laptop */
-@media (max-width: 1030px) {
-   
+@media (max-width: 1200px) {
     :root{
         --outlineSize: 4px; /*3.75 px si on fait le bon calcul*/
     }
     html {
-        font-size: 10px; /* 1rem = 16px */
-        
+        font-size: 11px; /* 1rem = 16px */
+    }   
+}
+
+/* small laptop */
+@media (max-width: 1030px) {
+    :root{
+        --outlineSize: 4px; /*3.75 px si on fait le bon calcul*/
     }
-    
+    html {
+        font-size: 10px; /* 1rem = 16px */ 
+    }
+}
+
+/* small laptop */
+@media (max-width: 950px) {
+    :root{
+        --outlineSize: 4px; /*3.75 px si on fait le bon calcul*/
+    }
+    html {
+        font-size: 9px; /* 1rem = 16px */ 
+    }
+}
+
+/* small laptop */
+@media (max-width: 780px) {
+    :root{
+        --outlineSize: 4px; /*3.75 px si on fait le bon calcul*/
+    }
+    html {
+        font-size: 7px; /* 1rem = 16px */ 
+    }
 }
 
   /* mobile */

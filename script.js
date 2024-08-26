@@ -4,7 +4,7 @@ WebFont.load({
 
 let offset; // pour que les barres soit toujours bien collé sur la droite
 
-if (window.innerWidth < 1280) { // Ajuster pour les petits écrans
+if (window.innerWidth <= 1280) { // Ajuster pour les petits écrans
     offset = -16;
 }else{
     offset = -19;
@@ -139,16 +139,24 @@ function loadMobileLayout() {
 function adjustLayout() {
     console.log(window.location.pathname);
     console.log(offset);
-    if (window.innerWidth <= 768 && window.location.pathname != '/index_smartphone.html') {
+    //if (window.innerWidth <= 768 && window.location.pathname != '/index_smartphone.html') {
       // Charger la version mobile
-      loadMobileLayout();
-    } else if (window.innerWidth > 768 && window.location.pathname != '/index.html') {
+      //loadMobileLayout();
+    //} else if (window.innerWidth > 768 && window.location.pathname != '/index.html') {
       // Charger la version desktop
-      loadDesktopLayout();
-    }
+      //loadDesktopLayout();
+    //}
+
+    if (window.innerWidth <= window.innerHeight && window.location.pathname != '/index_smartphone.html') {
+        // Charger la version mobile
+        loadMobileLayout();
+      } else if (window.innerWidth > window.innerHeight && window.location.pathname != '/index.html') {
+        // Charger la version desktop
+        loadDesktopLayout();
+      }
 
     
-    if (window.innerWidth < 1280) { // Ajuster pour les petits écrans
+    if (window.innerWidth <= 1280) { // Ajuster pour les petits écrans
         offset = -16;
     }else{
         offset = -19;
