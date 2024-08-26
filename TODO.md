@@ -10,7 +10,6 @@
 - [ ] ajustements visuels
 - [ ] responsive desktop
 - [ ] chargement menu ou projet par projet?
-- [ ] chargement page acceuil smartphone
 
 ### Done ✓
 
@@ -34,3 +33,4 @@
 - [x] bug quand on ouvre et que pas tout a charger
 - [x] regler la navigation smartphone
 - [x] update le déplacement des bar quand les outlines font 2px (changer la valeur 19)
+- [x] chargement page acceuil smartphone
