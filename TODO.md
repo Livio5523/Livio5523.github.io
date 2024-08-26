@@ -9,10 +9,7 @@
 - [ ] corriger le bug du clic qui ferme la barre (corrigé mais toujours la souris qui montre que l'on peut cliquer)
 - [ ] ajustements visuels
 - [ ] responsive desktop
-- [ ] regler la navigation smartphone
 - [ ] chargement menu ou projet par projet?
-- [ ] update le déplacement des bar quand les outlines font 2px (changer la valeur 19)
-
 
 ### Done ✓
 
@@ -34,3 +31,5 @@
 - [x] corriger le bug de scroll
 - [x] bug photo contact
 - [x] bug quand on ouvre et que pas tout a charger
+- [x] regler la navigation smartphone
+- [x] update le déplacement des bar quand les outlines font 2px (changer la valeur 19)

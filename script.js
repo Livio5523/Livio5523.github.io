@@ -2,6 +2,14 @@ WebFont.load({
     typekit: { id: 'alq1cgi' }
 });
 
+let offset; // pour que les barres soit toujours bien collé sur la droite
+
+if (window.innerWidth < 1280) { // Ajuster pour les petits écrans
+    offset = -16;
+}else{
+    offset = -19;
+}
+
 
 function startSlideshows() {
     const slideshows = [
@@ -55,7 +63,7 @@ function updateMenuPosition(bars) {
         const isVisible = menu.classList.contains('show');
         if (!isVisible) {
             const barsWidth = bar.clientWidth;
-            document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) - 19/* outline of bars */) + "px");
+            document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) + offset/* outline of bars */) + "px");
         }
     });
 }
@@ -83,7 +91,8 @@ function toggleMenu(bar, barLength) {
         bar.classList.add('expanded');
         menu.classList.add('show');
         menu.style.display = "block";
-        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) - 19/* outline of bars */) + "px");
+        
+        document.documentElement.style.setProperty('--translate-x', (width - (barLength * barsWidth) + offset/* outline of bars */) + "px");
 
     } else {
         mainMenu.style.display = "flex";
@@ -128,13 +137,21 @@ function loadMobileLayout() {
 }
 
 function adjustLayout() {
-    console.log(window.location.pathname)
+    console.log(window.location.pathname);
+    console.log(offset);
     if (window.innerWidth <= 768 && window.location.pathname != '/index_smartphone.html') {
       // Charger la version mobile
       loadMobileLayout();
     } else if (window.innerWidth > 768 && window.location.pathname != '/index.html') {
       // Charger la version desktop
       loadDesktopLayout();
+    }
+
+    
+    if (window.innerWidth < 1280) { // Ajuster pour les petits écrans
+        offset = -16;
+    }else{
+        offset = -19;
     }
 }
 
