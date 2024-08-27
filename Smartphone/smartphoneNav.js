@@ -11,22 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     choices.forEach((choice) => {
         choice.addEventListener("click", () => {
-            // Récupérer la section cible à partir de data-target
             const targetIndex = parseInt(choice.getAttribute('data-target'));
-
-            // Défilement vers la section cible
             const scrollDistance = targetIndex * sectionWidth;
             sections.scrollTo({
                 left: scrollDistance,
                 behavior: 'instant'
             });
-            // Lancer l'animation de fermeture du menu après le défilement
             const mainMenuSmart = document.querySelector('.mainMenuSmart');
             mainMenuSmart.classList.add('hidden');
             sections.classList.add("open");
             const smartButtons = document.querySelector(".smartButtons");
             smartButtons.classList.add("open");
-            
         });
     });
 
@@ -61,14 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         console.log("Updating clones");
 
-        // Supprimer les anciens clones
         const oldClones = document.querySelectorAll('.sections > section[id*="-clone"]');
         oldClones.forEach(clone => clone.remove());
 
-        // Recréer les clones
         createClones();
-
-        // Réinitialiser les éléments de section
         sectionElems = Array.from(sections.children);
 
         isUpdating = false;
@@ -79,34 +70,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalSections = sectionElems.length;
         const currentSectionIndex = Math.round(currentScrollLeft / sectionWidth);
 
-
-        // Vérifier si l'utilisateur a atteint la fin des sections réelles
         if (currentScrollLeft >= sectionWidth * (totalSections - 1) - 1) {
             if (!isUpdating) {
-                sections.scrollLeft = sectionWidth; // Repositionner vers le début des clones
-                updateClones(); //pas forcément nécessaire
+                sections.scrollLeft = sectionWidth;
+                updateClones(); 
             } 
         } else if (currentScrollLeft <= 1) {
             if (!isUpdating) {
-                sections.scrollLeft = sectionWidth * (totalSections - 2); // Repositionner vers la fin réelle
-                updateClones(); //pas forcément nécessaire
+                sections.scrollLeft = sectionWidth * (totalSections - 2);
+                updateClones(); 
             } 
-        } else if (currentScrollLeft === sectionWidth * (totalSections - 2)) { //quand on est sur la section About
+        } else if (currentSectionIndex === 1 || currentSectionIndex === totalSections - 2) {
             if (!isUpdating && lastUpdatedSectionIndex !== currentSectionIndex) {
                 updateClones(); 
-                lastUpdatedSectionIndex = currentSectionIndex; // Mettre à jour l'index de la section
+                lastUpdatedSectionIndex = currentSectionIndex;
             }
-        }else if (currentScrollLeft === sectionWidth) { //quand on est sur la section rouge
-            if (!isUpdating && lastUpdatedSectionIndex !== currentSectionIndex) {
-                updateClones(); 
-                lastUpdatedSectionIndex = currentSectionIndex; // Mettre à jour l'index de la section
-            }
-        }else {
-            // Réinitialiser le suivi de la section mise à jour
+        } else {
             lastUpdatedSectionIndex = null;
         }
 
-        // Mettre à jour les boutons actifs
         buttons.forEach((button, index) => {
             if (index === currentSectionIndex - 1) {
                 button.classList.add('active');
@@ -137,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('resize', () => {
         sectionWidth = sections.offsetWidth;
-        sections.scrollLeft = sectionWidth; // Repositionner le défilement en fonction de la nouvelle largeur
+        sections.scrollLeft = sectionWidth; 
     });
 
     setTimeout(() => {

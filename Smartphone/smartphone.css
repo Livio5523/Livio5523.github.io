@@ -112,9 +112,6 @@ section {
     background-color: white;
 }
 
-
-
-
 .mainSlideShowSmart-container {
     display: flex;
     position: absolute;
@@ -142,6 +139,7 @@ section {
     display: none; /* Slides are hidden by default */
     object-fit: cover; /* Ensure the image fits within the container without being cropped or distorted */
 }
+
 
 .slideshowSmart-container img {
     width: 100%;

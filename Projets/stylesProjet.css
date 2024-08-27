@@ -296,6 +296,13 @@ h1 {
     html {
         font-size: 10px; /* 1rem = 16px */ 
     }
+
+    .grille_4{
+        display: flex;
+        flex-direction: column;
+        height:calc(var(--sectionHeight)*2.5); /* Set maximum height to full viewport height */;
+    }
+    
 }
 
 /* small laptop */

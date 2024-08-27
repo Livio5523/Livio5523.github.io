@@ -1,16 +1,16 @@
 html{
     font-size: 8px;
 }
-/*body{
-    margin: 5px;
-}*/
+body{
+    overflow: hidden;
+}
 
 
 .mainMenuSmart{
     display: flex;
     flex-direction: column;
     position: absolute;
-    height: 100vh;
+    height: 100dvh;
     z-index: 10;
     background-color: white;
    
@@ -20,12 +20,13 @@ html{
     scrollbar-width: none;  /* Firefox */
 
     transition: transform 0.5s linear;
-    
+    padding: 5px;
+    box-sizing: border-box;
 }
 
 /* Hidden state after the animation */
 .mainMenuSmart.hidden {
-    transform: translateY(-100%);
+    transform: translateY(-105%);
     opacity: 1;
     pointer-events: none; /* Prevent interaction after hiding */
 }
@@ -79,6 +80,10 @@ html{
     border-top: solid black 2px;
 }
 
+.colorChoiceAbout{
+    margin: -5px;
+}
+
 .about-link {
     text-decoration: none; /* Supprime la décoration du lien */
     color: inherit; /* Utilise la couleur du texte par défaut */
@@ -86,7 +91,8 @@ html{
     align-items: center;
     justify-content: flex-end;
     width: 100%; /* Utilise toute la largeur disponible */
-    margin-top: 2%;    
+    margin-top: 2%;
+    margin-left: 5px;    
 
 }
 
@@ -125,17 +131,20 @@ h2{
 
 .color-img{
     width: 100%;
+    height: 100%;
     object-fit: cover;
+    object-position: center; /* Centre l'image verticalement */
+
 }
 
 .color-icon {
     position: absolute;
-    top: 2px; /* Ajustez la valeur pour positionner l'icône en fonction de vos préférences */
-    right: 2px; /* Ajustez la valeur pour positionner l'icône en fonction de vos préférences */
-    width: 25px; /* Définir la largeur de l'icône selon vos besoins */
-    height: 25px; /* Définir la hauteur de l'icône selon vos besoins */
+    top: 2px; 
+    right: 2px; 
+    width: 35px; /* 25px de base*/
+    height: 35px; 
 
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%);
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(180deg) brightness(100%) contrast(100%); /*pour mettre le plus en blanc*/
 }
 
 .choiceAbout{
