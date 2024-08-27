@@ -94,7 +94,11 @@
     pointer-events: none; /* Désactive les événements de pointage lorsque l'élément est masqué */
     align-items: center; /* Centre le contenu verticalement */
 }
-  
+
+.projetSmart.open .additional-text-smallSmartphone {
+    opacity: 0;
+}
+ 
 
 /* Menu item hover colors */
 .projetSmart-red.open {
@@ -125,6 +129,18 @@
     text-decoration-thickness: var(--underlineThickness);
 }
 
+/* small mobile */
+@media (max-width: 380px) {
+    .projetSmart.open .additional-text-bigSmartphone {
+        opacity: 0;
+    }
+
+    .projetSmart.open .additional-text-smallSmartphone {
+        opacity: 1;
+    }
+    
+}
+
 
 
 /* small mobile */
@@ -132,6 +148,6 @@
     .projetSmart.open .additional-text {
         opacity: 0;
     }
-
-  }
+    
+}
   
