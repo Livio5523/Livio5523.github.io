@@ -120,7 +120,9 @@
     :root {
         --bar-size: 54px; /*72 px 4%*/
     }
-    
+    .resize-down{
+        padding-top: 5px;
+    }
   }
 
 
