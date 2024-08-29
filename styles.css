@@ -134,6 +134,7 @@ body {
 }
 
 /* laptop */
+<<<<<<< HEAD
 @media (max-width: 1480px) {
     :root {
         --bar-size: 60px; /*72 px 4%*/
@@ -146,6 +147,14 @@ body {
 }
 
 
+=======
+@media (max-width: 1600px) {
+    html {
+        font-size: 13px; /* 1rem = 16px */
+      }
+}
+
+>>>>>>> 6eb377f9446a664de505dbc72e513aca1c441196
 
 /* small laptop */
 @media (max-width: 1280px) {

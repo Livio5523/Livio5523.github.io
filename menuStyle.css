@@ -129,8 +129,15 @@
     :root {
         --bar-size: 54px; /*72 px 4%*/
     }
+<<<<<<< HEAD
     
 }
+=======
+    .resize-down{
+        padding-top: 5px;
+    }
+  }
+>>>>>>> 6eb377f9446a664de505dbc72e513aca1c441196
 
 
 
