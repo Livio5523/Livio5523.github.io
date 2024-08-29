@@ -136,14 +136,9 @@
     }
     .bar.expanded .icon {
         transform:  scale(0.75) rotate(45deg);
-<<<<<<< HEAD
-    }    
-}
-=======
     }
     .bar span{
         height: 8%;
     } 
   }
->>>>>>> 6eb377f9446a664de505dbc72e513aca1c441196
   
