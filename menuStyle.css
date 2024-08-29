@@ -115,13 +115,22 @@
     text-decoration-thickness: var(--underlineThickness);
 }
 
+/* laptop */
+@media (max-width: 1480px) {
+    :root {
+        --bar-size: 60px; /*72 px 4%*/
+    }
+    
+}
+
+
 /* small laptop */
 @media (max-width: 1280px) {
     :root {
         --bar-size: 54px; /*72 px 4%*/
     }
     
-  }
+}
 
 
 

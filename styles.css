@@ -133,6 +133,19 @@ body {
     object-fit: contain; /* Ensure the image fits within the container without being cropped or distorted */
 }
 
+/* laptop */
+@media (max-width: 1480px) {
+    :root {
+        --bar-size: 60px; /*72 px 4%*/
+    }
+
+    html {
+        font-size: 13.5px; /* 1rem = 16px */
+      }
+    
+}
+
+
 
 /* small laptop */
 @media (max-width: 1280px) {
