@@ -137,8 +137,7 @@ function loadMobileLayout() {
 }
 
 function adjustLayout() {
-    console.log(window.location.pathname);
-    console.log(offset);
+
     //if (window.innerWidth <= 768 && window.location.pathname != '/index_smartphone.html') {
       // Charger la version mobile
       //loadMobileLayout();

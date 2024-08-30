@@ -11,7 +11,7 @@
 - [ ] responsive desktop
 - [ ] chargement menu ou projet par projet?
 - [ ] bug slideshow rouhe smartphone a corriger
-- [ ] badapter les variables pour les laptops
+- [ ] adapter les variables pour les laptops
 
 
 ### Done ✓

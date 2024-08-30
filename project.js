@@ -1,10 +1,23 @@
-let offsetHeight; // pour que le iframes aie la bonne hauteur
+let offsetHeight;
 
-if (window.innerWidth <= 1480) { // Ajuster pour les petits écrans
-    offsetHeight = 0;
-}else{
-    offset = -15;
+// Fonction pour mettre à jour offsetHeight en fonction de la largeur de la fenêtre
+function updateOffsetHeight() {
+
+    console.log("udpate offset");
+    if (window.innerWidth <= 1480) {
+        offsetHeight = 18;
+    } else {
+        offsetHeight = -15;
+    }
+
+    // Ici, vous pouvez aussi mettre à jour la hauteur de l'iframe si nécessaire
+    // Exemple : document.getElementById('yourIframeId').style.height = `calc(100% + ${offsetHeight}px)`;
 }
+
+// Mettre à jour au chargement initial
+updateOffsetHeight();
+
+
 
 function adjustIframeHeight(iframe) {
     try {
@@ -101,4 +114,28 @@ document.querySelector('.projet-about').addEventListener('click', (event) => {
     const projet = event.currentTarget;
     const iframe = document.getElementById('aboutMe');
     openProject(iframeContainer, projet, iframe);
+});
+
+// Fonction pour mettre à jour la hauteur de toutes les iframes ouvertes au redimensionnement de la fenêtre
+function updateIframeHeightsOnResize() {
+
+    console.log("update iframe height");
+    const iframes = document.querySelectorAll('iframe');
+    iframes.forEach(iframe => {
+        if (iframe.parentElement.style.display !== 'none') { // Ajuster uniquement si l'iframe est visible
+            adjustIframeHeight(iframe);
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('resize', () => {
+        console.log("Événement resize détecté");
+        updateOffsetHeight(); // Mettre à jour offsetHeight
+        updateIframeHeightsOnResize(); // Ajuster la hauteur des iframes
+    });
+
+    // Appel initial pour s'assurer que tout est bien configuré au chargement
+    updateOffsetHeight();
+    updateIframeHeightsOnResize();
 });
