@@ -1,3 +1,11 @@
+let offsetHeight; // pour que le iframes aie la bonne hauteur
+
+if (window.innerWidth <= 1480) { // Ajuster pour les petits écrans
+    offsetHeight = 0;
+}else{
+    offset = -15;
+}
+
 function adjustIframeHeight(iframe) {
     try {
         const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
@@ -68,13 +76,13 @@ function openProject(iframeContainer, projet, iframe) {
     // Calculer la hauteur réelle du contenu de l'iframe après le chargement complet
     iframe.onload = function() {
         adjustIframeHeight(iframe);
-        iframeContainer.style.height = iframeContainer.scrollHeight - 15 + 'px'; // Réglez la hauteur sur la hauteur totale du contenu
+        iframeContainer.style.height = iframeContainer.scrollHeight - offsetHeight + 'px'; // Réglez la hauteur sur la hauteur totale du contenu
     };
 
     // Ajuster immédiatement la hauteur si le contenu est déjà chargé
     if (iframe.contentWindow.document.readyState === 'complete') {
         adjustIframeHeight(iframe);
-        iframeContainer.style.height = iframeContainer.scrollHeight - 15 + 'px'; // Réglez la hauteur sur la hauteur totale du contenu
+        iframeContainer.style.height = iframeContainer.scrollHeight - offsetHeight + 'px'; // Réglez la hauteur sur la hauteur totale du contenu
     }
 
     // Écoute de la fin de la transition de hauteur
