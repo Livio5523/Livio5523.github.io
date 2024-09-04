@@ -2,21 +2,16 @@ let offsetHeight;
 
 // Fonction pour mettre à jour offsetHeight en fonction de la largeur de la fenêtre
 function updateOffsetHeight() {
-
-    console.log("udpate offset");
+    console.log("update offset height");
     if (window.innerWidth <= 1480) {
         offsetHeight = 18;
     } else {
         offsetHeight = -15;
     }
-
-    // Ici, vous pouvez aussi mettre à jour la hauteur de l'iframe si nécessaire
-    // Exemple : document.getElementById('yourIframeId').style.height = `calc(100% + ${offsetHeight}px)`;
 }
 
-// Mettre à jour au chargement initial
 updateOffsetHeight();
-
+updateIframeHeightsOnResize();
 
 
 function adjustIframeHeight(iframe) {
@@ -118,24 +113,28 @@ document.querySelector('.projet-about').addEventListener('click', (event) => {
 
 // Fonction pour mettre à jour la hauteur de toutes les iframes ouvertes au redimensionnement de la fenêtre
 function updateIframeHeightsOnResize() {
-
-    console.log("update iframe height");
+    console.log("update iframe height on resize");
     const iframes = document.querySelectorAll('iframe');
     iframes.forEach(iframe => {
-        if (iframe.parentElement.style.display !== 'none') { // Ajuster uniquement si l'iframe est visible
+        const iframeContainer = iframe.parentElement;
+        if (iframeContainer.style.display !== 'none') { // Ajuster uniquement si l'iframe est visible
             adjustIframeHeight(iframe);
+
+            // Mettre à jour la hauteur du conteneur après avoir ajusté la hauteur de l'iframe
+            iframeContainer.style.height = iframe.scrollHeight + 'px';
+
+            // Si l'iframe a un contenu qui se rétracte, il faut également ajuster la hauteur du conteneur en conséquence
+            iframe.onload = () => {
+                iframeContainer.style.height = iframe.scrollHeight + 'px';
+            };
         }
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
+    // Attacher l'événement de redimensionnement
     window.addEventListener('resize', () => {
-        console.log("Événement resize détecté");
-        updateOffsetHeight(); // Mettre à jour offsetHeight
-        updateIframeHeightsOnResize(); // Ajuster la hauteur des iframes
+        updateOffsetHeight();
+        updateIframeHeightsOnResize();
     });
-
-    // Appel initial pour s'assurer que tout est bien configuré au chargement
-    updateOffsetHeight();
-    updateIframeHeightsOnResize();
 });
