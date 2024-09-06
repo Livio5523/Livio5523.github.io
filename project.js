@@ -2,16 +2,13 @@ let offsetHeight;
 
 // Fonction pour mettre à jour offsetHeight en fonction de la largeur de la fenêtre
 function updateOffsetHeight() {
-    console.log("update offset height");
+    console.log(offsetHeight);
     if (window.innerWidth <= 1480) {
         offsetHeight = 18;
     } else {
         offsetHeight = -15;
     }
 }
-
-updateOffsetHeight();
-updateIframeHeightsOnResize();
 
 
 function adjustIframeHeight(iframe) {
@@ -131,10 +128,13 @@ function updateIframeHeightsOnResize() {
     });
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
+    updateOffsetHeight();
     // Attacher l'événement de redimensionnement
     window.addEventListener('resize', () => {
         updateOffsetHeight();
         updateIframeHeightsOnResize();
     });
 });
+
