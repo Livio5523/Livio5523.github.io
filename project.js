@@ -1,4 +1,4 @@
-let offsetHeight;
+let offsetHeight = -15;
 
 // Fonction pour mettre à jour offsetHeight en fonction de la largeur de la fenêtre
 function updateOffsetHeight() {
@@ -98,15 +98,6 @@ function openProject(iframeContainer, projet, iframe) {
         }
     }, { once: true });
 }
-
-// Utilisation de l'exemple pour ouvrir et fermer un projet
-document.querySelector('.projet-about').addEventListener('click', (event) => {
-    event.preventDefault();
-    const iframeContainer = document.getElementById('container-aboutMe');
-    const projet = event.currentTarget;
-    const iframe = document.getElementById('aboutMe');
-    openProject(iframeContainer, projet, iframe);
-});
 
 // Fonction pour mettre à jour la hauteur de toutes les iframes ouvertes au redimensionnement de la fenêtre
 function updateIframeHeightsOnResize() {
